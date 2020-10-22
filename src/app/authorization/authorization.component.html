@@ -1,1 +1,9 @@
-<p>authorization works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="login" />
+    <input type="password" formControlName="password" />
+    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+</form>
+
+{{ loginForm.value | json}}
+
+
