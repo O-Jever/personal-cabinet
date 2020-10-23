@@ -1,9 +1,15 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <input type="text" formControlName="login" />
-    <input type="password" formControlName="password" />
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
-</form>
+<div class="wrapper">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" (submit)="$event.preventDefault()">
+        <mat-form-field>
+          <mat-label>Login</mat-label>
+          <input formControlName="login" matInput>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input formControlName="password" matInput>
+        </mat-form-field>
+        <button mat-raised-button [disabled]="!loginForm.valid">Submit</button>
+    </form>
+</div>
 
 {{ loginForm.value | json}}
-
-
