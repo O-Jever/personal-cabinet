@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, Inject, OnDestroy} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { element } from 'protractor';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Contact } from 'src/app/interfaces/contact.interface';
 import { ContactsService } from 'src/app/services/contacts.service';
 
@@ -18,12 +18,19 @@ import { ContactsService } from 'src/app/services/contacts.service';
     </div>
   `
 })
-export class DeleteDialog {
+export class DeleteDialog implements OnDestroy {
+
+    private unsubscribe$ = new Subject<void>();
 
     constructor(
         private contactsService: ContactsService,
         public dialogRef: MatDialogRef<DeleteDialog>,
         @Inject(MAT_DIALOG_DATA) public data: Contact[]) {}
+
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
+    }
 
     public onNoClick(): void {
         this.dialogRef.close();
@@ -31,7 +38,11 @@ export class DeleteDialog {
 
     public delete(): void {
         this.data.map(element => {
-            this.contactsService.deleteContact(element.id).subscribe();
+            this.contactsService.deleteContact(element.id)
+            .pipe(
+                takeUntil( this.unsubscribe$)
+            )
+            .subscribe();
         });
         
         this.onNoClick();

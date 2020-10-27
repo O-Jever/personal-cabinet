@@ -1,9 +1,11 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnDestroy} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Contact } from 'src/app/interfaces/contact.interface';
 import { ContactsService } from 'src/app/services/contacts.service';
 import * as _ from 'lodash';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'contact-form-dialog',
@@ -42,10 +44,11 @@ import * as _ from 'lodash';
       `
   ]
 })
-export class ContactFormDialog {
+export class ContactFormDialog implements OnDestroy {
 
     public contactForm: FormGroup;
     private id;
+    private unsubscribe$ = new Subject<void>();
 
     constructor(
         private contactsService: ContactsService,
@@ -67,6 +70,11 @@ export class ContactFormDialog {
             
         }
 
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
+    }
+    
     public onNoClick(): void {
         this.dialogRef.close();
     }
@@ -77,7 +85,11 @@ export class ContactFormDialog {
         } else {
             const contact = this.contactForm.value;
             contact.user = this.data.user;
-            this.contactsService.setContact(contact).subscribe();
+            this.contactsService.setContact(contact)
+            .pipe(
+                takeUntil( this.unsubscribe$)
+            )
+            .subscribe();
         }
         
         this.onNoClick();

@@ -1,5 +1,5 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { ViewChild } from '@angular/core';
+import { OnDestroy, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,20 +10,22 @@ import { ContactFormDialog } from './dialogs/contact-form.component';
 import { MatTable } from '@angular/material/table';
 import { DeleteDialog } from './dialogs/delete.component';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { pipe, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit, OnDestroy {
 
   public displayedColumns: string[] = ['select', 'name', 'phone', 'email'];
   public contacts;
   public dataSource: MatTableDataSource<Contact>;
   public selection = new SelectionModel<Contact>(true, []);
   private sessionStorage: Storage;
-  //private matPaginatorIntl: MatPaginatorIntl;
+  private unsubscribe$ = new Subject<void>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatTable) table: MatTable<any>;
@@ -40,11 +42,20 @@ export class ContactsComponent implements OnInit {
     this.matPaginatorIntl.itemsPerPageLabel = 'Кол-во элементов на стр.';
   }
 
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
   getContacts(): void {
-    this.contactsService.getContacts(this.sessionStorage.getItem('user')).subscribe(responce => {
-      this.dataSource = new MatTableDataSource<Contact>(responce);
-      this.dataSource.paginator = this.paginator;
-    });
+    this.contactsService.getContacts(this.sessionStorage.getItem('user'))
+      .pipe(
+        takeUntil( this.unsubscribe$)
+      )
+      .subscribe(responce => {
+        this.dataSource = new MatTableDataSource<Contact>(responce);
+        this.dataSource.paginator = this.paginator;
+      });
   }
 
   isAllSelected(): boolean {
@@ -98,7 +109,11 @@ export class ContactsComponent implements OnInit {
   }
 
   private afterClosed(dialogRef) {
-    dialogRef.afterClosed().subscribe(() => {
+    dialogRef.afterClosed()
+    .pipe(
+      takeUntil(this.unsubscribe$)
+    )
+    .subscribe(() => {
       this.getContacts();
       if (this.selection.selected.length !== 0) this.selection.clear();
     });
