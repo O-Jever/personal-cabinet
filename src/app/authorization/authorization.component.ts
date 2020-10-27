@@ -32,6 +32,7 @@ export class AuthorizationComponent implements OnInit {
     console.log(this.loginForm.value);
     this.authorizationService.authorization(this.loginForm.value).subscribe((user: User) => {
       this.sessionStorage.setItem('hash', user.hash);
+      this.sessionStorage.setItem('user', user.login);
       this.router.navigateByUrl(this.return);
     });
   }
