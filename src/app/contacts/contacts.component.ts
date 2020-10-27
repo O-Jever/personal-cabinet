@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ContactFormDialog } from './dialogs/contact-form.component';
 import { MatTable } from '@angular/material/table';
 import { DeleteDialog } from './dialogs/delete.component';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-contacts',
@@ -22,16 +23,21 @@ export class ContactsComponent implements OnInit {
   public dataSource: MatTableDataSource<Contact>;
   public selection = new SelectionModel<Contact>(true, []);
   private sessionStorage: Storage;
+  //private matPaginatorIntl: MatPaginatorIntl;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatTable) table: MatTable<any>;
 
-  constructor(private contactsService: ContactsService, public dialog: MatDialog) { 
+  constructor(private contactsService: ContactsService, 
+    public dialog: MatDialog, 
+    private matPaginatorIntl: MatPaginatorIntl) { 
     this.sessionStorage = window.sessionStorage;
+    this.matPaginatorIntl.itemsPerPageLabel = 'Кол-во элементов на стр.';
   }
 
   ngOnInit() {
     this.getContacts();
+    this.matPaginatorIntl.itemsPerPageLabel = 'Кол-во элементов на стр.';
   }
 
   getContacts(): void {
