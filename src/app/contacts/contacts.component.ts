@@ -10,7 +10,7 @@ import { ContactFormDialog } from './dialogs/contact-form.component';
 import { MatTable } from '@angular/material/table';
 import { DeleteDialog } from './dialogs/delete.component';
 import { MatPaginatorIntl } from '@angular/material/paginator';
-import { pipe, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
