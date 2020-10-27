@@ -46,7 +46,6 @@ export class ContactFormDialog {
 
     public contactForm: FormGroup;
     private id;
-    //[mat-dialog-close]="contactForm.value"
 
     constructor(
         private contactsService: ContactsService,
