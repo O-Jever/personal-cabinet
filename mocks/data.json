@@ -41,6 +41,13 @@
       "email": "pasya.vupkin@gmail.com",
       "user": "test",
       "id": 5
+    },
+    {
+      "name": "Василий Васильев",
+      "phone": "+79001100111",
+      "email": "vasiliy.vasilev@gmail.com",
+      "user": "test",
+      "id": 6
     }
   ]
 }
