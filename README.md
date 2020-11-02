@@ -7,6 +7,11 @@
 * `npm run start` - с продовым сервером
 * `npm run start:local` - с локальным сервером
 
+### Тестовый аккаунт
+
+login: `test`
+password: `test`
+
 ## Сборка
 
 `npm run build`
