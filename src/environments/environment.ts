@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   apiPath: 'http://localhost:3000'
-  //apiPath: 'https://json-server-for-jever.herokuapp.com'
 };
 
 /*

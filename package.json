@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "mock:server": "json-server --watch mocks/data.json",
-    "deploy": "npm run build && gh-pages -d dist/personal-cabinet"
+    "deploy": "npm run build -- --prod && gh-pages -d dist/personal-cabinet"
   },
   "private": true,
   "dependencies": {

@@ -42,7 +42,6 @@ export class ContactsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getContacts();
     this.matPaginatorIntl.itemsPerPageLabel = 'Кол-во элементов на стр.';
-    this.matPaginatorIntl.nextPageLabel = 'из';
   }
 
   ngOnDestroy(): void {
