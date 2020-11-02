@@ -141,7 +141,7 @@ export class ContactFormDialog implements OnDestroy {
 
     private errorMessage(message): void {
         this._snackBar.open(message, 'Закрыть', {
-          duration: 2000,
+          duration: 3000,
           verticalPosition: 'top',
         });
       } 

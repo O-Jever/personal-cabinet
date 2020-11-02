@@ -47,7 +47,7 @@ export class AuthorizationComponent implements OnInit {
       },
       error => {
         this._snackBar.open(error.message, 'Закрыть', {
-          duration: 2000,
+          duration: 3000,
           verticalPosition: 'top',
         });
       }
