@@ -12,6 +12,7 @@ import { DeleteDialog } from './dialogs/delete.component';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-contacts',
@@ -32,7 +33,8 @@ export class ContactsComponent implements OnInit, OnDestroy {
 
   constructor(private contactsService: ContactsService, 
     public dialog: MatDialog, 
-    private matPaginatorIntl: MatPaginatorIntl) { 
+    private matPaginatorIntl: MatPaginatorIntl,
+    private _snackBar: MatSnackBar) { 
     this.sessionStorage = window.sessionStorage;
     this.matPaginatorIntl.itemsPerPageLabel = 'Кол-во элементов на стр.';
   }
@@ -40,6 +42,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getContacts();
     this.matPaginatorIntl.itemsPerPageLabel = 'Кол-во элементов на стр.';
+    this.matPaginatorIntl.nextPageLabel = 'из';
   }
 
   ngOnDestroy(): void {
@@ -52,10 +55,15 @@ export class ContactsComponent implements OnInit, OnDestroy {
       .pipe(
         takeUntil( this.unsubscribe$)
       )
-      .subscribe(responce => {
-        this.dataSource = new MatTableDataSource<Contact>(responce);
-        this.dataSource.paginator = this.paginator;
-      });
+      .subscribe(
+        responce => {
+          this.dataSource = new MatTableDataSource<Contact>(responce);
+          this.dataSource.paginator = this.paginator;
+        },
+        error => {
+          this.errorMessage(error.message);
+        }
+      );
   }
 
   isAllSelected(): boolean {
@@ -84,26 +92,23 @@ export class ContactsComponent implements OnInit, OnDestroy {
   }
 
   public addContact(): void {
-    const dialogRef = this.openDialog({ user: this.sessionStorage.getItem('user') });
+    const dialogRef = this.openDialog({ user: this.sessionStorage.getItem('user') }, ContactFormDialog);
     this.afterClosed(dialogRef);
   }
 
   public changeContact(): void {
-    const dialogRef =  this.openDialog(this.selection.selected[0]);
+    const dialogRef =  this.openDialog(this.selection.selected[0], ContactFormDialog);
     this.afterClosed(dialogRef);
   }
 
   public deleteContact(): void {
-    const dialogRef = this.dialog.open(DeleteDialog, {
-      width: '350px',
-      data: this.selection.selected
-    });
+    const dialogRef =  this.openDialog(this.selection.selected, DeleteDialog);
     this.afterClosed(dialogRef);
   }
 
-  private openDialog(data) {
-    return this.dialog.open(ContactFormDialog, {
-      width: '350px',
+  private openDialog(data, dialog) {
+    return this.dialog.open(dialog, {
+      width: '450px',
       data: data
     });
   }
@@ -118,5 +123,12 @@ export class ContactsComponent implements OnInit, OnDestroy {
       if (this.selection.selected.length !== 0) this.selection.clear();
     });
   }
+
+  private errorMessage(message): void {
+    this._snackBar.open(message, 'Закрыть', {
+      duration: 2000,
+      verticalPosition: 'top',
+    });
+  } 
 
 }

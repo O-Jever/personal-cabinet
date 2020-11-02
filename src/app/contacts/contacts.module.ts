@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ContactFormDialog } from './dialogs/contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DeleteDialog } from './dialogs/delete.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { DeleteDialog } from './dialogs/delete.component';
     MatCheckboxModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   declarations: [
     ContactsComponent,

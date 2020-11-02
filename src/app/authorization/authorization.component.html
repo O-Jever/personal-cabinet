@@ -2,14 +2,14 @@
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" (submit)="$event.preventDefault()">
         <mat-form-field>
           <mat-label>Login</mat-label>
-          <input formControlName="login" matInput>
+          <input type="text" formControlName="login" matInput>
+          <mat-error *ngIf="loginForm.get('login').invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input formControlName="password" matInput>
+          <input type="password" formControlName="password" matInput>
+          <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <button mat-raised-button [disabled]="!loginForm.valid">Submit</button>
     </form>
 </div>
-
-{{ loginForm.value | json}}
