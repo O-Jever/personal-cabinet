@@ -19,6 +19,8 @@ password: `test`
 
 ## GitHub Pages
 
+Посмотреть рабочее приложение: 
+
 https://o-jever.github.io/personal-cabinet/ 
 
 ### Деплой
