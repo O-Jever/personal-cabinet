@@ -1,4 +1,6 @@
 (function () {
+  function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
   function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
   function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6,8 +8,6 @@
   function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
   function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-  function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
   function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -1728,1177 +1728,6 @@
     },
 
     /***/
-    "+rOU":
-    /*!*******************************************************************!*\
-      !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js ***!
-      \*******************************************************************/
-
-    /*! exports provided: BasePortalHost, BasePortalOutlet, CdkPortal, CdkPortalOutlet, ComponentPortal, DomPortal, DomPortalHost, DomPortalOutlet, Portal, PortalHostDirective, PortalInjector, PortalModule, TemplatePortal, TemplatePortalDirective */
-
-    /***/
-    function rOU(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "BasePortalHost", function () {
-        return BasePortalHost;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "BasePortalOutlet", function () {
-        return BasePortalOutlet;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkPortal", function () {
-        return CdkPortal;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkPortalOutlet", function () {
-        return CdkPortalOutlet;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ComponentPortal", function () {
-        return ComponentPortal;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DomPortal", function () {
-        return DomPortal;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DomPortalHost", function () {
-        return DomPortalHost;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DomPortalOutlet", function () {
-        return DomPortalOutlet;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "Portal", function () {
-        return Portal;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "PortalHostDirective", function () {
-        return PortalHostDirective;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "PortalInjector", function () {
-        return PortalInjector;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "PortalModule", function () {
-        return PortalModule;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "TemplatePortal", function () {
-        return TemplatePortal;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "TemplatePortalDirective", function () {
-        return TemplatePortalDirective;
-      });
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/common */
-      "ofXK");
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Throws an exception when attempting to attach a null portal to a host.
-       * @docs-private
-       */
-
-
-      function throwNullPortalError() {
-        throw Error('Must provide a portal to attach');
-      }
-      /**
-       * Throws an exception when attempting to attach a portal to a host that is already attached.
-       * @docs-private
-       */
-
-
-      function throwPortalAlreadyAttachedError() {
-        throw Error('Host already has a portal attached');
-      }
-      /**
-       * Throws an exception when attempting to attach a portal to an already-disposed host.
-       * @docs-private
-       */
-
-
-      function throwPortalOutletAlreadyDisposedError() {
-        throw Error('This PortalOutlet has already been disposed');
-      }
-      /**
-       * Throws an exception when attempting to attach an unknown portal type.
-       * @docs-private
-       */
-
-
-      function throwUnknownPortalTypeError() {
-        throw Error('Attempting to attach an unknown Portal type. BasePortalOutlet accepts either ' + 'a ComponentPortal or a TemplatePortal.');
-      }
-      /**
-       * Throws an exception when attempting to attach a portal to a null host.
-       * @docs-private
-       */
-
-
-      function throwNullPortalOutletError() {
-        throw Error('Attempting to attach a portal to a null PortalOutlet');
-      }
-      /**
-       * Throws an exception when attempting to detach a portal that is not attached.
-       * @docs-private
-       */
-
-
-      function throwNoPortalAttachedError() {
-        throw Error('Attempting to detach a portal that is not attached to a host');
-      }
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * A `Portal` is something that you want to render somewhere else.
-       * It can be attach to / detached from a `PortalOutlet`.
-       */
-
-
-      var Portal = /*#__PURE__*/function () {
-        function Portal() {
-          _classCallCheck(this, Portal);
-        }
-
-        _createClass(Portal, [{
-          key: "attach",
-
-          /** Attach this portal to a host. */
-          value: function attach(host) {
-            if (typeof ngDevMode === 'undefined' || ngDevMode) {
-              if (host == null) {
-                throwNullPortalOutletError();
-              }
-
-              if (host.hasAttached()) {
-                throwPortalAlreadyAttachedError();
-              }
-            }
-
-            this._attachedHost = host;
-            return host.attach(this);
-          }
-          /** Detach this portal from its host */
-
-        }, {
-          key: "detach",
-          value: function detach() {
-            var host = this._attachedHost;
-
-            if (host != null) {
-              this._attachedHost = null;
-              host.detach();
-            } else if (typeof ngDevMode === 'undefined' || ngDevMode) {
-              throwNoPortalAttachedError();
-            }
-          }
-          /** Whether this portal is attached to a host. */
-
-        }, {
-          key: "setAttachedHost",
-
-          /**
-           * Sets the PortalOutlet reference without performing `attach()`. This is used directly by
-           * the PortalOutlet when it is performing an `attach()` or `detach()`.
-           */
-          value: function setAttachedHost(host) {
-            this._attachedHost = host;
-          }
-        }, {
-          key: "isAttached",
-          get: function get() {
-            return this._attachedHost != null;
-          }
-        }]);
-
-        return Portal;
-      }();
-      /**
-       * A `ComponentPortal` is a portal that instantiates some Component upon attachment.
-       */
-
-
-      var ComponentPortal = /*#__PURE__*/function (_Portal) {
-        _inherits(ComponentPortal, _Portal);
-
-        var _super18 = _createSuper(ComponentPortal);
-
-        function ComponentPortal(component, viewContainerRef, injector, componentFactoryResolver) {
-          var _this6;
-
-          _classCallCheck(this, ComponentPortal);
-
-          _this6 = _super18.call(this);
-          _this6.component = component;
-          _this6.viewContainerRef = viewContainerRef;
-          _this6.injector = injector;
-          _this6.componentFactoryResolver = componentFactoryResolver;
-          return _this6;
-        }
-
-        return ComponentPortal;
-      }(Portal);
-      /**
-       * A `TemplatePortal` is a portal that represents some embedded template (TemplateRef).
-       */
-
-
-      var TemplatePortal = /*#__PURE__*/function (_Portal2) {
-        _inherits(TemplatePortal, _Portal2);
-
-        var _super19 = _createSuper(TemplatePortal);
-
-        function TemplatePortal(template, viewContainerRef, context) {
-          var _this7;
-
-          _classCallCheck(this, TemplatePortal);
-
-          _this7 = _super19.call(this);
-          _this7.templateRef = template;
-          _this7.viewContainerRef = viewContainerRef;
-          _this7.context = context;
-          return _this7;
-        }
-
-        _createClass(TemplatePortal, [{
-          key: "attach",
-
-          /**
-           * Attach the portal to the provided `PortalOutlet`.
-           * When a context is provided it will override the `context` property of the `TemplatePortal`
-           * instance.
-           */
-          value: function attach(host) {
-            var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.context;
-            this.context = context;
-            return _get(_getPrototypeOf(TemplatePortal.prototype), "attach", this).call(this, host);
-          }
-        }, {
-          key: "detach",
-          value: function detach() {
-            this.context = undefined;
-            return _get(_getPrototypeOf(TemplatePortal.prototype), "detach", this).call(this);
-          }
-        }, {
-          key: "origin",
-          get: function get() {
-            return this.templateRef.elementRef;
-          }
-        }]);
-
-        return TemplatePortal;
-      }(Portal);
-      /**
-       * A `DomPortal` is a portal whose DOM element will be taken from its current position
-       * in the DOM and moved into a portal outlet, when it is attached. On detach, the content
-       * will be restored to its original position.
-       */
-
-
-      var DomPortal = /*#__PURE__*/function (_Portal3) {
-        _inherits(DomPortal, _Portal3);
-
-        var _super20 = _createSuper(DomPortal);
-
-        function DomPortal(element) {
-          var _this8;
-
-          _classCallCheck(this, DomPortal);
-
-          _this8 = _super20.call(this);
-          _this8.element = element instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] ? element.nativeElement : element;
-          return _this8;
-        }
-
-        return DomPortal;
-      }(Portal);
-      /**
-       * Partial implementation of PortalOutlet that handles attaching
-       * ComponentPortal and TemplatePortal.
-       */
-
-
-      var BasePortalOutlet = /*#__PURE__*/function () {
-        function BasePortalOutlet() {
-          _classCallCheck(this, BasePortalOutlet);
-
-          /** Whether this host has already been permanently disposed. */
-          this._isDisposed = false; // @breaking-change 10.0.0 `attachDomPortal` to become a required abstract method.
-
-          this.attachDomPortal = null;
-        }
-        /** Whether this host has an attached portal. */
-
-
-        _createClass(BasePortalOutlet, [{
-          key: "hasAttached",
-          value: function hasAttached() {
-            return !!this._attachedPortal;
-          }
-          /** Attaches a portal. */
-
-        }, {
-          key: "attach",
-          value: function attach(portal) {
-            if (typeof ngDevMode === 'undefined' || ngDevMode) {
-              if (!portal) {
-                throwNullPortalError();
-              }
-
-              if (this.hasAttached()) {
-                throwPortalAlreadyAttachedError();
-              }
-
-              if (this._isDisposed) {
-                throwPortalOutletAlreadyDisposedError();
-              }
-            }
-
-            if (portal instanceof ComponentPortal) {
-              this._attachedPortal = portal;
-              return this.attachComponentPortal(portal);
-            } else if (portal instanceof TemplatePortal) {
-              this._attachedPortal = portal;
-              return this.attachTemplatePortal(portal); // @breaking-change 10.0.0 remove null check for `this.attachDomPortal`.
-            } else if (this.attachDomPortal && portal instanceof DomPortal) {
-              this._attachedPortal = portal;
-              return this.attachDomPortal(portal);
-            }
-
-            if (typeof ngDevMode === 'undefined' || ngDevMode) {
-              throwUnknownPortalTypeError();
-            }
-          }
-          /** Detaches a previously attached portal. */
-
-        }, {
-          key: "detach",
-          value: function detach() {
-            if (this._attachedPortal) {
-              this._attachedPortal.setAttachedHost(null);
-
-              this._attachedPortal = null;
-            }
-
-            this._invokeDisposeFn();
-          }
-          /** Permanently dispose of this portal host. */
-
-        }, {
-          key: "dispose",
-          value: function dispose() {
-            if (this.hasAttached()) {
-              this.detach();
-            }
-
-            this._invokeDisposeFn();
-
-            this._isDisposed = true;
-          }
-          /** @docs-private */
-
-        }, {
-          key: "setDisposeFn",
-          value: function setDisposeFn(fn) {
-            this._disposeFn = fn;
-          }
-        }, {
-          key: "_invokeDisposeFn",
-          value: function _invokeDisposeFn() {
-            if (this._disposeFn) {
-              this._disposeFn();
-
-              this._disposeFn = null;
-            }
-          }
-        }]);
-
-        return BasePortalOutlet;
-      }();
-      /**
-       * @deprecated Use `BasePortalOutlet` instead.
-       * @breaking-change 9.0.0
-       */
-
-
-      var BasePortalHost = /*#__PURE__*/function (_BasePortalOutlet) {
-        _inherits(BasePortalHost, _BasePortalOutlet);
-
-        var _super21 = _createSuper(BasePortalHost);
-
-        function BasePortalHost() {
-          _classCallCheck(this, BasePortalHost);
-
-          return _super21.apply(this, arguments);
-        }
-
-        return BasePortalHost;
-      }(BasePortalOutlet);
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * A PortalOutlet for attaching portals to an arbitrary DOM element outside of the Angular
-       * application context.
-       */
-
-
-      var DomPortalOutlet = /*#__PURE__*/function (_BasePortalOutlet2) {
-        _inherits(DomPortalOutlet, _BasePortalOutlet2);
-
-        var _super22 = _createSuper(DomPortalOutlet);
-
-        function DomPortalOutlet(
-        /** Element into which the content is projected. */
-        outletElement, _componentFactoryResolver, _appRef, _defaultInjector,
-        /**
-         * @deprecated `_document` Parameter to be made required.
-         * @breaking-change 10.0.0
-         */
-        _document) {
-          var _thisSuper, _this9;
-
-          _classCallCheck(this, DomPortalOutlet);
-
-          _this9 = _super22.call(this);
-          _this9.outletElement = outletElement;
-          _this9._componentFactoryResolver = _componentFactoryResolver;
-          _this9._appRef = _appRef;
-          _this9._defaultInjector = _defaultInjector;
-          /**
-           * Attaches a DOM portal by transferring its content into the outlet.
-           * @param portal Portal to be attached.
-           * @deprecated To be turned into a method.
-           * @breaking-change 10.0.0
-           */
-
-          _this9.attachDomPortal = function (portal) {
-            // @breaking-change 10.0.0 Remove check and error once the
-            // `_document` constructor parameter is required.
-            if (!_this9._document && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw Error('Cannot attach DOM portal without _document constructor parameter');
-            }
-
-            var element = portal.element;
-
-            if (!element.parentNode && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw Error('DOM portal content must be attached to a parent node.');
-            } // Anchor used to save the element's previous position so
-            // that we can restore it when the portal is detached.
-
-
-            var anchorNode = _this9._document.createComment('dom-portal');
-
-            element.parentNode.insertBefore(anchorNode, element);
-
-            _this9.outletElement.appendChild(element);
-
-            _get((_thisSuper = _assertThisInitialized(_this9), _getPrototypeOf(DomPortalOutlet.prototype)), "setDisposeFn", _thisSuper).call(_thisSuper, function () {
-              // We can't use `replaceWith` here because IE doesn't support it.
-              if (anchorNode.parentNode) {
-                anchorNode.parentNode.replaceChild(element, anchorNode);
-              }
-            });
-          };
-
-          _this9._document = _document;
-          return _this9;
-        }
-        /**
-         * Attach the given ComponentPortal to DOM element using the ComponentFactoryResolver.
-         * @param portal Portal to be attached
-         * @returns Reference to the created component.
-         */
-
-
-        _createClass(DomPortalOutlet, [{
-          key: "attachComponentPortal",
-          value: function attachComponentPortal(portal) {
-            var _this10 = this;
-
-            var resolver = portal.componentFactoryResolver || this._componentFactoryResolver;
-            var componentFactory = resolver.resolveComponentFactory(portal.component);
-            var componentRef; // If the portal specifies a ViewContainerRef, we will use that as the attachment point
-            // for the component (in terms of Angular's component tree, not rendering).
-            // When the ViewContainerRef is missing, we use the factory to create the component directly
-            // and then manually attach the view to the application.
-
-            if (portal.viewContainerRef) {
-              componentRef = portal.viewContainerRef.createComponent(componentFactory, portal.viewContainerRef.length, portal.injector || portal.viewContainerRef.injector);
-              this.setDisposeFn(function () {
-                return componentRef.destroy();
-              });
-            } else {
-              componentRef = componentFactory.create(portal.injector || this._defaultInjector);
-
-              this._appRef.attachView(componentRef.hostView);
-
-              this.setDisposeFn(function () {
-                _this10._appRef.detachView(componentRef.hostView);
-
-                componentRef.destroy();
-              });
-            } // At this point the component has been instantiated, so we move it to the location in the DOM
-            // where we want it to be rendered.
-
-
-            this.outletElement.appendChild(this._getComponentRootNode(componentRef));
-            return componentRef;
-          }
-          /**
-           * Attaches a template portal to the DOM as an embedded view.
-           * @param portal Portal to be attached.
-           * @returns Reference to the created embedded view.
-           */
-
-        }, {
-          key: "attachTemplatePortal",
-          value: function attachTemplatePortal(portal) {
-            var _this11 = this;
-
-            var viewContainer = portal.viewContainerRef;
-            var viewRef = viewContainer.createEmbeddedView(portal.templateRef, portal.context); // The method `createEmbeddedView` will add the view as a child of the viewContainer.
-            // But for the DomPortalOutlet the view can be added everywhere in the DOM
-            // (e.g Overlay Container) To move the view to the specified host element. We just
-            // re-append the existing root nodes.
-
-            viewRef.rootNodes.forEach(function (rootNode) {
-              return _this11.outletElement.appendChild(rootNode);
-            }); // Note that we want to detect changes after the nodes have been moved so that
-            // any directives inside the portal that are looking at the DOM inside a lifecycle
-            // hook won't be invoked too early.
-
-            viewRef.detectChanges();
-            this.setDisposeFn(function () {
-              var index = viewContainer.indexOf(viewRef);
-
-              if (index !== -1) {
-                viewContainer.remove(index);
-              }
-            }); // TODO(jelbourn): Return locals from view.
-
-            return viewRef;
-          }
-          /**
-           * Clears out a portal from the DOM.
-           */
-
-        }, {
-          key: "dispose",
-          value: function dispose() {
-            _get(_getPrototypeOf(DomPortalOutlet.prototype), "dispose", this).call(this);
-
-            if (this.outletElement.parentNode != null) {
-              this.outletElement.parentNode.removeChild(this.outletElement);
-            }
-          }
-          /** Gets the root HTMLElement for an instantiated component. */
-
-        }, {
-          key: "_getComponentRootNode",
-          value: function _getComponentRootNode(componentRef) {
-            return componentRef.hostView.rootNodes[0];
-          }
-        }]);
-
-        return DomPortalOutlet;
-      }(BasePortalOutlet);
-      /**
-       * @deprecated Use `DomPortalOutlet` instead.
-       * @breaking-change 9.0.0
-       */
-
-
-      var DomPortalHost = /*#__PURE__*/function (_DomPortalOutlet) {
-        _inherits(DomPortalHost, _DomPortalOutlet);
-
-        var _super23 = _createSuper(DomPortalHost);
-
-        function DomPortalHost() {
-          _classCallCheck(this, DomPortalHost);
-
-          return _super23.apply(this, arguments);
-        }
-
-        return DomPortalHost;
-      }(DomPortalOutlet);
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Directive version of a `TemplatePortal`. Because the directive *is* a TemplatePortal,
-       * the directive instance itself can be attached to a host, enabling declarative use of portals.
-       */
-
-
-      var CdkPortal = /*#__PURE__*/function (_TemplatePortal) {
-        _inherits(CdkPortal, _TemplatePortal);
-
-        var _super24 = _createSuper(CdkPortal);
-
-        function CdkPortal(templateRef, viewContainerRef) {
-          _classCallCheck(this, CdkPortal);
-
-          return _super24.call(this, templateRef, viewContainerRef);
-        }
-
-        return CdkPortal;
-      }(TemplatePortal);
-
-      CdkPortal.ɵfac = function CdkPortal_Factory(t) {
-        return new (t || CdkPortal)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]));
-      };
-
-      CdkPortal.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
-        type: CdkPortal,
-        selectors: [["", "cdkPortal", ""]],
-        exportAs: ["cdkPortal"],
-        features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
-      });
-
-      CdkPortal.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CdkPortal, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-          args: [{
-            selector: '[cdkPortal]',
-            exportAs: 'cdkPortal'
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]
-          }];
-        }, null);
-      })();
-      /**
-       * @deprecated Use `CdkPortal` instead.
-       * @breaking-change 9.0.0
-       */
-
-
-      var TemplatePortalDirective = /*#__PURE__*/function (_CdkPortal) {
-        _inherits(TemplatePortalDirective, _CdkPortal);
-
-        var _super25 = _createSuper(TemplatePortalDirective);
-
-        function TemplatePortalDirective() {
-          _classCallCheck(this, TemplatePortalDirective);
-
-          return _super25.apply(this, arguments);
-        }
-
-        return TemplatePortalDirective;
-      }(CdkPortal);
-
-      TemplatePortalDirective.ɵfac = function TemplatePortalDirective_Factory(t) {
-        return ɵTemplatePortalDirective_BaseFactory(t || TemplatePortalDirective);
-      };
-
-      TemplatePortalDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
-        type: TemplatePortalDirective,
-        selectors: [["", "cdk-portal", ""], ["", "portal", ""]],
-        exportAs: ["cdkPortal"],
-        features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
-          provide: CdkPortal,
-          useExisting: TemplatePortalDirective
-        }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
-      });
-
-      var ɵTemplatePortalDirective_BaseFactory = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](TemplatePortalDirective);
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TemplatePortalDirective, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-          args: [{
-            selector: '[cdk-portal], [portal]',
-            exportAs: 'cdkPortal',
-            providers: [{
-              provide: CdkPortal,
-              useExisting: TemplatePortalDirective
-            }]
-          }]
-        }], null, null);
-      })();
-      /**
-       * Directive version of a PortalOutlet. Because the directive *is* a PortalOutlet, portals can be
-       * directly attached to it, enabling declarative use.
-       *
-       * Usage:
-       * `<ng-template [cdkPortalOutlet]="greeting"></ng-template>`
-       */
-
-
-      var CdkPortalOutlet = /*#__PURE__*/function (_BasePortalOutlet3) {
-        _inherits(CdkPortalOutlet, _BasePortalOutlet3);
-
-        var _super26 = _createSuper(CdkPortalOutlet);
-
-        function CdkPortalOutlet(_componentFactoryResolver, _viewContainerRef,
-        /**
-         * @deprecated `_document` parameter to be made required.
-         * @breaking-change 9.0.0
-         */
-        _document) {
-          var _thisSuper2, _this12;
-
-          _classCallCheck(this, CdkPortalOutlet);
-
-          _this12 = _super26.call(this);
-          _this12._componentFactoryResolver = _componentFactoryResolver;
-          _this12._viewContainerRef = _viewContainerRef;
-          /** Whether the portal component is initialized. */
-
-          _this12._isInitialized = false;
-          /** Emits when a portal is attached to the outlet. */
-
-          _this12.attached = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-          /**
-           * Attaches the given DomPortal to this PortalHost by moving all of the portal content into it.
-           * @param portal Portal to be attached.
-           * @deprecated To be turned into a method.
-           * @breaking-change 10.0.0
-           */
-
-          _this12.attachDomPortal = function (portal) {
-            // @breaking-change 9.0.0 Remove check and error once the
-            // `_document` constructor parameter is required.
-            if (!_this12._document && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw Error('Cannot attach DOM portal without _document constructor parameter');
-            }
-
-            var element = portal.element;
-
-            if (!element.parentNode && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw Error('DOM portal content must be attached to a parent node.');
-            } // Anchor used to save the element's previous position so
-            // that we can restore it when the portal is detached.
-
-
-            var anchorNode = _this12._document.createComment('dom-portal');
-
-            portal.setAttachedHost(_assertThisInitialized(_this12));
-            element.parentNode.insertBefore(anchorNode, element);
-
-            _this12._getRootNode().appendChild(element);
-
-            _get((_thisSuper2 = _assertThisInitialized(_this12), _getPrototypeOf(CdkPortalOutlet.prototype)), "setDisposeFn", _thisSuper2).call(_thisSuper2, function () {
-              if (anchorNode.parentNode) {
-                anchorNode.parentNode.replaceChild(element, anchorNode);
-              }
-            });
-          };
-
-          _this12._document = _document;
-          return _this12;
-        }
-        /** Portal associated with the Portal outlet. */
-
-
-        _createClass(CdkPortalOutlet, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            this._isInitialized = true;
-          }
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            _get(_getPrototypeOf(CdkPortalOutlet.prototype), "dispose", this).call(this);
-
-            this._attachedPortal = null;
-            this._attachedRef = null;
-          }
-          /**
-           * Attach the given ComponentPortal to this PortalOutlet using the ComponentFactoryResolver.
-           *
-           * @param portal Portal to be attached to the portal outlet.
-           * @returns Reference to the created component.
-           */
-
-        }, {
-          key: "attachComponentPortal",
-          value: function attachComponentPortal(portal) {
-            portal.setAttachedHost(this); // If the portal specifies an origin, use that as the logical location of the component
-            // in the application tree. Otherwise use the location of this PortalOutlet.
-
-            var viewContainerRef = portal.viewContainerRef != null ? portal.viewContainerRef : this._viewContainerRef;
-            var resolver = portal.componentFactoryResolver || this._componentFactoryResolver;
-            var componentFactory = resolver.resolveComponentFactory(portal.component);
-            var ref = viewContainerRef.createComponent(componentFactory, viewContainerRef.length, portal.injector || viewContainerRef.injector); // If we're using a view container that's different from the injected one (e.g. when the portal
-            // specifies its own) we need to move the component into the outlet, otherwise it'll be rendered
-            // inside of the alternate view container.
-
-            if (viewContainerRef !== this._viewContainerRef) {
-              this._getRootNode().appendChild(ref.hostView.rootNodes[0]);
-            }
-
-            _get(_getPrototypeOf(CdkPortalOutlet.prototype), "setDisposeFn", this).call(this, function () {
-              return ref.destroy();
-            });
-
-            this._attachedPortal = portal;
-            this._attachedRef = ref;
-            this.attached.emit(ref);
-            return ref;
-          }
-          /**
-           * Attach the given TemplatePortal to this PortalHost as an embedded View.
-           * @param portal Portal to be attached.
-           * @returns Reference to the created embedded view.
-           */
-
-        }, {
-          key: "attachTemplatePortal",
-          value: function attachTemplatePortal(portal) {
-            var _this13 = this;
-
-            portal.setAttachedHost(this);
-
-            var viewRef = this._viewContainerRef.createEmbeddedView(portal.templateRef, portal.context);
-
-            _get(_getPrototypeOf(CdkPortalOutlet.prototype), "setDisposeFn", this).call(this, function () {
-              return _this13._viewContainerRef.clear();
-            });
-
-            this._attachedPortal = portal;
-            this._attachedRef = viewRef;
-            this.attached.emit(viewRef);
-            return viewRef;
-          }
-          /** Gets the root node of the portal outlet. */
-
-        }, {
-          key: "_getRootNode",
-          value: function _getRootNode() {
-            var nativeElement = this._viewContainerRef.element.nativeElement; // The directive could be set on a template which will result in a comment
-            // node being the root. Use the comment's parent node if that is the case.
-
-            return nativeElement.nodeType === nativeElement.ELEMENT_NODE ? nativeElement : nativeElement.parentNode;
-          }
-        }, {
-          key: "portal",
-          get: function get() {
-            return this._attachedPortal;
-          },
-          set: function set(portal) {
-            // Ignore the cases where the `portal` is set to a falsy value before the lifecycle hooks have
-            // run. This handles the cases where the user might do something like `<div cdkPortalOutlet>`
-            // and attach a portal programmatically in the parent component. When Angular does the first CD
-            // round, it will fire the setter with empty string, causing the user's content to be cleared.
-            if (this.hasAttached() && !portal && !this._isInitialized) {
-              return;
-            }
-
-            if (this.hasAttached()) {
-              _get(_getPrototypeOf(CdkPortalOutlet.prototype), "detach", this).call(this);
-            }
-
-            if (portal) {
-              _get(_getPrototypeOf(CdkPortalOutlet.prototype), "attach", this).call(this, portal);
-            }
-
-            this._attachedPortal = portal;
-          }
-          /** Component or view reference that is attached to the portal. */
-
-        }, {
-          key: "attachedRef",
-          get: function get() {
-            return this._attachedRef;
-          }
-        }]);
-
-        return CdkPortalOutlet;
-      }(BasePortalOutlet);
-
-      CdkPortalOutlet.ɵfac = function CdkPortalOutlet_Factory(t) {
-        return new (t || CdkPortalOutlet)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"]));
-      };
-
-      CdkPortalOutlet.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
-        type: CdkPortalOutlet,
-        selectors: [["", "cdkPortalOutlet", ""]],
-        inputs: {
-          portal: ["cdkPortalOutlet", "portal"]
-        },
-        outputs: {
-          attached: "attached"
-        },
-        exportAs: ["cdkPortalOutlet"],
-        features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
-      });
-
-      CdkPortalOutlet.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"]]
-          }]
-        }];
-      };
-
-      CdkPortalOutlet.propDecorators = {
-        attached: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-        }]
-      };
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CdkPortalOutlet, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-          args: [{
-            selector: '[cdkPortalOutlet]',
-            exportAs: 'cdkPortalOutlet',
-            inputs: ['portal: cdkPortalOutlet']
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]
-          }, {
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"]]
-            }]
-          }];
-        }, {
-          attached: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-          }]
-        });
-      })();
-      /**
-       * @deprecated Use `CdkPortalOutlet` instead.
-       * @breaking-change 9.0.0
-       */
-
-
-      var PortalHostDirective = /*#__PURE__*/function (_CdkPortalOutlet) {
-        _inherits(PortalHostDirective, _CdkPortalOutlet);
-
-        var _super27 = _createSuper(PortalHostDirective);
-
-        function PortalHostDirective() {
-          _classCallCheck(this, PortalHostDirective);
-
-          return _super27.apply(this, arguments);
-        }
-
-        return PortalHostDirective;
-      }(CdkPortalOutlet);
-
-      PortalHostDirective.ɵfac = function PortalHostDirective_Factory(t) {
-        return ɵPortalHostDirective_BaseFactory(t || PortalHostDirective);
-      };
-
-      PortalHostDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
-        type: PortalHostDirective,
-        selectors: [["", "cdkPortalHost", ""], ["", "portalHost", ""]],
-        inputs: {
-          portal: ["cdkPortalHost", "portal"]
-        },
-        exportAs: ["cdkPortalHost"],
-        features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
-          provide: CdkPortalOutlet,
-          useExisting: PortalHostDirective
-        }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
-      });
-
-      var ɵPortalHostDirective_BaseFactory = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](PortalHostDirective);
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PortalHostDirective, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-          args: [{
-            selector: '[cdkPortalHost], [portalHost]',
-            exportAs: 'cdkPortalHost',
-            inputs: ['portal: cdkPortalHost'],
-            providers: [{
-              provide: CdkPortalOutlet,
-              useExisting: PortalHostDirective
-            }]
-          }]
-        }], null, null);
-      })();
-
-      var PortalModule = function PortalModule() {
-        _classCallCheck(this, PortalModule);
-      };
-
-      PortalModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-        type: PortalModule
-      });
-      PortalModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function PortalModule_Factory(t) {
-          return new (t || PortalModule)();
-        }
-      });
-
-      (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](PortalModule, {
-          declarations: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective],
-          exports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective]
-        });
-      })();
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PortalModule, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-          args: [{
-            exports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective],
-            declarations: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective]
-          }]
-        }], null, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Custom injector to be used when providing custom
-       * injection tokens to components inside a portal.
-       * @docs-private
-       * @deprecated Use `Injector.create` instead.
-       * @breaking-change 11.0.0
-       */
-
-
-      var PortalInjector = /*#__PURE__*/function () {
-        function PortalInjector(_parentInjector, _customTokens) {
-          _classCallCheck(this, PortalInjector);
-
-          this._parentInjector = _parentInjector;
-          this._customTokens = _customTokens;
-        }
-
-        _createClass(PortalInjector, [{
-          key: "get",
-          value: function get(token, notFoundValue) {
-            var value = this._customTokens.get(token);
-
-            if (typeof value !== 'undefined') {
-              return value;
-            }
-
-            return this._parentInjector.get(token, notFoundValue);
-          }
-        }]);
-
-        return PortalInjector;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Generated bundle index. Do not edit.
-       */
-      //# sourceMappingURL=portal.js.map
-
-      /***/
-
-    },
-
-    /***/
     "/rNG":
     /*!*****************************************************!*\
       !*** ./src/app/contacts/contacts-routing.module.ts ***!
@@ -2973,809 +1802,6 @@
           }]
         }], null, null);
       })();
-      /***/
-
-    },
-
-    /***/
-    "0EQZ":
-    /*!************************************************************************!*\
-      !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/collections.js ***!
-      \************************************************************************/
-
-    /*! exports provided: ArrayDataSource, DataSource, SelectionModel, UniqueSelectionDispatcher, _DisposeViewRepeaterStrategy, _RecycleViewRepeaterStrategy, _VIEW_REPEATER_STRATEGY, getMultipleValuesInSingleSelectionError, isDataSource */
-
-    /***/
-    function EQZ(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ArrayDataSource", function () {
-        return ArrayDataSource;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DataSource", function () {
-        return DataSource;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "SelectionModel", function () {
-        return SelectionModel;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "UniqueSelectionDispatcher", function () {
-        return UniqueSelectionDispatcher;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "_DisposeViewRepeaterStrategy", function () {
-        return _DisposeViewRepeaterStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "_RecycleViewRepeaterStrategy", function () {
-        return _RecycleViewRepeaterStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "_VIEW_REPEATER_STRATEGY", function () {
-        return _VIEW_REPEATER_STRATEGY;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "getMultipleValuesInSingleSelectionError", function () {
-        return getMultipleValuesInSingleSelectionError;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "isDataSource", function () {
-        return isDataSource;
-      });
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! rxjs */
-      "qCKp");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-
-      var DataSource = function DataSource() {
-        _classCallCheck(this, DataSource);
-      };
-      /** Checks whether an object is a data source. */
-
-
-      function isDataSource(value) {
-        // Check if the value is a DataSource by observing if it has a connect function. Cannot
-        // be checked as an `instanceof DataSource` since people could create their own sources
-        // that match the interface, but don't extend DataSource.
-        return value && typeof value.connect === 'function';
-      }
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** DataSource wrapper for a native array. */
-
-
-      var ArrayDataSource = /*#__PURE__*/function (_DataSource) {
-        _inherits(ArrayDataSource, _DataSource);
-
-        var _super28 = _createSuper(ArrayDataSource);
-
-        function ArrayDataSource(_data) {
-          var _this14;
-
-          _classCallCheck(this, ArrayDataSource);
-
-          _this14 = _super28.call(this);
-          _this14._data = _data;
-          return _this14;
-        }
-
-        _createClass(ArrayDataSource, [{
-          key: "connect",
-          value: function connect() {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["isObservable"])(this._data) ? this._data : Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["of"])(this._data);
-          }
-        }, {
-          key: "disconnect",
-          value: function disconnect() {}
-        }]);
-
-        return ArrayDataSource;
-      }(DataSource);
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * A repeater that destroys views when they are removed from a
-       * {@link ViewContainerRef}. When new items are inserted into the container,
-       * the repeater will always construct a new embedded view for each item.
-       *
-       * @template T The type for the embedded view's $implicit property.
-       * @template R The type for the item in each IterableDiffer change record.
-       * @template C The type for the context passed to each embedded view.
-       */
-
-
-      var _DisposeViewRepeaterStrategy = /*#__PURE__*/function () {
-        function _DisposeViewRepeaterStrategy() {
-          _classCallCheck(this, _DisposeViewRepeaterStrategy);
-        }
-
-        _createClass(_DisposeViewRepeaterStrategy, [{
-          key: "applyChanges",
-          value: function applyChanges(changes, viewContainerRef, itemContextFactory, itemValueResolver, itemViewChanged) {
-            changes.forEachOperation(function (record, adjustedPreviousIndex, currentIndex) {
-              var view;
-              var operation;
-
-              if (record.previousIndex == null) {
-                var insertContext = itemContextFactory(record, adjustedPreviousIndex, currentIndex);
-                view = viewContainerRef.createEmbeddedView(insertContext.templateRef, insertContext.context, insertContext.index);
-                operation = 1
-                /* INSERTED */
-                ;
-              } else if (currentIndex == null) {
-                viewContainerRef.remove(adjustedPreviousIndex);
-                operation = 3
-                /* REMOVED */
-                ;
-              } else {
-                view = viewContainerRef.get(adjustedPreviousIndex);
-                viewContainerRef.move(view, currentIndex);
-                operation = 2
-                /* MOVED */
-                ;
-              }
-
-              if (itemViewChanged) {
-                itemViewChanged({
-                  context: view === null || view === void 0 ? void 0 : view.context,
-                  operation: operation,
-                  record: record
-                });
-              }
-            });
-          }
-        }, {
-          key: "detach",
-          value: function detach() {}
-        }]);
-
-        return _DisposeViewRepeaterStrategy;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * A repeater that caches views when they are removed from a
-       * {@link ViewContainerRef}. When new items are inserted into the container,
-       * the repeater will reuse one of the cached views instead of creating a new
-       * embedded view. Recycling cached views reduces the quantity of expensive DOM
-       * inserts.
-       *
-       * @template T The type for the embedded view's $implicit property.
-       * @template R The type for the item in each IterableDiffer change record.
-       * @template C The type for the context passed to each embedded view.
-       */
-
-
-      var _RecycleViewRepeaterStrategy = /*#__PURE__*/function () {
-        function _RecycleViewRepeaterStrategy() {
-          _classCallCheck(this, _RecycleViewRepeaterStrategy);
-
-          /**
-           * The size of the cache used to store unused views.
-           * Setting the cache size to `0` will disable caching. Defaults to 20 views.
-           */
-          this.viewCacheSize = 20;
-          /**
-           * View cache that stores embedded view instances that have been previously stamped out,
-           * but don't are not currently rendered. The view repeater will reuse these views rather than
-           * creating brand new ones.
-           *
-           * TODO(michaeljamesparsons) Investigate whether using a linked list would improve performance.
-           */
-
-          this._viewCache = [];
-        }
-        /** Apply changes to the DOM. */
-
-
-        _createClass(_RecycleViewRepeaterStrategy, [{
-          key: "applyChanges",
-          value: function applyChanges(changes, viewContainerRef, itemContextFactory, itemValueResolver, itemViewChanged) {
-            var _this15 = this;
-
-            // Rearrange the views to put them in the right location.
-            changes.forEachOperation(function (record, adjustedPreviousIndex, currentIndex) {
-              var view;
-              var operation;
-
-              if (record.previousIndex == null) {
-                // Item added.
-                var viewArgsFactory = function viewArgsFactory() {
-                  return itemContextFactory(record, adjustedPreviousIndex, currentIndex);
-                };
-
-                view = _this15._insertView(viewArgsFactory, currentIndex, viewContainerRef, itemValueResolver(record));
-                operation = view ? 1
-                /* INSERTED */
-                : 0
-                /* REPLACED */
-                ;
-              } else if (currentIndex == null) {
-                // Item removed.
-                _this15._detachAndCacheView(adjustedPreviousIndex, viewContainerRef);
-
-                operation = 3
-                /* REMOVED */
-                ;
-              } else {
-                // Item moved.
-                view = _this15._moveView(adjustedPreviousIndex, currentIndex, viewContainerRef, itemValueResolver(record));
-                operation = 2
-                /* MOVED */
-                ;
-              }
-
-              if (itemViewChanged) {
-                itemViewChanged({
-                  context: view === null || view === void 0 ? void 0 : view.context,
-                  operation: operation,
-                  record: record
-                });
-              }
-            });
-          }
-        }, {
-          key: "detach",
-          value: function detach() {
-            var _iterator = _createForOfIteratorHelper(this._viewCache),
-                _step;
-
-            try {
-              for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                var view = _step.value;
-                view.destroy();
-              }
-            } catch (err) {
-              _iterator.e(err);
-            } finally {
-              _iterator.f();
-            }
-          }
-          /**
-           * Inserts a view for a new item, either from the cache or by creating a new
-           * one. Returns `undefined` if the item was inserted into a cached view.
-           */
-
-        }, {
-          key: "_insertView",
-          value: function _insertView(viewArgsFactory, currentIndex, viewContainerRef, value) {
-            var cachedView = this._insertViewFromCache(currentIndex, viewContainerRef);
-
-            if (cachedView) {
-              cachedView.context.$implicit = value;
-              return undefined;
-            }
-
-            var viewArgs = viewArgsFactory();
-            return viewContainerRef.createEmbeddedView(viewArgs.templateRef, viewArgs.context, viewArgs.index);
-          }
-          /** Detaches the view at the given index and inserts into the view cache. */
-
-        }, {
-          key: "_detachAndCacheView",
-          value: function _detachAndCacheView(index, viewContainerRef) {
-            var detachedView = this._detachView(index, viewContainerRef);
-
-            this._maybeCacheView(detachedView, viewContainerRef);
-          }
-          /** Moves view at the previous index to the current index. */
-
-        }, {
-          key: "_moveView",
-          value: function _moveView(adjustedPreviousIndex, currentIndex, viewContainerRef, value) {
-            var view = viewContainerRef.get(adjustedPreviousIndex);
-            viewContainerRef.move(view, currentIndex);
-            view.context.$implicit = value;
-            return view;
-          }
-          /**
-           * Cache the given detached view. If the cache is full, the view will be
-           * destroyed.
-           */
-
-        }, {
-          key: "_maybeCacheView",
-          value: function _maybeCacheView(view, viewContainerRef) {
-            if (this._viewCache.length < this.viewCacheSize) {
-              this._viewCache.push(view);
-            } else {
-              var index = viewContainerRef.indexOf(view); // The host component could remove views from the container outside of
-              // the view repeater. It's unlikely this will occur, but just in case,
-              // destroy the view on its own, otherwise destroy it through the
-              // container to ensure that all the references are removed.
-
-              if (index === -1) {
-                view.destroy();
-              } else {
-                viewContainerRef.remove(index);
-              }
-            }
-          }
-          /** Inserts a recycled view from the cache at the given index. */
-
-        }, {
-          key: "_insertViewFromCache",
-          value: function _insertViewFromCache(index, viewContainerRef) {
-            var cachedView = this._viewCache.pop();
-
-            if (cachedView) {
-              viewContainerRef.insert(cachedView, index);
-            }
-
-            return cachedView || null;
-          }
-          /** Detaches the embedded view at the given index. */
-
-        }, {
-          key: "_detachView",
-          value: function _detachView(index, viewContainerRef) {
-            return viewContainerRef.detach(index);
-          }
-        }]);
-
-        return _RecycleViewRepeaterStrategy;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Class to be used to power selecting one or more options from a list.
-       */
-
-
-      var SelectionModel = /*#__PURE__*/function () {
-        function SelectionModel() {
-          var _this16 = this;
-
-          var _multiple = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-          var initiallySelectedValues = arguments.length > 1 ? arguments[1] : undefined;
-
-          var _emitChanges = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-          _classCallCheck(this, SelectionModel);
-
-          this._multiple = _multiple;
-          this._emitChanges = _emitChanges;
-          /** Currently-selected values. */
-
-          this._selection = new Set();
-          /** Keeps track of the deselected options that haven't been emitted by the change event. */
-
-          this._deselectedToEmit = [];
-          /** Keeps track of the selected options that haven't been emitted by the change event. */
-
-          this._selectedToEmit = [];
-          /** Event emitted when the value has changed. */
-
-          this.changed = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
-
-          if (initiallySelectedValues && initiallySelectedValues.length) {
-            if (_multiple) {
-              initiallySelectedValues.forEach(function (value) {
-                return _this16._markSelected(value);
-              });
-            } else {
-              this._markSelected(initiallySelectedValues[0]);
-            } // Clear the array in order to avoid firing the change event for preselected values.
-
-
-            this._selectedToEmit.length = 0;
-          }
-        }
-        /** Selected values. */
-
-
-        _createClass(SelectionModel, [{
-          key: "select",
-
-          /**
-           * Selects a value or an array of values.
-           */
-          value: function select() {
-            var _this17 = this;
-
-            for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
-              values[_key] = arguments[_key];
-            }
-
-            this._verifyValueAssignment(values);
-
-            values.forEach(function (value) {
-              return _this17._markSelected(value);
-            });
-
-            this._emitChangeEvent();
-          }
-          /**
-           * Deselects a value or an array of values.
-           */
-
-        }, {
-          key: "deselect",
-          value: function deselect() {
-            var _this18 = this;
-
-            for (var _len2 = arguments.length, values = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-              values[_key2] = arguments[_key2];
-            }
-
-            this._verifyValueAssignment(values);
-
-            values.forEach(function (value) {
-              return _this18._unmarkSelected(value);
-            });
-
-            this._emitChangeEvent();
-          }
-          /**
-           * Toggles a value between selected and deselected.
-           */
-
-        }, {
-          key: "toggle",
-          value: function toggle(value) {
-            this.isSelected(value) ? this.deselect(value) : this.select(value);
-          }
-          /**
-           * Clears all of the selected values.
-           */
-
-        }, {
-          key: "clear",
-          value: function clear() {
-            this._unmarkAll();
-
-            this._emitChangeEvent();
-          }
-          /**
-           * Determines whether a value is selected.
-           */
-
-        }, {
-          key: "isSelected",
-          value: function isSelected(value) {
-            return this._selection.has(value);
-          }
-          /**
-           * Determines whether the model does not have a value.
-           */
-
-        }, {
-          key: "isEmpty",
-          value: function isEmpty() {
-            return this._selection.size === 0;
-          }
-          /**
-           * Determines whether the model has a value.
-           */
-
-        }, {
-          key: "hasValue",
-          value: function hasValue() {
-            return !this.isEmpty();
-          }
-          /**
-           * Sorts the selected values based on a predicate function.
-           */
-
-        }, {
-          key: "sort",
-          value: function sort(predicate) {
-            if (this._multiple && this.selected) {
-              this._selected.sort(predicate);
-            }
-          }
-          /**
-           * Gets whether multiple values can be selected.
-           */
-
-        }, {
-          key: "isMultipleSelection",
-          value: function isMultipleSelection() {
-            return this._multiple;
-          }
-          /** Emits a change event and clears the records of selected and deselected values. */
-
-        }, {
-          key: "_emitChangeEvent",
-          value: function _emitChangeEvent() {
-            // Clear the selected values so they can be re-cached.
-            this._selected = null;
-
-            if (this._selectedToEmit.length || this._deselectedToEmit.length) {
-              this.changed.next({
-                source: this,
-                added: this._selectedToEmit,
-                removed: this._deselectedToEmit
-              });
-              this._deselectedToEmit = [];
-              this._selectedToEmit = [];
-            }
-          }
-          /** Selects a value. */
-
-        }, {
-          key: "_markSelected",
-          value: function _markSelected(value) {
-            if (!this.isSelected(value)) {
-              if (!this._multiple) {
-                this._unmarkAll();
-              }
-
-              this._selection.add(value);
-
-              if (this._emitChanges) {
-                this._selectedToEmit.push(value);
-              }
-            }
-          }
-          /** Deselects a value. */
-
-        }, {
-          key: "_unmarkSelected",
-          value: function _unmarkSelected(value) {
-            if (this.isSelected(value)) {
-              this._selection["delete"](value);
-
-              if (this._emitChanges) {
-                this._deselectedToEmit.push(value);
-              }
-            }
-          }
-          /** Clears out the selected values. */
-
-        }, {
-          key: "_unmarkAll",
-          value: function _unmarkAll() {
-            var _this19 = this;
-
-            if (!this.isEmpty()) {
-              this._selection.forEach(function (value) {
-                return _this19._unmarkSelected(value);
-              });
-            }
-          }
-          /**
-           * Verifies the value assignment and throws an error if the specified value array is
-           * including multiple values while the selection model is not supporting multiple values.
-           */
-
-        }, {
-          key: "_verifyValueAssignment",
-          value: function _verifyValueAssignment(values) {
-            if (values.length > 1 && !this._multiple && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw getMultipleValuesInSingleSelectionError();
-            }
-          }
-        }, {
-          key: "selected",
-          get: function get() {
-            if (!this._selected) {
-              this._selected = Array.from(this._selection.values());
-            }
-
-            return this._selected;
-          }
-        }]);
-
-        return SelectionModel;
-      }();
-      /**
-       * Returns an error that reports that multiple values are passed into a selection model
-       * with a single value.
-       * @docs-private
-       */
-
-
-      function getMultipleValuesInSingleSelectionError() {
-        return Error('Cannot pass multiple values into SelectionModel with single-value mode.');
-      }
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Class to coordinate unique selection based on name.
-       * Intended to be consumed as an Angular service.
-       * This service is needed because native radio change events are only fired on the item currently
-       * being selected, and we still need to uncheck the previous selection.
-       *
-       * This service does not *store* any IDs and names because they may change at any time, so it is
-       * less error-prone if they are simply passed through when the events occur.
-       */
-
-
-      var UniqueSelectionDispatcher = /*#__PURE__*/function () {
-        function UniqueSelectionDispatcher() {
-          _classCallCheck(this, UniqueSelectionDispatcher);
-
-          this._listeners = [];
-        }
-        /**
-         * Notify other items that selection for the given name has been set.
-         * @param id ID of the item.
-         * @param name Name of the item.
-         */
-
-
-        _createClass(UniqueSelectionDispatcher, [{
-          key: "notify",
-          value: function notify(id, name) {
-            var _iterator2 = _createForOfIteratorHelper(this._listeners),
-                _step2;
-
-            try {
-              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                var listener = _step2.value;
-                listener(id, name);
-              }
-            } catch (err) {
-              _iterator2.e(err);
-            } finally {
-              _iterator2.f();
-            }
-          }
-          /**
-           * Listen for future changes to item selection.
-           * @return Function used to deregister listener
-           */
-
-        }, {
-          key: "listen",
-          value: function listen(listener) {
-            var _this20 = this;
-
-            this._listeners.push(listener);
-
-            return function () {
-              _this20._listeners = _this20._listeners.filter(function (registered) {
-                return listener !== registered;
-              });
-            };
-          }
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this._listeners = [];
-          }
-        }]);
-
-        return UniqueSelectionDispatcher;
-      }();
-
-      UniqueSelectionDispatcher.ɵfac = function UniqueSelectionDispatcher_Factory(t) {
-        return new (t || UniqueSelectionDispatcher)();
-      };
-
-      UniqueSelectionDispatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function UniqueSelectionDispatcher_Factory() {
-          return new UniqueSelectionDispatcher();
-        },
-        token: UniqueSelectionDispatcher,
-        providedIn: "root"
-      });
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](UniqueSelectionDispatcher, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Injection token for {@link _ViewRepeater}. This token is for use by Angular Material only.
-       * @docs-private
-       */
-
-
-      var _VIEW_REPEATER_STRATEGY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('_ViewRepeater');
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Generated bundle index. Do not edit.
-       */
-      //# sourceMappingURL=collections.js.map
-
       /***/
 
     },
@@ -4106,34 +2132,34 @@
       var _MatDialogContainerBase = /*#__PURE__*/function (_angular_cdk_portal__) {
         _inherits(_MatDialogContainerBase, _angular_cdk_portal__);
 
-        var _super29 = _createSuper(_MatDialogContainerBase);
+        var _super18 = _createSuper(_MatDialogContainerBase);
 
         function _MatDialogContainerBase(_elementRef, _focusTrapFactory, _changeDetectorRef, _document,
         /** The dialog configuration. */
         _config, _focusMonitor) {
-          var _this21;
+          var _this6;
 
           _classCallCheck(this, _MatDialogContainerBase);
 
-          _this21 = _super29.call(this);
-          _this21._elementRef = _elementRef;
-          _this21._focusTrapFactory = _focusTrapFactory;
-          _this21._changeDetectorRef = _changeDetectorRef;
-          _this21._config = _config;
-          _this21._focusMonitor = _focusMonitor;
+          _this6 = _super18.call(this);
+          _this6._elementRef = _elementRef;
+          _this6._focusTrapFactory = _focusTrapFactory;
+          _this6._changeDetectorRef = _changeDetectorRef;
+          _this6._config = _config;
+          _this6._focusMonitor = _focusMonitor;
           /** Emits when an animation state changes. */
 
-          _this21._animationStateChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+          _this6._animationStateChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
           /** Element that was focused before the dialog was opened. Save this to restore upon close. */
 
-          _this21._elementFocusedBeforeDialogWasOpened = null;
+          _this6._elementFocusedBeforeDialogWasOpened = null;
           /**
            * Type of interaction that led to the dialog being closed. This is used to determine
            * whether the focus style will be applied when returning focus to its original location
            * after the dialog is closed.
            */
 
-          _this21._closeInteractionType = null;
+          _this6._closeInteractionType = null;
           /**
            * Attaches a DOM portal to the dialog container.
            * @param portal Portal to be attached.
@@ -4141,17 +2167,17 @@
            * @breaking-change 10.0.0
            */
 
-          _this21.attachDomPortal = function (portal) {
-            if (_this21._portalOutlet.hasAttached() && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+          _this6.attachDomPortal = function (portal) {
+            if (_this6._portalOutlet.hasAttached() && (typeof ngDevMode === 'undefined' || ngDevMode)) {
               throwMatDialogContentAlreadyAttachedError();
             }
 
-            return _this21._portalOutlet.attachDomPortal(portal);
+            return _this6._portalOutlet.attachDomPortal(portal);
           };
 
-          _this21._ariaLabelledBy = _config.ariaLabelledBy || null;
-          _this21._document = _document;
-          return _this21;
+          _this6._ariaLabelledBy = _config.ariaLabelledBy || null;
+          _this6._document = _document;
+          return _this6;
         }
         /** Initializes the dialog container with the attached content. */
 
@@ -4392,18 +2418,18 @@
       var MatDialogContainer = /*#__PURE__*/function (_MatDialogContainerBa) {
         _inherits(MatDialogContainer, _MatDialogContainerBa);
 
-        var _super30 = _createSuper(MatDialogContainer);
+        var _super19 = _createSuper(MatDialogContainer);
 
         function MatDialogContainer() {
-          var _this22;
+          var _this7;
 
           _classCallCheck(this, MatDialogContainer);
 
-          _this22 = _super30.apply(this, arguments);
+          _this7 = _super19.apply(this, arguments);
           /** State of the dialog animation. */
 
-          _this22._state = 'enter';
-          return _this22;
+          _this7._state = 'enter';
+          return _this7;
         }
         /** Callback, invoked whenever an animation on the host completes. */
 
@@ -4558,7 +2584,7 @@
 
       var MatDialogRef = /*#__PURE__*/function () {
         function MatDialogRef(_overlayRef, _containerInstance) {
-          var _this23 = this;
+          var _this8 = this;
 
           var id = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "mat-dialog-".concat(uniqueId++);
 
@@ -4590,47 +2616,47 @@
           _containerInstance._animationStateChanged.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["filter"])(function (event) {
             return event.state === 'opened';
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe(function () {
-            _this23._afterOpened.next();
+            _this8._afterOpened.next();
 
-            _this23._afterOpened.complete();
+            _this8._afterOpened.complete();
           }); // Dispose overlay when closing animation is complete
 
 
           _containerInstance._animationStateChanged.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["filter"])(function (event) {
             return event.state === 'closed';
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe(function () {
-            clearTimeout(_this23._closeFallbackTimeout);
+            clearTimeout(_this8._closeFallbackTimeout);
 
-            _this23._finishDialogClose();
+            _this8._finishDialogClose();
           });
 
           _overlayRef.detachments().subscribe(function () {
-            _this23._beforeClosed.next(_this23._result);
+            _this8._beforeClosed.next(_this8._result);
 
-            _this23._beforeClosed.complete();
+            _this8._beforeClosed.complete();
 
-            _this23._afterClosed.next(_this23._result);
+            _this8._afterClosed.next(_this8._result);
 
-            _this23._afterClosed.complete();
+            _this8._afterClosed.complete();
 
-            _this23.componentInstance = null;
+            _this8.componentInstance = null;
 
-            _this23._overlayRef.dispose();
+            _this8._overlayRef.dispose();
           });
 
           _overlayRef.keydownEvents().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["filter"])(function (event) {
-            return event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_10__["ESCAPE"] && !_this23.disableClose && !Object(_angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_10__["hasModifierKey"])(event);
+            return event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_10__["ESCAPE"] && !_this8.disableClose && !Object(_angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_10__["hasModifierKey"])(event);
           })).subscribe(function (event) {
             event.preventDefault();
 
-            _closeDialogVia(_this23, 'keyboard');
+            _closeDialogVia(_this8, 'keyboard');
           });
 
           _overlayRef.backdropClick().subscribe(function () {
-            if (_this23.disableClose) {
-              _this23._containerInstance._recaptureFocus();
+            if (_this8.disableClose) {
+              _this8._containerInstance._recaptureFocus();
             } else {
-              _closeDialogVia(_this23, 'mouse');
+              _closeDialogVia(_this8, 'mouse');
             }
           });
         }
@@ -4643,26 +2669,26 @@
         _createClass(MatDialogRef, [{
           key: "close",
           value: function close(dialogResult) {
-            var _this24 = this;
+            var _this9 = this;
 
             this._result = dialogResult; // Transition the backdrop in parallel to the dialog.
 
             this._containerInstance._animationStateChanged.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["filter"])(function (event) {
               return event.state === 'closing';
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe(function (event) {
-              _this24._beforeClosed.next(dialogResult);
+              _this9._beforeClosed.next(dialogResult);
 
-              _this24._beforeClosed.complete();
+              _this9._beforeClosed.complete();
 
-              _this24._overlayRef.detachBackdrop(); // The logic that disposes of the overlay depends on the exit animation completing, however
+              _this9._overlayRef.detachBackdrop(); // The logic that disposes of the overlay depends on the exit animation completing, however
               // it isn't guaranteed if the parent view is destroyed while it's running. Add a fallback
               // timeout which will clean everything up if the animation hasn't fired within the specified
               // amount of time plus 100ms. We don't need to run this outside the NgZone, because for the
               // vast majority of cases the timeout will have been cleared before it has the chance to fire.
 
 
-              _this24._closeFallbackTimeout = setTimeout(function () {
-                return _this24._finishDialogClose();
+              _this9._closeFallbackTimeout = setTimeout(function () {
+                return _this9._finishDialogClose();
               }, event.totalTime + 100);
             });
 
@@ -4876,7 +2902,7 @@
 
       var _MatDialogBase = /*#__PURE__*/function () {
         function _MatDialogBase(_overlay, _injector, _defaultOptions, _parentDialog, _overlayContainer, scrollStrategy, _dialogRefConstructor, _dialogContainerType, _dialogDataToken) {
-          var _this25 = this;
+          var _this10 = this;
 
           _classCallCheck(this, _MatDialogBase);
 
@@ -4899,7 +2925,7 @@
            */
 
           this.afterAllClosed = Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["defer"])(function () {
-            return _this25.openDialogs.length ? _this25._getAfterAllClosed() : _this25._getAfterAllClosed().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["startWith"])(undefined));
+            return _this10.openDialogs.length ? _this10._getAfterAllClosed() : _this10._getAfterAllClosed().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["startWith"])(undefined));
           });
           this._scrollStrategy = scrollStrategy;
         }
@@ -4915,7 +2941,7 @@
         }, {
           key: "open",
           value: function open(componentOrTemplateRef, config) {
-            var _this26 = this;
+            var _this11 = this;
 
             config = _applyConfigDefaults(config, this._defaultOptions || new MatDialogConfig());
 
@@ -4936,7 +2962,7 @@
 
             this.openDialogs.push(dialogRef);
             dialogRef.afterClosed().subscribe(function () {
-              return _this26._removeOpenDialog(dialogRef);
+              return _this11._removeOpenDialog(dialogRef);
             });
             this.afterOpened.next(dialogRef); // Notify the dialog container that the content has been attached.
 
@@ -5266,7 +3292,7 @@
       var MatDialog = /*#__PURE__*/function (_MatDialogBase2) {
         _inherits(MatDialog, _MatDialogBase2);
 
-        var _super31 = _createSuper(MatDialog);
+        var _super20 = _createSuper(MatDialog);
 
         function MatDialog(overlay, injector,
         /**
@@ -5276,7 +3302,7 @@
         location, defaultOptions, scrollStrategy, parentDialog, overlayContainer) {
           _classCallCheck(this, MatDialog);
 
-          return _super31.call(this, overlay, injector, defaultOptions, parentDialog, overlayContainer, scrollStrategy, MatDialogRef, MatDialogContainer, MAT_DIALOG_DATA);
+          return _super20.call(this, overlay, injector, defaultOptions, parentDialog, overlayContainer, scrollStrategy, MatDialogRef, MatDialogContainer, MAT_DIALOG_DATA);
         }
 
         return MatDialog;
@@ -5566,7 +3592,7 @@
         _createClass(MatDialogTitle, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this12 = this;
 
             if (!this._dialogRef) {
               this._dialogRef = getClosestDialog(this._elementRef, this._dialog.openDialogs);
@@ -5574,10 +3600,10 @@
 
             if (this._dialogRef) {
               Promise.resolve().then(function () {
-                var container = _this27._dialogRef._containerInstance;
+                var container = _this12._dialogRef._containerInstance;
 
                 if (container && !container._ariaLabelledBy) {
-                  container._ariaLabelledBy = _this27.id;
+                  container._ariaLabelledBy = _this12.id;
                 }
               });
             }
@@ -5806,451 +3832,6 @@
     },
 
     /***/
-    "0MNC":
-    /*!*******************************************************************!*\
-      !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/layout.js ***!
-      \*******************************************************************/
-
-    /*! exports provided: BreakpointObserver, Breakpoints, LayoutModule, MediaMatcher */
-
-    /***/
-    function MNC(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "BreakpointObserver", function () {
-        return BreakpointObserver;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "Breakpoints", function () {
-        return Breakpoints;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "LayoutModule", function () {
-        return LayoutModule;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "MediaMatcher", function () {
-        return MediaMatcher;
-      });
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/cdk/coercion */
-      "8LU1");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! rxjs */
-      "qCKp");
-      /* harmony import */
-
-
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! rxjs/operators */
-      "kU1M");
-      /* harmony import */
-
-
-      var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! @angular/cdk/platform */
-      "nLfN");
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-
-      var LayoutModule = function LayoutModule() {
-        _classCallCheck(this, LayoutModule);
-      };
-
-      LayoutModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-        type: LayoutModule
-      });
-      LayoutModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function LayoutModule_Factory(t) {
-          return new (t || LayoutModule)();
-        }
-      });
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LayoutModule, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-          args: [{}]
-        }], null, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Global registry for all dynamically-created, injected media queries. */
-
-
-      var mediaQueriesForWebkitCompatibility = new Set();
-      /** Style tag that holds all of the dynamically-created media queries. */
-
-      var mediaQueryStyleNode;
-      /** A utility for calling matchMedia queries. */
-
-      var MediaMatcher = /*#__PURE__*/function () {
-        function MediaMatcher(_platform) {
-          _classCallCheck(this, MediaMatcher);
-
-          this._platform = _platform;
-          this._matchMedia = this._platform.isBrowser && window.matchMedia ? // matchMedia is bound to the window scope intentionally as it is an illegal invocation to
-          // call it from a different scope.
-          window.matchMedia.bind(window) : noopMatchMedia;
-        }
-        /**
-         * Evaluates the given media query and returns the native MediaQueryList from which results
-         * can be retrieved.
-         * Confirms the layout engine will trigger for the selector query provided and returns the
-         * MediaQueryList for the query provided.
-         */
-
-
-        _createClass(MediaMatcher, [{
-          key: "matchMedia",
-          value: function matchMedia(query) {
-            if (this._platform.WEBKIT) {
-              createEmptyStyleRule(query);
-            }
-
-            return this._matchMedia(query);
-          }
-        }]);
-
-        return MediaMatcher;
-      }();
-
-      MediaMatcher.ɵfac = function MediaMatcher_Factory(t) {
-        return new (t || MediaMatcher)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]));
-      };
-
-      MediaMatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
-        factory: function MediaMatcher_Factory() {
-          return new MediaMatcher(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]));
-        },
-        token: MediaMatcher,
-        providedIn: "root"
-      });
-
-      MediaMatcher.ctorParameters = function () {
-        return [{
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MediaMatcher, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-          }];
-        }, null);
-      })();
-      /**
-       * For Webkit engines that only trigger the MediaQueryListListener when
-       * there is at least one CSS selector for the respective media query.
-       */
-
-
-      function createEmptyStyleRule(query) {
-        if (mediaQueriesForWebkitCompatibility.has(query)) {
-          return;
-        }
-
-        try {
-          if (!mediaQueryStyleNode) {
-            mediaQueryStyleNode = document.createElement('style');
-            mediaQueryStyleNode.setAttribute('type', 'text/css');
-            document.head.appendChild(mediaQueryStyleNode);
-          }
-
-          if (mediaQueryStyleNode.sheet) {
-            mediaQueryStyleNode.sheet.insertRule("@media ".concat(query, " {.fx-query-test{ }}"), 0);
-            mediaQueriesForWebkitCompatibility.add(query);
-          }
-        } catch (e) {
-          console.error(e);
-        }
-      }
-      /** No-op matchMedia replacement for non-browser platforms. */
-
-
-      function noopMatchMedia(query) {
-        // Use `as any` here to avoid adding additional necessary properties for
-        // the noop matcher.
-        return {
-          matches: query === 'all' || query === '',
-          media: query,
-          addListener: function addListener() {},
-          removeListener: function removeListener() {}
-        };
-      }
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Utility for checking the matching state of @media queries. */
-
-
-      var BreakpointObserver = /*#__PURE__*/function () {
-        function BreakpointObserver(_mediaMatcher, _zone) {
-          _classCallCheck(this, BreakpointObserver);
-
-          this._mediaMatcher = _mediaMatcher;
-          this._zone = _zone;
-          /**  A map of all media queries currently being listened for. */
-
-          this._queries = new Map();
-          /** A subject for all other observables to takeUntil based on. */
-
-          this._destroySubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        }
-        /** Completes the active subject, signalling to all other observables to complete. */
-
-
-        _createClass(BreakpointObserver, [{
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this._destroySubject.next();
-
-            this._destroySubject.complete();
-          }
-          /**
-           * Whether one or more media queries match the current viewport size.
-           * @param value One or more media queries to check.
-           * @returns Whether any of the media queries match.
-           */
-
-        }, {
-          key: "isMatched",
-          value: function isMatched(value) {
-            var _this28 = this;
-
-            var queries = splitQueries(Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_1__["coerceArray"])(value));
-            return queries.some(function (mediaQuery) {
-              return _this28._registerQuery(mediaQuery).mql.matches;
-            });
-          }
-          /**
-           * Gets an observable of results for the given queries that will emit new results for any changes
-           * in matching of the given queries.
-           * @param value One or more media queries to check.
-           * @returns A stream of matches for the given queries.
-           */
-
-        }, {
-          key: "observe",
-          value: function observe(value) {
-            var _this29 = this;
-
-            var queries = splitQueries(Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_1__["coerceArray"])(value));
-            var observables = queries.map(function (query) {
-              return _this29._registerQuery(query).observable;
-            });
-            var stateObservable = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])(observables); // Emit the first state immediately, and then debounce the subsequent emissions.
-
-            stateObservable = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["concat"])(stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)), stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["skip"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(0)));
-            return stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (breakpointStates) {
-              var response = {
-                matches: false,
-                breakpoints: {}
-              };
-              breakpointStates.forEach(function (_ref9) {
-                var matches = _ref9.matches,
-                    query = _ref9.query;
-                response.matches = response.matches || matches;
-                response.breakpoints[query] = matches;
-              });
-              return response;
-            }));
-          }
-          /** Registers a specific query to be listened for. */
-
-        }, {
-          key: "_registerQuery",
-          value: function _registerQuery(query) {
-            var _this30 = this;
-
-            // Only set up a new MediaQueryList if it is not already being listened for.
-            if (this._queries.has(query)) {
-              return this._queries.get(query);
-            }
-
-            var mql = this._mediaMatcher.matchMedia(query); // Create callback for match changes and add it is as a listener.
-
-
-            var queryObservable = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
-              // Listener callback methods are wrapped to be placed back in ngZone. Callbacks must be placed
-              // back into the zone because matchMedia is only included in Zone.js by loading the
-              // webapis-media-query.js file alongside the zone.js file.  Additionally, some browsers do not
-              // have MediaQueryList inherit from EventTarget, which causes inconsistencies in how Zone.js
-              // patches it.
-              var handler = function handler(e) {
-                return _this30._zone.run(function () {
-                  return observer.next(e);
-                });
-              };
-
-              mql.addListener(handler);
-              return function () {
-                mql.removeListener(handler);
-              };
-            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(mql), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (_ref10) {
-              var matches = _ref10.matches;
-              return {
-                query: query,
-                matches: matches
-              };
-            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroySubject)); // Add the MediaQueryList to the set of queries.
-
-            var output = {
-              observable: queryObservable,
-              mql: mql
-            };
-
-            this._queries.set(query, output);
-
-            return output;
-          }
-        }]);
-
-        return BreakpointObserver;
-      }();
-
-      BreakpointObserver.ɵfac = function BreakpointObserver_Factory(t) {
-        return new (t || BreakpointObserver)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](MediaMatcher), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]));
-      };
-
-      BreakpointObserver.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
-        factory: function BreakpointObserver_Factory() {
-          return new BreakpointObserver(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(MediaMatcher), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]));
-        },
-        token: BreakpointObserver,
-        providedIn: "root"
-      });
-
-      BreakpointObserver.ctorParameters = function () {
-        return [{
-          type: MediaMatcher
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BreakpointObserver, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: MediaMatcher
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]
-          }];
-        }, null);
-      })();
-      /**
-       * Split each query string into separate query strings if two queries are provided as comma
-       * separated.
-       */
-
-
-      function splitQueries(queries) {
-        return queries.map(function (query) {
-          return query.split(',');
-        }).reduce(function (a1, a2) {
-          return a1.concat(a2);
-        }).map(function (query) {
-          return query.trim();
-        });
-      }
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-      // PascalCase is being used as Breakpoints is used like an enum.
-      // tslint:disable-next-line:variable-name
-
-
-      var Breakpoints = {
-        XSmall: '(max-width: 599.99px)',
-        Small: '(min-width: 600px) and (max-width: 959.99px)',
-        Medium: '(min-width: 960px) and (max-width: 1279.99px)',
-        Large: '(min-width: 1280px) and (max-width: 1919.99px)',
-        XLarge: '(min-width: 1920px)',
-        Handset: '(max-width: 599.99px) and (orientation: portrait), ' + '(max-width: 959.99px) and (orientation: landscape)',
-        Tablet: '(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait), ' + '(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)',
-        Web: '(min-width: 840px) and (orientation: portrait), ' + '(min-width: 1280px) and (orientation: landscape)',
-        HandsetPortrait: '(max-width: 599.99px) and (orientation: portrait)',
-        TabletPortrait: '(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait)',
-        WebPortrait: '(min-width: 840px) and (orientation: portrait)',
-        HandsetLandscape: '(max-width: 959.99px) and (orientation: landscape)',
-        TabletLandscape: '(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)',
-        WebLandscape: '(min-width: 1280px) and (orientation: landscape)'
-      };
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Generated bundle index. Do not edit.
-       */
-      //# sourceMappingURL=layout.js.map
-
-      /***/
-    },
-
-    /***/
     "1s7i":
     /*!*********************************************!*\
       !*** ./src/app/contacts/contacts.module.ts ***!
@@ -6353,6 +3934,12 @@
       var _dialogs_delete_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./dialogs/delete.component */
       "nVz1");
+      /* harmony import */
+
+
+      var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! @angular/material/snack-bar */
+      "dNgK");
 
       var ContactsModule = function ContactsModule() {
         _classCallCheck(this, ContactsModule);
@@ -6365,14 +3952,14 @@
         factory: function ContactsModule_Factory(t) {
           return new (t || ContactsModule)();
         },
-        imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _contacts_routing_module__WEBPACK_IMPORTED_MODULE_3__["ContactsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]], _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]]
+        imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _contacts_routing_module__WEBPACK_IMPORTED_MODULE_3__["ContactsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]], _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_14__["MatSnackBarModule"]]
       });
 
       (function () {
         (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ContactsModule, {
           declarations: [_contacts_component__WEBPACK_IMPORTED_MODULE_2__["ContactsComponent"], _dialogs_contact_form_component__WEBPACK_IMPORTED_MODULE_11__["ContactFormDialog"], _dialogs_delete_component__WEBPACK_IMPORTED_MODULE_13__["DeleteDialog"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _contacts_routing_module__WEBPACK_IMPORTED_MODULE_3__["ContactsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]],
-          exports: [_angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]]
+          exports: [_angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_14__["MatSnackBarModule"]]
         });
       })();
       /*@__PURE__*/
@@ -6383,7 +3970,7 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
           args: [{
             imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _contacts_routing_module__WEBPACK_IMPORTED_MODULE_3__["ContactsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]],
-            exports: [_angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]],
+            exports: [_angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginatorModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_14__["MatSnackBarModule"]],
             declarations: [_contacts_component__WEBPACK_IMPORTED_MODULE_2__["ContactsComponent"], _dialogs_contact_form_component__WEBPACK_IMPORTED_MODULE_11__["ContactFormDialog"], _dialogs_delete_component__WEBPACK_IMPORTED_MODULE_13__["DeleteDialog"]]
           }]
         }], null, null);
@@ -6814,26 +4401,26 @@
       var MatPaginator = /*#__PURE__*/function (_MatPaginatorBase2) {
         _inherits(MatPaginator, _MatPaginatorBase2);
 
-        var _super32 = _createSuper(MatPaginator);
+        var _super21 = _createSuper(MatPaginator);
 
         function MatPaginator(_intl, _changeDetectorRef, defaults) {
-          var _this31;
+          var _this13;
 
           _classCallCheck(this, MatPaginator);
 
-          _this31 = _super32.call(this);
-          _this31._intl = _intl;
-          _this31._changeDetectorRef = _changeDetectorRef;
-          _this31._pageIndex = 0;
-          _this31._length = 0;
-          _this31._pageSizeOptions = [];
-          _this31._hidePageSize = false;
-          _this31._showFirstLastButtons = false;
+          _this13 = _super21.call(this);
+          _this13._intl = _intl;
+          _this13._changeDetectorRef = _changeDetectorRef;
+          _this13._pageIndex = 0;
+          _this13._length = 0;
+          _this13._pageSizeOptions = [];
+          _this13._hidePageSize = false;
+          _this13._showFirstLastButtons = false;
           /** Event emitted when the paginator changes the page size or page index. */
 
-          _this31.page = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          _this31._intlChanges = _intl.changes.subscribe(function () {
-            return _this31._changeDetectorRef.markForCheck();
+          _this13.page = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this13._intlChanges = _intl.changes.subscribe(function () {
+            return _this13._changeDetectorRef.markForCheck();
           });
 
           if (defaults) {
@@ -6844,27 +4431,27 @@
                 formFieldAppearance = defaults.formFieldAppearance;
 
             if (pageSize != null) {
-              _this31._pageSize = pageSize;
+              _this13._pageSize = pageSize;
             }
 
             if (pageSizeOptions != null) {
-              _this31._pageSizeOptions = pageSizeOptions;
+              _this13._pageSizeOptions = pageSizeOptions;
             }
 
             if (hidePageSize != null) {
-              _this31._hidePageSize = hidePageSize;
+              _this13._hidePageSize = hidePageSize;
             }
 
             if (showFirstLastButtons != null) {
-              _this31._showFirstLastButtons = showFirstLastButtons;
+              _this13._showFirstLastButtons = showFirstLastButtons;
             }
 
             if (formFieldAppearance != null) {
-              _this31._formFieldAppearance = formFieldAppearance;
+              _this13._formFieldAppearance = formFieldAppearance;
             }
           }
 
-          return _this31;
+          return _this13;
         }
         /** The zero-based page index of the displayed list of items. Defaulted to 0. */
 
@@ -7691,7 +5278,7 @@
 
       var MatTooltip = /*#__PURE__*/function () {
         function MatTooltip(_overlay, _elementRef, _scrollDispatcher, _viewContainerRef, _ngZone, _platform, _ariaDescriber, _focusMonitor, scrollStrategy, _dir, _defaultOptions) {
-          var _this32 = this;
+          var _this14 = this;
 
           _classCallCheck(this, MatTooltip);
 
@@ -7744,12 +5331,12 @@
            */
 
           this._handleKeydown = function (event) {
-            if (_this32._isTooltipVisible() && event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__["ESCAPE"] && !Object(_angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__["hasModifierKey"])(event)) {
+            if (_this14._isTooltipVisible() && event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__["ESCAPE"] && !Object(_angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__["hasModifierKey"])(event)) {
               event.preventDefault();
               event.stopPropagation();
 
-              _this32._ngZone.run(function () {
-                return _this32.hide(0);
+              _this14._ngZone.run(function () {
+                return _this14.hide(0);
               });
             }
           };
@@ -7767,7 +5354,7 @@
           }
 
           _ngZone.runOutsideAngular(function () {
-            _elementRef.nativeElement.addEventListener('keydown', _this32._handleKeydown);
+            _elementRef.nativeElement.addEventListener('keydown', _this14._handleKeydown);
           });
         }
         /** Allows the user to define the position of the tooltip relative to the parent element */
@@ -7776,7 +5363,7 @@
         _createClass(MatTooltip, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this33 = this;
+            var _this15 = this;
 
             // This needs to happen after view init so the initial values for all inputs have been set.
             this._viewInitialized = true;
@@ -7786,12 +5373,12 @@
             this._focusMonitor.monitor(this._elementRef).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(function (origin) {
               // Note that the focus monitor runs outside the Angular zone.
               if (!origin) {
-                _this33._ngZone.run(function () {
-                  return _this33.hide(0);
+                _this15._ngZone.run(function () {
+                  return _this15.hide(0);
                 });
               } else if (origin === 'keyboard') {
-                _this33._ngZone.run(function () {
-                  return _this33.show();
+                _this15._ngZone.run(function () {
+                  return _this15.show();
                 });
               }
             });
@@ -7815,10 +5402,10 @@
 
             nativeElement.removeEventListener('keydown', this._handleKeydown);
 
-            this._passiveListeners.forEach(function (_ref11) {
-              var _ref12 = _slicedToArray(_ref11, 2),
-                  event = _ref12[0],
-                  listener = _ref12[1];
+            this._passiveListeners.forEach(function (_ref9) {
+              var _ref10 = _slicedToArray(_ref9, 2),
+                  event = _ref10[0],
+                  listener = _ref10[1];
 
               nativeElement.removeEventListener(event, listener, passiveListenerOptions);
             });
@@ -7838,7 +5425,7 @@
         }, {
           key: "show",
           value: function show() {
-            var _this34 = this;
+            var _this16 = this;
 
             var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.showDelay;
 
@@ -7854,7 +5441,7 @@
             this._tooltipInstance = overlayRef.attach(this._portal).instance;
 
             this._tooltipInstance.afterHidden().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(function () {
-              return _this34._detach();
+              return _this16._detach();
             });
 
             this._setTooltipClass(this._tooltipClass);
@@ -7893,7 +5480,7 @@
         }, {
           key: "_createOverlay",
           value: function _createOverlay() {
-            var _this35 = this;
+            var _this17 = this;
 
             if (this._overlayRef) {
               return this._overlayRef;
@@ -7905,12 +5492,12 @@
             var strategy = this._overlay.position().flexibleConnectedTo(this._elementRef).withTransformOriginOn('.mat-tooltip').withFlexibleDimensions(false).withViewportMargin(8).withScrollableContainers(scrollableAncestors);
 
             strategy.positionChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(function (change) {
-              if (_this35._tooltipInstance) {
-                if (change.scrollableViewProperties.isOverlayClipped && _this35._tooltipInstance.isVisible()) {
+              if (_this17._tooltipInstance) {
+                if (change.scrollableViewProperties.isOverlayClipped && _this17._tooltipInstance.isVisible()) {
                   // After position changes occur and the overlay is clipped by
                   // a parent scrollable then close the tooltip.
-                  _this35._ngZone.run(function () {
-                    return _this35.hide(0);
+                  _this17._ngZone.run(function () {
+                    return _this17.hide(0);
                   });
                 }
               }
@@ -7925,7 +5512,7 @@
             this._updatePosition();
 
             this._overlayRef.detachments().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(function () {
-              return _this35._detach();
+              return _this17._detach();
             });
 
             return this._overlayRef;
@@ -8047,7 +5634,7 @@
         }, {
           key: "_updateTooltipMessage",
           value: function _updateTooltipMessage() {
-            var _this36 = this;
+            var _this18 = this;
 
             // Must wait for the message to be painted to the tooltip so that the overlay can properly
             // calculate the correct positioning based on the size of the text.
@@ -8057,8 +5644,8 @@
               this._tooltipInstance._markForCheck();
 
               this._ngZone.onMicrotaskEmpty.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(function () {
-                if (_this36._tooltipInstance) {
-                  _this36._overlayRef.updatePosition();
+                if (_this18._tooltipInstance) {
+                  _this18._overlayRef.updatePosition();
                 }
               });
             }
@@ -8103,7 +5690,7 @@
         }, {
           key: "_setupPointerEnterEventsIfNeeded",
           value: function _setupPointerEnterEventsIfNeeded() {
-            var _this37 = this;
+            var _this19 = this;
 
             // Optimization: Defer hooking up events if there's no message or the tooltip is disabled.
             if (this._disabled || !this.message || !this._viewInitialized || this._passiveListeners.length) {
@@ -8114,9 +5701,9 @@
 
             if (this._platformSupportsMouseEvents()) {
               this._passiveListeners.push(['mouseenter', function () {
-                _this37._setupPointerExitEventsIfNeeded();
+                _this19._setupPointerExitEventsIfNeeded();
 
-                _this37.show();
+                _this19.show();
               }]);
             } else if (this.touchGestures !== 'off') {
               this._disableNativeGesturesIfNecessary();
@@ -8124,11 +5711,11 @@
               this._passiveListeners.push(['touchstart', function () {
                 // Note that it's important that we don't `preventDefault` here,
                 // because it can prevent click events from firing on the element.
-                _this37._setupPointerExitEventsIfNeeded();
+                _this19._setupPointerExitEventsIfNeeded();
 
-                clearTimeout(_this37._touchstartTimeout);
-                _this37._touchstartTimeout = setTimeout(function () {
-                  return _this37.show();
+                clearTimeout(_this19._touchstartTimeout);
+                _this19._touchstartTimeout = setTimeout(function () {
+                  return _this19.show();
                 }, LONGPRESS_DELAY);
               }]);
             }
@@ -8138,7 +5725,7 @@
         }, {
           key: "_setupPointerExitEventsIfNeeded",
           value: function _setupPointerExitEventsIfNeeded() {
-            var _this38 = this,
+            var _this20 = this,
                 _this$_passiveListene;
 
             if (this._pointerExitEventsInitialized) {
@@ -8150,15 +5737,15 @@
 
             if (this._platformSupportsMouseEvents()) {
               exitListeners.push(['mouseleave', function () {
-                return _this38.hide();
+                return _this20.hide();
               }]);
             } else if (this.touchGestures !== 'off') {
               this._disableNativeGesturesIfNecessary();
 
               var touchendListener = function touchendListener() {
-                clearTimeout(_this38._touchstartTimeout);
+                clearTimeout(_this20._touchstartTimeout);
 
-                _this38.hide(_this38._defaultOptions.touchendHideDelay);
+                _this20.hide(_this20._defaultOptions.touchendHideDelay);
               };
 
               exitListeners.push(['touchend', touchendListener], ['touchcancel', touchendListener]);
@@ -8171,14 +5758,14 @@
         }, {
           key: "_addListeners",
           value: function _addListeners(listeners) {
-            var _this39 = this;
+            var _this21 = this;
 
-            listeners.forEach(function (_ref13) {
-              var _ref14 = _slicedToArray(_ref13, 2),
-                  event = _ref14[0],
-                  listener = _ref14[1];
+            listeners.forEach(function (_ref11) {
+              var _ref12 = _slicedToArray(_ref11, 2),
+                  event = _ref12[0],
+                  listener = _ref12[1];
 
-              _this39._elementRef.nativeElement.addEventListener(event, listener, passiveListenerOptions);
+              _this21._elementRef.nativeElement.addEventListener(event, listener, passiveListenerOptions);
             });
           }
         }, {
@@ -8256,7 +5843,7 @@
             return this._message;
           },
           set: function set(value) {
-            var _this40 = this;
+            var _this22 = this;
 
             this._ariaDescriber.removeDescription(this._elementRef.nativeElement, this._message); // If the message is not a string (e.g. number), convert it to a string and trim it.
             // Must convert with `String(value)`, not `${value}`, otherwise Closure Compiler optimises
@@ -8278,7 +5865,7 @@
                 // has a data-bound `aria-label` or when it'll be set for the first time. We can avoid the
                 // issue by deferring the description by a tick so Angular has time to set the `aria-label`.
                 Promise.resolve().then(function () {
-                  _this40._ariaDescriber.describe(_this40._elementRef.nativeElement, _this40.message);
+                  _this22._ariaDescriber.describe(_this22._elementRef.nativeElement, _this22.message);
                 });
               });
             }
@@ -8505,7 +6092,7 @@
         _createClass(TooltipComponent, [{
           key: "show",
           value: function show(delay) {
-            var _this41 = this;
+            var _this23 = this;
 
             // Cancel the delayed hide if it is scheduled
             if (this._hideTimeoutId) {
@@ -8516,11 +6103,11 @@
 
             this._closeOnInteraction = true;
             this._showTimeoutId = setTimeout(function () {
-              _this41._visibility = 'visible';
-              _this41._showTimeoutId = null; // Mark for check so if any parent component has set the
+              _this23._visibility = 'visible';
+              _this23._showTimeoutId = null; // Mark for check so if any parent component has set the
               // ChangeDetectionStrategy to OnPush it will be checked anyways
 
-              _this41._markForCheck();
+              _this23._markForCheck();
             }, delay);
           }
           /**
@@ -8531,7 +6118,7 @@
         }, {
           key: "hide",
           value: function hide(delay) {
-            var _this42 = this;
+            var _this24 = this;
 
             // Cancel the delayed show if it is scheduled
             if (this._showTimeoutId) {
@@ -8540,11 +6127,11 @@
             }
 
             this._hideTimeoutId = setTimeout(function () {
-              _this42._visibility = 'hidden';
-              _this42._hideTimeoutId = null; // Mark for check so if any parent component has set the
+              _this24._visibility = 'hidden';
+              _this24._hideTimeoutId = null; // Mark for check so if any parent component has set the
               // ChangeDetectionStrategy to OnPush it will be checked anyways
 
-              _this42._markForCheck();
+              _this24._markForCheck();
             }, delay);
           }
           /** Returns an observable that notifies when the tooltip has been hidden from view. */
@@ -8987,7 +6574,7 @@
       var MatCheckbox = /*#__PURE__*/function (_MatCheckboxMixinBase2) {
         _inherits(MatCheckbox, _MatCheckboxMixinBase2);
 
-        var _super33 = _createSuper(MatCheckbox);
+        var _super22 = _createSuper(MatCheckbox);
 
         function MatCheckbox(elementRef, _changeDetectorRef, _focusMonitor, _ngZone, tabIndex,
         /**
@@ -8996,71 +6583,71 @@
          * @breaking-change 10.0.0
          */
         _clickAction, _animationMode, _options) {
-          var _this43;
+          var _this25;
 
           _classCallCheck(this, MatCheckbox);
 
-          _this43 = _super33.call(this, elementRef);
-          _this43._changeDetectorRef = _changeDetectorRef;
-          _this43._focusMonitor = _focusMonitor;
-          _this43._ngZone = _ngZone;
-          _this43._clickAction = _clickAction;
-          _this43._animationMode = _animationMode;
-          _this43._options = _options;
+          _this25 = _super22.call(this, elementRef);
+          _this25._changeDetectorRef = _changeDetectorRef;
+          _this25._focusMonitor = _focusMonitor;
+          _this25._ngZone = _ngZone;
+          _this25._clickAction = _clickAction;
+          _this25._animationMode = _animationMode;
+          _this25._options = _options;
           /**
            * Attached to the aria-label attribute of the host element. In most cases, aria-labelledby will
            * take precedence so this may be omitted.
            */
 
-          _this43.ariaLabel = '';
+          _this25.ariaLabel = '';
           /**
            * Users can specify the `aria-labelledby` attribute which will be forwarded to the input element
            */
 
-          _this43.ariaLabelledby = null;
-          _this43._uniqueId = "mat-checkbox-".concat(++nextUniqueId);
+          _this25.ariaLabelledby = null;
+          _this25._uniqueId = "mat-checkbox-".concat(++nextUniqueId);
           /** A unique id for the checkbox input. If none is supplied, it will be auto-generated. */
 
-          _this43.id = _this43._uniqueId;
+          _this25.id = _this25._uniqueId;
           /** Whether the label should appear after or before the checkbox. Defaults to 'after' */
 
-          _this43.labelPosition = 'after';
+          _this25.labelPosition = 'after';
           /** Name value will be applied to the input element if present */
 
-          _this43.name = null;
+          _this25.name = null;
           /** Event emitted when the checkbox's `checked` value changes. */
 
-          _this43.change = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+          _this25.change = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
           /** Event emitted when the checkbox's `indeterminate` value changes. */
 
-          _this43.indeterminateChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+          _this25.indeterminateChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
           /**
            * Called when the checkbox is blurred. Needed to properly implement ControlValueAccessor.
            * @docs-private
            */
 
-          _this43._onTouched = function () {};
+          _this25._onTouched = function () {};
 
-          _this43._currentAnimationClass = '';
-          _this43._currentCheckState = 0
+          _this25._currentAnimationClass = '';
+          _this25._currentCheckState = 0
           /* Init */
           ;
 
-          _this43._controlValueAccessorChangeFn = function () {};
+          _this25._controlValueAccessorChangeFn = function () {};
 
-          _this43._checked = false;
-          _this43._disabled = false;
-          _this43._indeterminate = false;
-          _this43._options = _this43._options || {};
+          _this25._checked = false;
+          _this25._disabled = false;
+          _this25._indeterminate = false;
+          _this25._options = _this25._options || {};
 
-          if (_this43._options.color) {
-            _this43.color = _this43.defaultColor = _this43._options.color;
+          if (_this25._options.color) {
+            _this25.color = _this25.defaultColor = _this25._options.color;
           }
 
-          _this43.tabIndex = parseInt(tabIndex) || 0; // TODO: Remove this after the `_clickAction` parameter is removed as an injection parameter.
+          _this25.tabIndex = parseInt(tabIndex) || 0; // TODO: Remove this after the `_clickAction` parameter is removed as an injection parameter.
 
-          _this43._clickAction = _this43._clickAction || _this43._options.clickAction;
-          return _this43;
+          _this25._clickAction = _this25._clickAction || _this25._options.clickAction;
+          return _this25;
         }
         /** Returns the unique id for the visual hidden input. */
 
@@ -9068,7 +6655,7 @@
         _createClass(MatCheckbox, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this44 = this;
+            var _this26 = this;
 
             this._focusMonitor.monitor(this._elementRef, true).subscribe(function (focusOrigin) {
               if (!focusOrigin) {
@@ -9078,9 +6665,9 @@
                 // See https://github.com/angular/angular/issues/17793. To work around this, we defer
                 // telling the form control it has been touched until the next tick.
                 Promise.resolve().then(function () {
-                  _this44._onTouched();
+                  _this26._onTouched();
 
-                  _this44._changeDetectorRef.markForCheck();
+                  _this26._changeDetectorRef.markForCheck();
                 });
               }
             });
@@ -9208,7 +6795,7 @@
         }, {
           key: "_onInputClick",
           value: function _onInputClick(event) {
-            var _this45 = this;
+            var _this27 = this;
 
             // We have to stop propagation for click events on the visual hidden input element.
             // By default, when a user clicks on a label element, a generated click event will be
@@ -9223,9 +6810,9 @@
               // When user manually click on the checkbox, `indeterminate` is set to false.
               if (this.indeterminate && this._clickAction !== 'check') {
                 Promise.resolve().then(function () {
-                  _this45._indeterminate = false;
+                  _this27._indeterminate = false;
 
-                  _this45.indeterminateChange.emit(_this45._indeterminate);
+                  _this27.indeterminateChange.emit(_this27._indeterminate);
                 });
               }
 
@@ -9812,12 +7399,12 @@
       var MatCheckboxRequiredValidator = /*#__PURE__*/function (_angular_forms__WEBPA) {
         _inherits(MatCheckboxRequiredValidator, _angular_forms__WEBPA);
 
-        var _super34 = _createSuper(MatCheckboxRequiredValidator);
+        var _super23 = _createSuper(MatCheckboxRequiredValidator);
 
         function MatCheckboxRequiredValidator() {
           _classCallCheck(this, MatCheckboxRequiredValidator);
 
-          return _super34.apply(this, arguments);
+          return _super23.apply(this, arguments);
         }
 
         return MatCheckboxRequiredValidator;
@@ -10490,73 +8077,73 @@
       var MatSelect = /*#__PURE__*/function (_MatSelectMixinBase2) {
         _inherits(MatSelect, _MatSelectMixinBase2);
 
-        var _super35 = _createSuper(MatSelect);
+        var _super24 = _createSuper(MatSelect);
 
         function MatSelect(_viewportRuler, _changeDetectorRef, _ngZone, _defaultErrorStateMatcher, elementRef, _dir, _parentForm, _parentFormGroup, _parentFormField, ngControl, tabIndex, scrollStrategyFactory, _liveAnnouncer, defaults) {
-          var _this46;
+          var _this28;
 
           _classCallCheck(this, MatSelect);
 
-          _this46 = _super35.call(this, elementRef, _defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl);
-          _this46._viewportRuler = _viewportRuler;
-          _this46._changeDetectorRef = _changeDetectorRef;
-          _this46._ngZone = _ngZone;
-          _this46._dir = _dir;
-          _this46._parentFormField = _parentFormField;
-          _this46.ngControl = ngControl;
-          _this46._liveAnnouncer = _liveAnnouncer;
+          _this28 = _super24.call(this, elementRef, _defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl);
+          _this28._viewportRuler = _viewportRuler;
+          _this28._changeDetectorRef = _changeDetectorRef;
+          _this28._ngZone = _ngZone;
+          _this28._dir = _dir;
+          _this28._parentFormField = _parentFormField;
+          _this28.ngControl = ngControl;
+          _this28._liveAnnouncer = _liveAnnouncer;
           /** Whether or not the overlay panel is open. */
 
-          _this46._panelOpen = false;
+          _this28._panelOpen = false;
           /** Whether filling out the select is required in the form. */
 
-          _this46._required = false;
+          _this28._required = false;
           /** The scroll position of the overlay panel, calculated to center the selected option. */
 
-          _this46._scrollTop = 0;
+          _this28._scrollTop = 0;
           /** Whether the component is in multiple selection mode. */
 
-          _this46._multiple = false;
+          _this28._multiple = false;
           /** Comparison function to specify which option is displayed. Defaults to object equality. */
 
-          _this46._compareWith = function (o1, o2) {
+          _this28._compareWith = function (o1, o2) {
             return o1 === o2;
           };
           /** Unique id for this input. */
 
 
-          _this46._uid = "mat-select-".concat(nextUniqueId++);
+          _this28._uid = "mat-select-".concat(nextUniqueId++);
           /** Current `ariar-labelledby` value for the select trigger. */
 
-          _this46._triggerAriaLabelledBy = null;
+          _this28._triggerAriaLabelledBy = null;
           /** Emits whenever the component is destroyed. */
 
-          _this46._destroy = new rxjs__WEBPACK_IMPORTED_MODULE_12__["Subject"]();
+          _this28._destroy = new rxjs__WEBPACK_IMPORTED_MODULE_12__["Subject"]();
           /** The cached font-size of the trigger element. */
 
-          _this46._triggerFontSize = 0;
+          _this28._triggerFontSize = 0;
           /** `View -> model callback called when value changes` */
 
-          _this46._onChange = function () {};
+          _this28._onChange = function () {};
           /** `View -> model callback called when select has been touched` */
 
 
-          _this46._onTouched = function () {};
+          _this28._onTouched = function () {};
 
-          _this46._valueId = "mat-select-value-".concat(nextUniqueId++);
+          _this28._valueId = "mat-select-value-".concat(nextUniqueId++);
           /** The value of the select panel's transform-origin property. */
 
-          _this46._transformOrigin = 'top';
+          _this28._transformOrigin = 'top';
           /** Emits when the panel element is finished transforming in. */
 
-          _this46._panelDoneAnimatingStream = new rxjs__WEBPACK_IMPORTED_MODULE_12__["Subject"]();
+          _this28._panelDoneAnimatingStream = new rxjs__WEBPACK_IMPORTED_MODULE_12__["Subject"]();
           /**
            * The y-offset of the overlay panel in relation to the trigger's top start corner.
            * This must be adjusted to align the selected option text over the trigger text.
            * when the panel opens. Will change based on the y-position of the selected option.
            */
 
-          _this46._offsetY = 0;
+          _this28._offsetY = 0;
           /**
            * This position config ensures that the top "start" corner of the overlay
            * is aligned with with the top "start" of the origin by default (overlapping
@@ -10564,7 +8151,7 @@
            * will fall back to a position above the trigger.
            */
 
-          _this46._positions = [{
+          _this28._positions = [{
             originX: 'start',
             originY: 'top',
             overlayX: 'start',
@@ -10577,18 +8164,18 @@
           }];
           /** Whether the component is disabling centering of the active option over the trigger. */
 
-          _this46._disableOptionCentering = false;
-          _this46._focused = false;
+          _this28._disableOptionCentering = false;
+          _this28._focused = false;
           /** A name for this control that can be used by `mat-form-field`. */
 
-          _this46.controlType = 'mat-select';
+          _this28.controlType = 'mat-select';
           /** Aria label of the select. If not specified, the placeholder will be used as label. */
 
-          _this46.ariaLabel = '';
+          _this28.ariaLabel = '';
           /** Combined stream of all of the child options' change events. */
 
-          _this46.optionSelectionChanges = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["defer"])(function () {
-            var options = _this46.options;
+          _this28.optionSelectionChanges = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["defer"])(function () {
+            var options = _this28.options;
 
             if (options) {
               return options.changes.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["startWith"])(options), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["switchMap"])(function () {
@@ -10598,57 +8185,57 @@
               }));
             }
 
-            return _this46._ngZone.onStable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["switchMap"])(function () {
-              return _this46.optionSelectionChanges;
+            return _this28._ngZone.onStable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["switchMap"])(function () {
+              return _this28.optionSelectionChanges;
             }));
           });
           /** Event emitted when the select panel has been toggled. */
 
-          _this46.openedChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+          _this28.openedChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
           /** Event emitted when the select has been opened. */
 
-          _this46._openedStream = _this46.openedChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["filter"])(function (o) {
+          _this28._openedStream = _this28.openedChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["filter"])(function (o) {
             return o;
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["map"])(function () {}));
           /** Event emitted when the select has been closed. */
 
-          _this46._closedStream = _this46.openedChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["filter"])(function (o) {
+          _this28._closedStream = _this28.openedChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["filter"])(function (o) {
             return !o;
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["map"])(function () {}));
           /** Event emitted when the selected value has been changed by the user. */
 
-          _this46.selectionChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+          _this28.selectionChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
           /**
            * Event that emits whenever the raw value of the select changes. This is here primarily
            * to facilitate the two-way binding for the `value` input.
            * @docs-private
            */
 
-          _this46.valueChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+          _this28.valueChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
 
-          if (_this46.ngControl) {
+          if (_this28.ngControl) {
             // Note: we provide the value accessor through here, instead of
             // the `providers` to avoid running into a circular import.
-            _this46.ngControl.valueAccessor = _assertThisInitialized(_this46);
+            _this28.ngControl.valueAccessor = _assertThisInitialized(_this28);
           }
 
-          _this46._scrollStrategyFactory = scrollStrategyFactory;
-          _this46._scrollStrategy = _this46._scrollStrategyFactory();
-          _this46.tabIndex = parseInt(tabIndex) || 0; // Force setter to be called in case id was not specified.
+          _this28._scrollStrategyFactory = scrollStrategyFactory;
+          _this28._scrollStrategy = _this28._scrollStrategyFactory();
+          _this28.tabIndex = parseInt(tabIndex) || 0; // Force setter to be called in case id was not specified.
 
-          _this46.id = _this46.id;
+          _this28.id = _this28.id;
 
           if (defaults) {
             if (defaults.disableOptionCentering != null) {
-              _this46.disableOptionCentering = defaults.disableOptionCentering;
+              _this28.disableOptionCentering = defaults.disableOptionCentering;
             }
 
             if (defaults.typeaheadDebounceInterval != null) {
-              _this46.typeaheadDebounceInterval = defaults.typeaheadDebounceInterval;
+              _this28.typeaheadDebounceInterval = defaults.typeaheadDebounceInterval;
             }
           }
 
-          return _this46;
+          return _this28;
         }
         /** Whether the select is focused. */
 
@@ -10656,7 +8243,7 @@
         _createClass(MatSelect, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this47 = this;
+            var _this29 = this;
 
             this._selectionModel = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_9__["SelectionModel"](this.multiple);
             this.stateChanges.next(); // We need `distinctUntilChanged` here, because some browsers will
@@ -10664,31 +8251,31 @@
             // https://github.com/angular/angular/issues/24084
 
             this._panelDoneAnimatingStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroy)).subscribe(function () {
-              if (_this47.panelOpen) {
-                _this47._scrollTop = 0;
+              if (_this29.panelOpen) {
+                _this29._scrollTop = 0;
 
-                _this47.openedChange.emit(true);
+                _this29.openedChange.emit(true);
               } else {
-                _this47.openedChange.emit(false);
+                _this29.openedChange.emit(false);
 
-                _this47.overlayDir.offsetX = 0;
+                _this29.overlayDir.offsetX = 0;
 
-                _this47._changeDetectorRef.markForCheck();
+                _this29._changeDetectorRef.markForCheck();
               }
             });
 
             this._viewportRuler.change().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroy)).subscribe(function () {
-              if (_this47._panelOpen) {
-                _this47._triggerRect = _this47.trigger.nativeElement.getBoundingClientRect();
+              if (_this29._panelOpen) {
+                _this29._triggerRect = _this29.trigger.nativeElement.getBoundingClientRect();
 
-                _this47._changeDetectorRef.markForCheck();
+                _this29._changeDetectorRef.markForCheck();
               }
             });
           }
         }, {
           key: "ngAfterContentInit",
           value: function ngAfterContentInit() {
-            var _this48 = this;
+            var _this30 = this;
 
             this._initKeyManager();
 
@@ -10702,9 +8289,9 @@
             });
 
             this.options.changes.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["startWith"])(null), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroy)).subscribe(function () {
-              _this48._resetOptions();
+              _this30._resetOptions();
 
-              _this48._initializeSelection();
+              _this30._initializeSelection();
             });
           }
         }, {
@@ -10764,7 +8351,7 @@
         }, {
           key: "open",
           value: function open() {
-            var _this49 = this;
+            var _this31 = this;
 
             if (this.disabled || !this.options || !this.options.length || this._panelOpen) {
               return;
@@ -10786,8 +8373,8 @@
 
 
             this._ngZone.onStable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["take"])(1)).subscribe(function () {
-              if (_this49._triggerFontSize && _this49.overlayDir.overlayRef && _this49.overlayDir.overlayRef.overlayElement) {
-                _this49.overlayDir.overlayRef.overlayElement.style.fontSize = "".concat(_this49._triggerFontSize, "px");
+              if (_this31._triggerFontSize && _this31.overlayDir.overlayRef && _this31.overlayDir.overlayRef.overlayElement) {
+                _this31.overlayDir.overlayRef.overlayElement.style.fontSize = "".concat(_this31._triggerFontSize, "px");
               }
             });
           }
@@ -10975,14 +8562,14 @@
         }, {
           key: "_onAttached",
           value: function _onAttached() {
-            var _this50 = this;
+            var _this32 = this;
 
             this.overlayDir.positionChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["take"])(1)).subscribe(function () {
-              _this50._changeDetectorRef.detectChanges();
+              _this32._changeDetectorRef.detectChanges();
 
-              _this50._calculateOverlayOffsetX();
+              _this32._calculateOverlayOffsetX();
 
-              _this50.panel.nativeElement.scrollTop = _this50._scrollTop;
+              _this32.panel.nativeElement.scrollTop = _this32._scrollTop;
             });
           }
           /** Returns the theme to be used on the panel. */
@@ -10997,14 +8584,14 @@
         }, {
           key: "_initializeSelection",
           value: function _initializeSelection() {
-            var _this51 = this;
+            var _this33 = this;
 
             // Defer setting the value in order to avoid the "Expression
             // has changed after it was checked" errors from Angular.
             Promise.resolve().then(function () {
-              _this51._setSelectionByValue(_this51.ngControl ? _this51.ngControl.value : _this51._value);
+              _this33._setSelectionByValue(_this33.ngControl ? _this33.ngControl.value : _this33._value);
 
-              _this51.stateChanges.next();
+              _this33.stateChanges.next();
             });
           }
           /**
@@ -11015,7 +8602,7 @@
         }, {
           key: "_setSelectionByValue",
           value: function _setSelectionByValue(value) {
-            var _this52 = this;
+            var _this34 = this;
 
             if (this.multiple && value) {
               if (!Array.isArray(value) && (typeof ngDevMode === 'undefined' || ngDevMode)) {
@@ -11025,7 +8612,7 @@
               this._selectionModel.clear();
 
               value.forEach(function (currentValue) {
-                return _this52._selectValue(currentValue);
+                return _this34._selectValue(currentValue);
               });
 
               this._sortValues();
@@ -11055,12 +8642,12 @@
         }, {
           key: "_selectValue",
           value: function _selectValue(value) {
-            var _this53 = this;
+            var _this35 = this;
 
             var correspondingOption = this.options.find(function (option) {
               try {
                 // Treat null as a special reset value.
-                return option.value != null && _this53._compareWith(option.value, value);
+                return option.value != null && _this35._compareWith(option.value, value);
               } catch (error) {
                 if (typeof ngDevMode === 'undefined' || ngDevMode) {
                   // Notify developers of errors in their comparator.
@@ -11082,31 +8669,31 @@
         }, {
           key: "_initKeyManager",
           value: function _initKeyManager() {
-            var _this54 = this;
+            var _this36 = this;
 
             this._keyManager = new _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_6__["ActiveDescendantKeyManager"](this.options).withTypeAhead(this._typeaheadDebounceInterval).withVerticalOrientation().withHorizontalOrientation(this._isRtl() ? 'rtl' : 'ltr').withHomeAndEnd().withAllowedModifierKeys(['shiftKey']);
 
             this._keyManager.tabOut.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroy)).subscribe(function () {
-              if (_this54.panelOpen) {
+              if (_this36.panelOpen) {
                 // Select the active item when tabbing away. This is consistent with how the native
                 // select behaves. Note that we only want to do this in single selection mode.
-                if (!_this54.multiple && _this54._keyManager.activeItem) {
-                  _this54._keyManager.activeItem._selectViaInteraction();
+                if (!_this36.multiple && _this36._keyManager.activeItem) {
+                  _this36._keyManager.activeItem._selectViaInteraction();
                 } // Restore focus to the trigger before closing. Ensures that the focus
                 // position won't be lost if the user got focus into the overlay.
 
 
-                _this54.focus();
+                _this36.focus();
 
-                _this54.close();
+                _this36.close();
               }
             });
 
             this._keyManager.change.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroy)).subscribe(function () {
-              if (_this54._panelOpen && _this54.panel) {
-                _this54._scrollActiveOptionIntoView();
-              } else if (!_this54._panelOpen && !_this54.multiple && _this54._keyManager.activeItem) {
-                _this54._keyManager.activeItem._selectViaInteraction();
+              if (_this36._panelOpen && _this36.panel) {
+                _this36._scrollActiveOptionIntoView();
+              } else if (!_this36._panelOpen && !_this36.multiple && _this36._keyManager.activeItem) {
+                _this36._keyManager.activeItem._selectViaInteraction();
               }
             });
           }
@@ -11115,16 +8702,16 @@
         }, {
           key: "_resetOptions",
           value: function _resetOptions() {
-            var _this55 = this;
+            var _this37 = this;
 
             var changedOrDestroyed = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["merge"])(this.options.changes, this._destroy);
             this.optionSelectionChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(changedOrDestroyed)).subscribe(function (event) {
-              _this55._onSelect(event.source, event.isUserInput);
+              _this37._onSelect(event.source, event.isUserInput);
 
-              if (event.isUserInput && !_this55.multiple && _this55._panelOpen) {
-                _this55.close();
+              if (event.isUserInput && !_this37.multiple && _this37._panelOpen) {
+                _this37.close();
 
-                _this55.focus();
+                _this37.focus();
               }
             }); // Listen to changes in the internal state of the options and react accordingly.
             // Handles cases like the labels of the selected options changing.
@@ -11132,9 +8719,9 @@
             Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["merge"]).apply(void 0, _toConsumableArray(this.options.map(function (option) {
               return option._stateChanges;
             }))).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(changedOrDestroyed)).subscribe(function () {
-              _this55._changeDetectorRef.markForCheck();
+              _this37._changeDetectorRef.markForCheck();
 
-              _this55.stateChanges.next();
+              _this37.stateChanges.next();
             });
           }
           /** Invoked when an option is clicked. */
@@ -11185,13 +8772,13 @@
         }, {
           key: "_sortValues",
           value: function _sortValues() {
-            var _this56 = this;
+            var _this38 = this;
 
             if (this.multiple) {
               var options = this.options.toArray();
 
               this._selectionModel.sort(function (a, b) {
-                return _this56.sortComparator ? _this56.sortComparator(a, b, options) : options.indexOf(a) - options.indexOf(b);
+                return _this38.sortComparator ? _this38.sortComparator(a, b, options) : options.indexOf(a) - options.indexOf(b);
               });
 
               this.stateChanges.next();
@@ -12772,23 +10359,23 @@
         return /*#__PURE__*/function (_base) {
           _inherits(_class, _base);
 
-          var _super36 = _createSuper(_class);
+          var _super25 = _createSuper(_class);
 
           function _class() {
-            var _this57;
+            var _this39;
 
             _classCallCheck(this, _class);
 
-            for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-              args[_key3] = arguments[_key3];
+            for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+              args[_key] = arguments[_key];
             }
 
-            _this57 = _super36.call.apply(_super36, [this].concat(args));
-            _this57._sticky = false;
+            _this39 = _super25.call.apply(_super25, [this].concat(args));
+            _this39._sticky = false;
             /** Whether the sticky input has changed since it was last checked. */
 
-            _this57._hasStickyChanged = false;
-            return _this57;
+            _this39._hasStickyChanged = false;
+            return _this39;
           }
           /** Whether sticky positioning should be applied. */
 
@@ -12996,17 +10583,17 @@
       var CdkColumnDef = /*#__PURE__*/function (_CdkColumnDefBase2) {
         _inherits(CdkColumnDef, _CdkColumnDefBase2);
 
-        var _super37 = _createSuper(CdkColumnDef);
+        var _super26 = _createSuper(CdkColumnDef);
 
         function CdkColumnDef(_table) {
-          var _this58;
+          var _this40;
 
           _classCallCheck(this, CdkColumnDef);
 
-          _this58 = _super37.call(this);
-          _this58._table = _table;
-          _this58._stickyEnd = false;
-          return _this58;
+          _this40 = _super26.call(this);
+          _this40._table = _table;
+          _this40._stickyEnd = false;
+          return _this40;
         }
         /** Unique name for this column. */
 
@@ -13197,18 +10784,18 @@
         // with destructuring.
         var classList = elementRef.nativeElement.classList;
 
-        var _iterator3 = _createForOfIteratorHelper(columnDef._columnCssClassName),
-            _step3;
+        var _iterator = _createForOfIteratorHelper(columnDef._columnCssClassName),
+            _step;
 
         try {
-          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-            var className = _step3.value;
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var className = _step.value;
             classList.add(className);
           }
         } catch (err) {
-          _iterator3.e(err);
+          _iterator.e(err);
         } finally {
-          _iterator3.f();
+          _iterator.f();
         }
       };
       /** Header cell template container that adds the right classes and role. */
@@ -13217,12 +10804,12 @@
       var CdkHeaderCell = /*#__PURE__*/function (_BaseCdkCell) {
         _inherits(CdkHeaderCell, _BaseCdkCell);
 
-        var _super38 = _createSuper(CdkHeaderCell);
+        var _super27 = _createSuper(CdkHeaderCell);
 
         function CdkHeaderCell(columnDef, elementRef) {
           _classCallCheck(this, CdkHeaderCell);
 
-          return _super38.call(this, columnDef, elementRef);
+          return _super27.call(this, columnDef, elementRef);
         }
 
         return CdkHeaderCell;
@@ -13273,12 +10860,12 @@
       var CdkFooterCell = /*#__PURE__*/function (_BaseCdkCell2) {
         _inherits(CdkFooterCell, _BaseCdkCell2);
 
-        var _super39 = _createSuper(CdkFooterCell);
+        var _super28 = _createSuper(CdkFooterCell);
 
         function CdkFooterCell(columnDef, elementRef) {
           _classCallCheck(this, CdkFooterCell);
 
-          return _super39.call(this, columnDef, elementRef);
+          return _super28.call(this, columnDef, elementRef);
         }
 
         return CdkFooterCell;
@@ -13329,12 +10916,12 @@
       var CdkCell = /*#__PURE__*/function (_BaseCdkCell3) {
         _inherits(CdkCell, _BaseCdkCell3);
 
-        var _super40 = _createSuper(CdkCell);
+        var _super29 = _createSuper(CdkCell);
 
         function CdkCell(columnDef, elementRef) {
           _classCallCheck(this, CdkCell);
 
-          return _super40.call(this, columnDef, elementRef);
+          return _super29.call(this, columnDef, elementRef);
         }
 
         return CdkCell;
@@ -13455,7 +11042,7 @@
         }, {
           key: "_createScheduleIfNeeded",
           value: function _createScheduleIfNeeded() {
-            var _this59 = this;
+            var _this41 = this;
 
             if (this._currentSchedule) {
               return;
@@ -13464,42 +11051,42 @@
             this._currentSchedule = new _Schedule();
 
             this._getScheduleObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this._destroyed)).subscribe(function () {
-              while (_this59._currentSchedule.tasks.length || _this59._currentSchedule.endTasks.length) {
-                var schedule = _this59._currentSchedule; // Capture new tasks scheduled by the current set of tasks.
+              while (_this41._currentSchedule.tasks.length || _this41._currentSchedule.endTasks.length) {
+                var schedule = _this41._currentSchedule; // Capture new tasks scheduled by the current set of tasks.
 
-                _this59._currentSchedule = new _Schedule();
+                _this41._currentSchedule = new _Schedule();
 
-                var _iterator4 = _createForOfIteratorHelper(schedule.tasks),
-                    _step4;
+                var _iterator2 = _createForOfIteratorHelper(schedule.tasks),
+                    _step2;
 
                 try {
-                  for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-                    var task = _step4.value;
+                  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                    var task = _step2.value;
                     task();
                   }
                 } catch (err) {
-                  _iterator4.e(err);
+                  _iterator2.e(err);
                 } finally {
-                  _iterator4.f();
+                  _iterator2.f();
                 }
 
-                var _iterator5 = _createForOfIteratorHelper(schedule.endTasks),
-                    _step5;
+                var _iterator3 = _createForOfIteratorHelper(schedule.endTasks),
+                    _step3;
 
                 try {
-                  for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-                    var _task = _step5.value;
+                  for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                    var _task = _step3.value;
 
                     _task();
                   }
                 } catch (err) {
-                  _iterator5.e(err);
+                  _iterator3.e(err);
                 } finally {
-                  _iterator5.f();
+                  _iterator3.f();
                 }
               }
 
-              _this59._currentSchedule = null;
+              _this41._currentSchedule = null;
             });
           }
         }, {
@@ -13649,12 +11236,12 @@
       var CdkHeaderRowDefBase = /*#__PURE__*/function (_BaseRowDef) {
         _inherits(CdkHeaderRowDefBase, _BaseRowDef);
 
-        var _super41 = _createSuper(CdkHeaderRowDefBase);
+        var _super30 = _createSuper(CdkHeaderRowDefBase);
 
         function CdkHeaderRowDefBase() {
           _classCallCheck(this, CdkHeaderRowDefBase);
 
-          return _super41.apply(this, arguments);
+          return _super30.apply(this, arguments);
         }
 
         return CdkHeaderRowDefBase;
@@ -13670,16 +11257,16 @@
       var CdkHeaderRowDef = /*#__PURE__*/function (_CdkHeaderRowDefBase2) {
         _inherits(CdkHeaderRowDef, _CdkHeaderRowDefBase2);
 
-        var _super42 = _createSuper(CdkHeaderRowDef);
+        var _super31 = _createSuper(CdkHeaderRowDef);
 
         function CdkHeaderRowDef(template, _differs, _table) {
-          var _this60;
+          var _this42;
 
           _classCallCheck(this, CdkHeaderRowDef);
 
-          _this60 = _super42.call(this, template, _differs);
-          _this60._table = _table;
-          return _this60;
+          _this42 = _super31.call(this, template, _differs);
+          _this42._table = _table;
+          return _this42;
         } // Prerender fails to recognize that ngOnChanges in a part of this class through inheritance.
         // Explicitly define it so that the method is called as part of the Angular lifecycle.
 
@@ -13756,12 +11343,12 @@
       var CdkFooterRowDefBase = /*#__PURE__*/function (_BaseRowDef2) {
         _inherits(CdkFooterRowDefBase, _BaseRowDef2);
 
-        var _super43 = _createSuper(CdkFooterRowDefBase);
+        var _super32 = _createSuper(CdkFooterRowDefBase);
 
         function CdkFooterRowDefBase() {
           _classCallCheck(this, CdkFooterRowDefBase);
 
-          return _super43.apply(this, arguments);
+          return _super32.apply(this, arguments);
         }
 
         return CdkFooterRowDefBase;
@@ -13777,16 +11364,16 @@
       var CdkFooterRowDef = /*#__PURE__*/function (_CdkFooterRowDefBase2) {
         _inherits(CdkFooterRowDef, _CdkFooterRowDefBase2);
 
-        var _super44 = _createSuper(CdkFooterRowDef);
+        var _super33 = _createSuper(CdkFooterRowDef);
 
         function CdkFooterRowDef(template, _differs, _table) {
-          var _this61;
+          var _this43;
 
           _classCallCheck(this, CdkFooterRowDef);
 
-          _this61 = _super44.call(this, template, _differs);
-          _this61._table = _table;
-          return _this61;
+          _this43 = _super33.call(this, template, _differs);
+          _this43._table = _table;
+          return _this43;
         } // Prerender fails to recognize that ngOnChanges in a part of this class through inheritance.
         // Explicitly define it so that the method is called as part of the Angular lifecycle.
 
@@ -13866,18 +11453,18 @@
       var CdkRowDef = /*#__PURE__*/function (_BaseRowDef3) {
         _inherits(CdkRowDef, _BaseRowDef3);
 
-        var _super45 = _createSuper(CdkRowDef);
+        var _super34 = _createSuper(CdkRowDef);
 
         // TODO(andrewseguin): Add an input for providing a switch function to determine
         //   if this template should be used.
         function CdkRowDef(template, _differs, _table) {
-          var _this62;
+          var _this44;
 
           _classCallCheck(this, CdkRowDef);
 
-          _this62 = _super45.call(this, template, _differs);
-          _this62._table = _table;
-          return _this62;
+          _this44 = _super34.call(this, template, _differs);
+          _this44._table = _table;
+          return _this44;
         }
 
         return CdkRowDef;
@@ -14240,16 +11827,16 @@
         _createClass(StickyStyler, [{
           key: "clearStickyPositioning",
           value: function clearStickyPositioning(rows, stickyDirections) {
-            var _this63 = this;
+            var _this45 = this;
 
             var elementsToClear = [];
 
-            var _iterator6 = _createForOfIteratorHelper(rows),
-                _step6;
+            var _iterator4 = _createForOfIteratorHelper(rows),
+                _step4;
 
             try {
-              for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-                var row = _step6.value;
+              for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+                var row = _step4.value;
 
                 // If the row isn't an element (e.g. if it's an `ng-container`),
                 // it won't have inline styles or `children` so we skip it.
@@ -14265,25 +11852,25 @@
               } // Coalesce with sticky row/column updates (and potentially other changes like column resize).
 
             } catch (err) {
-              _iterator6.e(err);
+              _iterator4.e(err);
             } finally {
-              _iterator6.f();
+              _iterator4.f();
             }
 
             this._scheduleStyleChanges(function () {
-              var _iterator7 = _createForOfIteratorHelper(elementsToClear),
-                  _step7;
+              var _iterator5 = _createForOfIteratorHelper(elementsToClear),
+                  _step5;
 
               try {
-                for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-                  var element = _step7.value;
+                for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+                  var element = _step5.value;
 
-                  _this63._removeStickyStyle(element, stickyDirections);
+                  _this45._removeStickyStyle(element, stickyDirections);
                 }
               } catch (err) {
-                _iterator7.e(err);
+                _iterator5.e(err);
               } finally {
-                _iterator7.f();
+                _iterator5.f();
               }
             });
           }
@@ -14300,7 +11887,7 @@
         }, {
           key: "updateStickyColumns",
           value: function updateStickyColumns(rows, stickyStartStates, stickyEndStates) {
-            var _this64 = this;
+            var _this46 = this;
 
             if (!rows.length || !this._isBrowser || !(stickyStartStates.some(function (state) {
               return state;
@@ -14321,33 +11908,33 @@
 
 
             this._scheduleStyleChanges(function () {
-              var isRtl = _this64.direction === 'rtl';
+              var isRtl = _this46.direction === 'rtl';
               var start = isRtl ? 'right' : 'left';
               var end = isRtl ? 'left' : 'right';
 
-              var _iterator8 = _createForOfIteratorHelper(rows),
-                  _step8;
+              var _iterator6 = _createForOfIteratorHelper(rows),
+                  _step6;
 
               try {
-                for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
-                  var row = _step8.value;
+                for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+                  var row = _step6.value;
 
                   for (var i = 0; i < numCells; i++) {
                     var cell = row.children[i];
 
                     if (stickyStartStates[i]) {
-                      _this64._addStickyStyle(cell, start, startPositions[i]);
+                      _this46._addStickyStyle(cell, start, startPositions[i]);
                     }
 
                     if (stickyEndStates[i]) {
-                      _this64._addStickyStyle(cell, end, endPositions[i]);
+                      _this46._addStickyStyle(cell, end, endPositions[i]);
                     }
                   }
                 }
               } catch (err) {
-                _iterator8.e(err);
+                _iterator6.e(err);
               } finally {
-                _iterator8.f();
+                _iterator6.f();
               }
             });
           }
@@ -14366,7 +11953,7 @@
         }, {
           key: "stickRows",
           value: function stickRows(rowsToStick, stickyStates, position) {
-            var _this65 = this;
+            var _this47 = this;
 
             // Since we can't measure the rows on the server, we can't stick the rows properly.
             if (!this._isBrowser) {
@@ -14407,19 +11994,19 @@
 
                 var height = stickyHeights[_rowIndex];
 
-                var _iterator9 = _createForOfIteratorHelper(elementsToStick[_rowIndex]),
-                    _step9;
+                var _iterator7 = _createForOfIteratorHelper(elementsToStick[_rowIndex]),
+                    _step7;
 
                 try {
-                  for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
-                    var element = _step9.value;
+                  for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+                    var element = _step7.value;
 
-                    _this65._addStickyStyle(element, position, height);
+                    _this47._addStickyStyle(element, position, height);
                   }
                 } catch (err) {
-                  _iterator9.e(err);
+                  _iterator7.e(err);
                 } finally {
-                  _iterator9.f();
+                  _iterator7.f();
                 }
               }
             });
@@ -14434,7 +12021,7 @@
         }, {
           key: "updateStickyFooterContainer",
           value: function updateStickyFooterContainer(tableElement, stickyStates) {
-            var _this66 = this;
+            var _this48 = this;
 
             if (!this._isNativeHtmlTable) {
               return;
@@ -14446,9 +12033,9 @@
               if (stickyStates.some(function (state) {
                 return !state;
               })) {
-                _this66._removeStickyStyle(tfoot, ['bottom']);
+                _this48._removeStickyStyle(tfoot, ['bottom']);
               } else {
-                _this66._addStickyStyle(tfoot, 'bottom', 0);
+                _this48._addStickyStyle(tfoot, 'bottom', 0);
               }
             });
           }
@@ -14461,12 +12048,12 @@
         }, {
           key: "_removeStickyStyle",
           value: function _removeStickyStyle(element, stickyDirections) {
-            var _iterator10 = _createForOfIteratorHelper(stickyDirections),
-                _step10;
+            var _iterator8 = _createForOfIteratorHelper(stickyDirections),
+                _step8;
 
             try {
-              for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
-                var dir = _step10.value;
+              for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+                var dir = _step8.value;
                 element.style[dir] = '';
               } // If the element no longer has any more sticky directions, remove sticky positioning and
               // the sticky CSS class.
@@ -14474,9 +12061,9 @@
               // were already removed above.
 
             } catch (err) {
-              _iterator10.e(err);
+              _iterator8.e(err);
             } finally {
-              _iterator10.f();
+              _iterator8.f();
             }
 
             var hasDirection = STICKY_DIRECTIONS.some(function (dir) {
@@ -14538,21 +12125,21 @@
             // loses the array generic type in the `for of`. But we *also* have to use `Array` because
             // typescript won't iterate over an `Iterable` unless you compile with `--downlevelIteration`
 
-            var _iterator11 = _createForOfIteratorHelper(STICKY_DIRECTIONS),
-                _step11;
+            var _iterator9 = _createForOfIteratorHelper(STICKY_DIRECTIONS),
+                _step9;
 
             try {
-              for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
-                var dir = _step11.value;
+              for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+                var dir = _step9.value;
 
                 if (element.style[dir]) {
                   zIndex += zIndexIncrements[dir];
                 }
               }
             } catch (err) {
-              _iterator11.e(err);
+              _iterator9.e(err);
             } finally {
-              _iterator11.f();
+              _iterator9.f();
             }
 
             return zIndex ? "".concat(zIndex) : '';
@@ -14925,12 +12512,12 @@
       var RowViewRef = /*#__PURE__*/function (_angular_core__WEBPAC) {
         _inherits(RowViewRef, _angular_core__WEBPAC);
 
-        var _super46 = _createSuper(RowViewRef);
+        var _super35 = _createSuper(RowViewRef);
 
         function RowViewRef() {
           _classCallCheck(this, RowViewRef);
 
-          return _super46.apply(this, arguments);
+          return _super35.apply(this, arguments);
         }
 
         return RowViewRef;
@@ -15074,7 +12661,7 @@
         _createClass(CdkTable, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this67 = this;
+            var _this49 = this;
 
             this._setupStickyStyler();
 
@@ -15086,7 +12673,7 @@
 
 
             this._dataDiffer = this._differs.find([]).create(function (_i, dataRow) {
-              return _this67.trackBy ? _this67.trackBy(dataRow.dataIndex, dataRow.data) : dataRow;
+              return _this49.trackBy ? _this49.trackBy(dataRow.dataIndex, dataRow.data) : dataRow;
             });
           }
         }, {
@@ -15167,7 +12754,7 @@
         }, {
           key: "renderRows",
           value: function renderRows() {
-            var _this68 = this;
+            var _this50 = this;
 
             this._renderRows = this._getAllRenderRows();
 
@@ -15184,14 +12771,14 @@
 
             if (this._viewRepeater) {
               this._viewRepeater.applyChanges(changes, viewContainer, function (record, _adjustedPreviousIndex, currentIndex) {
-                return _this68._getEmbeddedViewArgs(record.item, currentIndex);
+                return _this50._getEmbeddedViewArgs(record.item, currentIndex);
               }, function (record) {
                 return record.item.data;
               }, function (change) {
                 if (change.operation === 1
                 /* INSERTED */
                 && change.context) {
-                  _this68._renderCellTemplateForItem(change.record.item.rowDef, change.context);
+                  _this50._renderCellTemplateForItem(change.record.item.rowDef, change.context);
                 }
               });
             } else {
@@ -15203,7 +12790,7 @@
                     $implicit: renderRow.data
                   };
 
-                  _this68._renderRow(_this68._rowOutlet, rowDef, currentIndex, context);
+                  _this50._renderRow(_this50._rowOutlet, rowDef, currentIndex, context);
                 } else if (currentIndex == null) {
                   viewContainer.remove(prevIndex);
                 } else {
@@ -15376,7 +12963,7 @@
         }, {
           key: "updateStickyColumnStyles",
           value: function updateStickyColumnStyles() {
-            var _this69 = this;
+            var _this51 = this;
 
             var headerRows = this._getRenderedRows(this._headerRowOutlet);
 
@@ -15390,7 +12977,7 @@
 
 
             headerRows.forEach(function (headerRow, i) {
-              _this69._addStickyColumnStyles([headerRow], _this69._headerRowDefs[i]);
+              _this51._addStickyColumnStyles([headerRow], _this51._headerRowDefs[i]);
             }); // Update the sticky styles for each data row depending on its def's sticky state
 
             this._rowDefs.forEach(function (rowDef) {
@@ -15398,17 +12985,17 @@
               var rows = [];
 
               for (var i = 0; i < dataRows.length; i++) {
-                if (_this69._renderRows[i].rowDef === rowDef) {
+                if (_this51._renderRows[i].rowDef === rowDef) {
                   rows.push(dataRows[i]);
                 }
               }
 
-              _this69._addStickyColumnStyles(rows, rowDef);
+              _this51._addStickyColumnStyles(rows, rowDef);
             }); // Update the sticky styles for each footer row depending on the def's sticky state
 
 
             footerRows.forEach(function (footerRow, i) {
-              _this69._addStickyColumnStyles([footerRow], _this69._footerRowDefs[i]);
+              _this51._addStickyColumnStyles([footerRow], _this51._footerRowDefs[i]);
             }); // Reset the dirty state of the sticky input change since it has been used.
 
             Array.from(this._columnDefsByName.values()).forEach(function (def) {
@@ -15489,17 +13076,17 @@
         }, {
           key: "_cacheColumnDefs",
           value: function _cacheColumnDefs() {
-            var _this70 = this;
+            var _this52 = this;
 
             this._columnDefsByName.clear();
 
             var columnDefs = mergeArrayAndSet(this._getOwnDefs(this._contentColumnDefs), this._customColumnDefs);
             columnDefs.forEach(function (columnDef) {
-              if (_this70._columnDefsByName.has(columnDef.name) && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+              if (_this52._columnDefsByName.has(columnDef.name) && (typeof ngDevMode === 'undefined' || ngDevMode)) {
                 throw getTableDuplicateColumnNameError(columnDef.name);
               }
 
-              _this70._columnDefsByName.set(columnDef.name, columnDef);
+              _this52._columnDefsByName.set(columnDef.name, columnDef);
             });
           }
           /** Update the list of all available row definitions that can be used. */
@@ -15593,7 +13180,7 @@
         }, {
           key: "_observeRenderChanges",
           value: function _observeRenderChanges() {
-            var _this71 = this;
+            var _this53 = this;
 
             // If no data source has been set, there is nothing to observe for changes.
             if (!this.dataSource) {
@@ -15615,9 +13202,9 @@
             }
 
             this._renderChangeSubscription = dataStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this._onDestroy)).subscribe(function (data) {
-              _this71._data = data || [];
+              _this53._data = data || [];
 
-              _this71.renderRows();
+              _this53.renderRows();
             });
           }
           /**
@@ -15628,7 +13215,7 @@
         }, {
           key: "_forceRenderHeaderRows",
           value: function _forceRenderHeaderRows() {
-            var _this72 = this;
+            var _this54 = this;
 
             // Clear the header row outlet if any content exists.
             if (this._headerRowOutlet.viewContainer.length > 0) {
@@ -15636,7 +13223,7 @@
             }
 
             this._headerRowDefs.forEach(function (def, i) {
-              return _this72._renderRow(_this72._headerRowOutlet, def, i);
+              return _this54._renderRow(_this54._headerRowOutlet, def, i);
             });
 
             this.updateStickyHeaderRowStyles();
@@ -15649,7 +13236,7 @@
         }, {
           key: "_forceRenderFooterRows",
           value: function _forceRenderFooterRows() {
-            var _this73 = this;
+            var _this55 = this;
 
             // Clear the footer row outlet if any content exists.
             if (this._footerRowOutlet.viewContainer.length > 0) {
@@ -15657,7 +13244,7 @@
             }
 
             this._footerRowDefs.forEach(function (def, i) {
-              return _this73._renderRow(_this73._footerRowOutlet, def, i);
+              return _this55._renderRow(_this55._footerRowOutlet, def, i);
             });
 
             this.updateStickyFooterRowStyles();
@@ -15667,10 +13254,10 @@
         }, {
           key: "_addStickyColumnStyles",
           value: function _addStickyColumnStyles(rows, rowDef) {
-            var _this74 = this;
+            var _this56 = this;
 
             var columnDefs = Array.from(rowDef.columns || []).map(function (columnName) {
-              var columnDef = _this74._columnDefsByName.get(columnName);
+              var columnDef = _this56._columnDefsByName.get(columnName);
 
               if (!columnDef && (typeof ngDevMode === 'undefined' || ngDevMode)) {
                 throw getTableUnknownColumnError(columnName);
@@ -15770,21 +13357,21 @@
         }, {
           key: "_renderCellTemplateForItem",
           value: function _renderCellTemplateForItem(rowDef, context) {
-            var _iterator12 = _createForOfIteratorHelper(this._getCellTemplates(rowDef)),
-                _step12;
+            var _iterator10 = _createForOfIteratorHelper(this._getCellTemplates(rowDef)),
+                _step10;
 
             try {
-              for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
-                var cellTemplate = _step12.value;
+              for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+                var cellTemplate = _step10.value;
 
                 if (CdkCellOutlet.mostRecentCellOutlet) {
                   CdkCellOutlet.mostRecentCellOutlet._viewContainer.createEmbeddedView(cellTemplate, context);
                 }
               }
             } catch (err) {
-              _iterator12.e(err);
+              _iterator10.e(err);
             } finally {
-              _iterator12.f();
+              _iterator10.f();
             }
 
             this._changeDetectorRef.markForCheck();
@@ -15821,14 +13408,14 @@
         }, {
           key: "_getCellTemplates",
           value: function _getCellTemplates(rowDef) {
-            var _this75 = this;
+            var _this57 = this;
 
             if (!rowDef || !rowDef.columns) {
               return [];
             }
 
             return Array.from(rowDef.columns, function (columnId) {
-              var column = _this75._columnDefsByName.get(columnId);
+              var column = _this57._columnDefsByName.get(columnId);
 
               if (!column && (typeof ngDevMode === 'undefined' || ngDevMode)) {
                 throw getTableUnknownColumnError(columnId);
@@ -15862,18 +13449,18 @@
 
               element.setAttribute('role', 'rowgroup');
 
-              var _iterator13 = _createForOfIteratorHelper(section.outlets),
-                  _step13;
+              var _iterator11 = _createForOfIteratorHelper(section.outlets),
+                  _step11;
 
               try {
-                for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
-                  var outlet = _step13.value;
+                for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+                  var outlet = _step11.value;
                   element.appendChild(outlet.elementRef.nativeElement);
                 }
               } catch (err) {
-                _iterator13.e(err);
+                _iterator11.e(err);
               } finally {
-                _iterator13.f();
+                _iterator11.f();
               }
 
               documentFragment.appendChild(element);
@@ -15934,14 +13521,14 @@
         }, {
           key: "_setupStickyStyler",
           value: function _setupStickyStyler() {
-            var _this76 = this;
+            var _this58 = this;
 
             var direction = this._dir ? this._dir.value : 'ltr';
             this._stickyStyler = new StickyStyler(this._isNativeHtmlTable, this.stickyCssClass, direction, this._coalescedStyleScheduler, this._platform.isBrowser, this.needsPositionStickyOnElement);
             (this._dir ? this._dir.change : Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["of"])()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this._onDestroy)).subscribe(function (value) {
-              _this76._stickyStyler.direction = value;
+              _this58._stickyStyler.direction = value;
 
-              _this76.updateStickyColumnStyles();
+              _this58.updateStickyColumnStyles();
             });
           }
           /** Filters definitions that belong to this table from a QueryList. */
@@ -15949,10 +13536,10 @@
         }, {
           key: "_getOwnDefs",
           value: function _getOwnDefs(items) {
-            var _this77 = this;
+            var _this59 = this;
 
             return items.filter(function (item) {
-              return !item._table || item._table === _this77;
+              return !item._table || item._table === _this59;
             });
           }
           /** Creates or removes the no data row, depending on whether any data is being shown. */
@@ -16809,25 +14396,31 @@
       /* harmony import */
 
 
-      var _angular_material_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @angular/material/snack-bar */
+      "dNgK");
+      /* harmony import */
+
+
+      var _angular_material_button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @angular/material/button */
       "bTqV");
       /* harmony import */
 
 
-      var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @angular/material/form-field */
       "kmnG");
       /* harmony import */
 
 
-      var _angular_material_input__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _angular_material_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @angular/material/input */
       "qFsG");
       /* harmony import */
 
 
-      var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! @angular/material/checkbox */
       "bSwM");
 
@@ -17038,12 +14631,13 @@
       };
 
       var ContactsComponent = /*#__PURE__*/function () {
-        function ContactsComponent(contactsService, dialog, matPaginatorIntl) {
+        function ContactsComponent(contactsService, dialog, matPaginatorIntl, _snackBar) {
           _classCallCheck(this, ContactsComponent);
 
           this.contactsService = contactsService;
           this.dialog = dialog;
           this.matPaginatorIntl = matPaginatorIntl;
+          this._snackBar = _snackBar;
           this.displayedColumns = ['select', 'name', 'phone', 'email'];
           this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__["SelectionModel"](true, []);
           this.unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
@@ -17056,6 +14650,7 @@
           value: function ngOnInit() {
             this.getContacts();
             this.matPaginatorIntl.itemsPerPageLabel = 'Кол-во элементов на стр.';
+            this.matPaginatorIntl.nextPageLabel = 'из';
           }
         }, {
           key: "ngOnDestroy",
@@ -17066,11 +14661,13 @@
         }, {
           key: "getContacts",
           value: function getContacts() {
-            var _this78 = this;
+            var _this60 = this;
 
             this.contactsService.getContacts(this.sessionStorage.getItem('user')).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this.unsubscribe$)).subscribe(function (responce) {
-              _this78.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](responce);
-              _this78.dataSource.paginator = _this78.paginator;
+              _this60.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](responce);
+              _this60.dataSource.paginator = _this60.paginator;
+            }, function (error) {
+              _this60.errorMessage(error.message);
             });
           }
         }, {
@@ -17083,10 +14680,10 @@
         }, {
           key: "masterToggle",
           value: function masterToggle() {
-            var _this79 = this;
+            var _this61 = this;
 
             this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-              return _this79.selection.select(row);
+              return _this61.selection.select(row);
             });
           }
         }, {
@@ -17110,41 +14707,46 @@
           value: function addContact() {
             var dialogRef = this.openDialog({
               user: this.sessionStorage.getItem('user')
-            });
+            }, _dialogs_contact_form_component__WEBPACK_IMPORTED_MODULE_4__["ContactFormDialog"]);
             this.afterClosed(dialogRef);
           }
         }, {
           key: "changeContact",
           value: function changeContact() {
-            var dialogRef = this.openDialog(this.selection.selected[0]);
+            var dialogRef = this.openDialog(this.selection.selected[0], _dialogs_contact_form_component__WEBPACK_IMPORTED_MODULE_4__["ContactFormDialog"]);
             this.afterClosed(dialogRef);
           }
         }, {
           key: "deleteContact",
           value: function deleteContact() {
-            var dialogRef = this.dialog.open(_dialogs_delete_component__WEBPACK_IMPORTED_MODULE_5__["DeleteDialog"], {
-              width: '350px',
-              data: this.selection.selected
-            });
+            var dialogRef = this.openDialog(this.selection.selected, _dialogs_delete_component__WEBPACK_IMPORTED_MODULE_5__["DeleteDialog"]);
             this.afterClosed(dialogRef);
           }
         }, {
           key: "openDialog",
-          value: function openDialog(data) {
-            return this.dialog.open(_dialogs_contact_form_component__WEBPACK_IMPORTED_MODULE_4__["ContactFormDialog"], {
-              width: '350px',
+          value: function openDialog(data, dialog) {
+            return this.dialog.open(dialog, {
+              width: '450px',
               data: data
             });
           }
         }, {
           key: "afterClosed",
           value: function afterClosed(dialogRef) {
-            var _this80 = this;
+            var _this62 = this;
 
             dialogRef.afterClosed().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this.unsubscribe$)).subscribe(function () {
-              _this80.getContacts();
+              _this62.getContacts();
 
-              if (_this80.selection.selected.length !== 0) _this80.selection.clear();
+              if (_this62.selection.selected.length !== 0) _this62.selection.clear();
+            });
+          }
+        }, {
+          key: "errorMessage",
+          value: function errorMessage(message) {
+            this._snackBar.open(message, 'Закрыть', {
+              duration: 2000,
+              verticalPosition: 'top'
             });
           }
         }]);
@@ -17153,7 +14755,7 @@
       }();
 
       ContactsComponent.ɵfac = function ContactsComponent_Factory(t) {
-        return new (t || ContactsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_contacts_service__WEBPACK_IMPORTED_MODULE_8__["ContactsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorIntl"]));
+        return new (t || ContactsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_contacts_service__WEBPACK_IMPORTED_MODULE_8__["ContactsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorIntl"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_10__["MatSnackBar"]));
       };
 
       ContactsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
@@ -17315,7 +14917,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](6, _c0));
           }
         },
-        directives: [_angular_material_button__WEBPACK_IMPORTED_MODULE_10__["MatButton"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatLabel"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInput"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTable"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatColumnDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatHeaderCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatHeaderRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatNoDataRow"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatHeaderCell"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_13__["MatCheckbox"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatCell"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatHeaderRow"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatRow"]],
+        directives: [_angular_material_button__WEBPACK_IMPORTED_MODULE_11__["MatButton"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__["MatLabel"], _angular_material_input__WEBPACK_IMPORTED_MODULE_13__["MatInput"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTable"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatColumnDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatHeaderCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatHeaderRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatNoDataRow"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatHeaderCell"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_14__["MatCheckbox"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatCell"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatHeaderRow"], _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatRow"]],
         styles: [".wrapper[_ngcontent-%COMP%] {\n  max-width: 960px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.contacts-actions[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: flex-start;\n  margin-bottom: 10px;\n}\n\n.contacts-actions__button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-right: 10px;\n}\n\ntable[_ngcontent-%COMP%] {\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0.12);\n}\n\n.mat-column-select[_ngcontent-%COMP%] {\n  overflow: initial;\n}\n\n.mat-form-field[_ngcontent-%COMP%] {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29udGFjdHMvY29udGFjdHMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUFDSjs7QUFHQTtFQUNJLGFBQUE7RUFDQSwyQkFBQTtFQUNBLG1CQUFBO0FBQUo7O0FBQ0k7RUFDSSxrQkFBQTtBQUNSOztBQUdBO0VBQ0ksV0FBQTtFQUNBLHFDQUFBO0FBQUo7O0FBR0E7RUFDSSxpQkFBQTtBQUFKOztBQUdBO0VBQ0ksV0FBQTtBQUFKIiwiZmlsZSI6InNyYy9hcHAvY29udGFjdHMvY29udGFjdHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud3JhcHBlciB7XG4gICAgbWF4LXdpZHRoOiA5NjBweDtcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcbiAgICBtYXJnaW4tcmlnaHQ6IGF1dG87XG4gICAgLy9ib3JkZXI6IDFweCBzb2xpZCAjNzNBRDIxO1xufVxuXG4uY29udGFjdHMtYWN0aW9ucyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7XG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgICAmX19idXR0b246bm90KDpsYXN0LWNoaWxkKSB7XG4gICAgICAgIG1hcmdpbi1yaWdodDogMTBweDtcbiAgICB9XG59XG5cbnRhYmxlIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDAsMCwwLC4xMik7XG59XG5cbi5tYXQtY29sdW1uLXNlbGVjdCB7XG4gICAgb3ZlcmZsb3c6IGluaXRpYWw7XG59XG5cbi5tYXQtZm9ybS1maWVsZCB7XG4gICAgd2lkdGg6IDEwMCU7XG59XG4iXX0= */"]
       });
       /*@__PURE__*/
@@ -17335,6 +14937,8 @@
             type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]
           }, {
             type: _angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorIntl"]
+          }, {
+            type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_10__["MatSnackBar"]
           }];
         }, {
           paginator: [{
@@ -17403,15 +15007,22 @@
       /* harmony import */
 
 
-      var _angular_material_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/material/snack-bar */
+      "dNgK");
+      /* harmony import */
+
+
+      var _angular_material_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/material/button */
       "bTqV");
 
       var DeleteDialog = /*#__PURE__*/function () {
-        function DeleteDialog(contactsService, dialogRef, data) {
+        function DeleteDialog(contactsService, _snackBar, dialogRef, data) {
           _classCallCheck(this, DeleteDialog);
 
           this.contactsService = contactsService;
+          this._snackBar = _snackBar;
           this.dialogRef = dialogRef;
           this.data = data;
           this.unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
@@ -17424,19 +15035,25 @@
             this.unsubscribe$.complete();
           }
         }, {
-          key: "onNoClick",
-          value: function onNoClick() {
+          key: "close",
+          value: function close() {
             this.dialogRef.close();
           }
         }, {
           key: "delete",
           value: function _delete() {
-            var _this81 = this;
+            var _this63 = this;
 
             this.data.map(function (element) {
-              _this81.contactsService.deleteContact(element.id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this81.unsubscribe$)).subscribe();
+              _this63.contactsService.deleteContact(element.id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this63.unsubscribe$)).subscribe(function () {
+                _this63.close();
+              }, function (error) {
+                _this63._snackBar.open(error.message, 'Закрыть', {
+                  duration: 2000,
+                  verticalPosition: 'top'
+                });
+              });
             });
-            this.onNoClick();
           }
         }]);
 
@@ -17444,7 +15061,7 @@
       }();
 
       DeleteDialog.ɵfac = function DeleteDialog_Factory(t) {
-        return new (t || DeleteDialog)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_contacts_service__WEBPACK_IMPORTED_MODULE_4__["ContactsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"]));
+        return new (t || DeleteDialog)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_contacts_service__WEBPACK_IMPORTED_MODULE_4__["ContactsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_5__["MatSnackBar"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"]));
       };
 
       DeleteDialog.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -17476,7 +15093,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "button", 3);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DeleteDialog_Template_button_click_6_listener() {
-              return ctx.onNoClick();
+              return ctx.close();
             });
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "\u0417\u0430\u043A\u0440\u044B\u0442\u044C");
@@ -17496,7 +15113,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           }
         },
-        directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogTitle"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogContent"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogActions"], _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButton"]],
+        directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogTitle"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogContent"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogActions"], _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButton"]],
         encapsulation: 2
       });
       /*@__PURE__*/
@@ -17506,11 +15123,13 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
           args: [{
             selector: 'contact-form-dialog',
-            template: "\n    <h1 mat-dialog-title>\u041A\u043E\u043D\u0442\u0430\u043A\u0442</h1>\n    <div mat-dialog-content>\n        <p>\u0412\u044B \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u043E \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043D\u0442\u0430\u043A\u0442(\u044B)?</p>\n    </div>\n    <div mat-dialog-actions>\n        <button mat-button (click)=\"onNoClick()\">\u0417\u0430\u043A\u0440\u044B\u0442\u044C</button>\n        <button mat-button (click)=\"delete()\" cdkFocusInitial>\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C</button>\n    </div>\n  "
+            template: "\n    <h1 mat-dialog-title>\u041A\u043E\u043D\u0442\u0430\u043A\u0442</h1>\n    <div mat-dialog-content>\n        <p>\u0412\u044B \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u043E \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043D\u0442\u0430\u043A\u0442(\u044B)?</p>\n    </div>\n    <div mat-dialog-actions>\n        <button mat-button (click)=\"close()\">\u0417\u0430\u043A\u0440\u044B\u0442\u044C</button>\n        <button mat-button (click)=\"delete()\" cdkFocusInitial>\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C</button>\n    </div>\n  "
           }]
         }], function () {
           return [{
             type: src_app_services_contacts_service__WEBPACK_IMPORTED_MODULE_4__["ContactsService"]
+          }, {
+            type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_5__["MatSnackBar"]
           }, {
             type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]
           }, {
@@ -17584,34 +15203,101 @@
       /* harmony import */
 
 
-      var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/material/snack-bar */
+      "dNgK");
+      /* harmony import */
+
+
+      var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/material/form-field */
       "kmnG");
       /* harmony import */
 
 
-      var _angular_material_input__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _angular_material_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/input */
       "qFsG");
       /* harmony import */
 
 
-      var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
+      /* harmony import */
+
+
+      var _angular_material_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/material/button */
       "bTqV");
 
+      function ContactFormDialog_mat_error_8_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-error");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.getNameErrorMessage());
+        }
+      }
+
+      function ContactFormDialog_mat_error_13_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-error");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r1.getPhoneErrorMessage());
+        }
+      }
+
+      function ContactFormDialog_mat_error_18_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-error");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r2.getEmailErrorMessage());
+        }
+      }
+
       var ContactFormDialog = /*#__PURE__*/function () {
-        function ContactFormDialog(contactsService, dialogRef, data) {
+        function ContactFormDialog(contactsService, _snackBar, dialogRef, data) {
           _classCallCheck(this, ContactFormDialog);
 
           this.contactsService = contactsService;
+          this._snackBar = _snackBar;
           this.dialogRef = dialogRef;
           this.data = data;
           this.unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
           this.contactForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required),
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required)
+            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/)]),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email])
           });
 
           if (data.id) {
@@ -17629,22 +15315,61 @@
             this.unsubscribe$.complete();
           }
         }, {
-          key: "onNoClick",
-          value: function onNoClick() {
+          key: "close",
+          value: function close() {
             this.dialogRef.close();
+          }
+        }, {
+          key: "getNameErrorMessage",
+          value: function getNameErrorMessage() {
+            return this.contactForm.get('name').hasError('required') ? 'Это поле обязательное для заполнения' : '';
+          }
+        }, {
+          key: "getPhoneErrorMessage",
+          value: function getPhoneErrorMessage() {
+            if (this.contactForm.get('phone').hasError('pattern')) {
+              return 'Введенное значение не соответствует шаблону';
+            }
+
+            return this.contactForm.get('phone').hasError('required') ? 'Это поле обязательное для заполнения' : '';
+          }
+        }, {
+          key: "getEmailErrorMessage",
+          value: function getEmailErrorMessage() {
+            if (this.contactForm.get('email').hasError('email')) {
+              return 'Введенное значение не соответствует e-mail';
+            }
+
+            return this.contactForm.get('email').hasError('required') ? 'Это поле обязательное для заполнения' : '';
           }
         }, {
           key: "setContact",
           value: function setContact() {
+            var _this64 = this;
+
             if (this.id) {
-              this.contactsService.changeContact(this.id, this.contactForm.value).subscribe();
+              this.contactsService.changeContact(this.id, this.contactForm.value).subscribe(function () {
+                _this64.close();
+              }, function (error) {
+                _this64.errorMessage(error.message);
+              });
             } else {
               var contact = this.contactForm.value;
               contact.user = this.data.user;
-              this.contactsService.setContact(contact).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.unsubscribe$)).subscribe();
+              this.contactsService.setContact(contact).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.unsubscribe$)).subscribe(function () {
+                _this64.close();
+              }, function (error) {
+                _this64.errorMessage(error.message);
+              });
             }
-
-            this.onNoClick();
+          }
+        }, {
+          key: "errorMessage",
+          value: function errorMessage(message) {
+            this._snackBar.open(message, 'Закрыть', {
+              duration: 3000,
+              verticalPosition: 'top'
+            });
           }
         }]);
 
@@ -17652,15 +15377,15 @@
       }();
 
       ContactFormDialog.ɵfac = function ContactFormDialog_Factory(t) {
-        return new (t || ContactFormDialog)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_contacts_service__WEBPACK_IMPORTED_MODULE_5__["ContactsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]));
+        return new (t || ContactFormDialog)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_contacts_service__WEBPACK_IMPORTED_MODULE_5__["ContactsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_6__["MatSnackBar"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]));
       };
 
       ContactFormDialog.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: ContactFormDialog,
         selectors: [["contact-form-dialog"]],
-        decls: 21,
-        vars: 2,
-        consts: [["mat-dialog-title", ""], ["mat-dialog-content", ""], [3, "formGroup"], ["formControlName", "name", "matInput", ""], ["formControlName", "phone", "matInput", ""], ["formControlName", "email", "matInput", ""], ["mat-dialog-actions", ""], ["mat-button", "", 3, "click"], ["mat-button", "", 3, "disabled", "click"]],
+        decls: 24,
+        vars: 5,
+        consts: [["mat-dialog-title", ""], ["mat-dialog-content", ""], [3, "formGroup"], ["formControlName", "name", "matInput", ""], [4, "ngIf"], ["formControlName", "phone", "matInput", ""], ["formControlName", "email", "matInput", ""], ["mat-dialog-actions", ""], ["mat-button", "", 3, "click"], ["mat-button", "", 3, "disabled", "click"]],
         template: function ContactFormDialog_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1", 0);
@@ -17683,29 +15408,35 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "input", 3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "mat-form-field");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "mat-label");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "\u0422\u0435\u043B\u0435\u0444\u043E\u043D");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, ContactFormDialog_mat_error_8_Template, 2, 1, "mat-error", 4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "input", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "mat-form-field");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "mat-label");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "\u0422\u0435\u043B\u0435\u0444\u043E\u043D");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "mat-form-field");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "input", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "mat-label");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "\u041F\u043E\u0447\u0442\u0430");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, ContactFormDialog_mat_error_13_Template, 2, 1, "mat-error", 4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "input", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "mat-form-field");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "mat-label");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "\u041F\u043E\u0447\u0442\u0430");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "input", 6);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, ContactFormDialog_mat_error_18_Template, 2, 1, "mat-error", 4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -17713,25 +15444,25 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "button", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "button", 8);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ContactFormDialog_Template_button_click_17_listener() {
-              return ctx.onNoClick();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ContactFormDialog_Template_button_click_20_listener() {
+              return ctx.close();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "\u0417\u0430\u043A\u0440\u044B\u0442\u044C");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "\u0417\u0430\u043A\u0440\u044B\u0442\u044C");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "button", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "button", 9);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ContactFormDialog_Template_button_click_19_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ContactFormDialog_Template_button_click_22_listener() {
               return ctx.setContact();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -17743,12 +15474,24 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.contactForm);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](16);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.contactForm.get("name").invalid);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.contactForm.get("phone").invalid);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.contactForm.get("email").invalid);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.contactForm.valid);
           }
         },
-        directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogTitle"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogContent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatLabel"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_material_input__WEBPACK_IMPORTED_MODULE_7__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogActions"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"]],
+        directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogTitle"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogContent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatLabel"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_material_input__WEBPACK_IMPORTED_MODULE_8__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogActions"], _angular_material_button__WEBPACK_IMPORTED_MODULE_10__["MatButton"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatError"]],
         styles: ["form[_ngcontent-%COMP%]    > mat-form-field[_ngcontent-%COMP%] {\n            width: 100%;\n        }\n\n        .mat-dialog-actions[_ngcontent-%COMP%] {\n            float: right;\n        }"]
       });
       /*@__PURE__*/
@@ -17758,12 +15501,14 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
           args: [{
             selector: 'contact-form-dialog',
-            template: "\n    <h1 mat-dialog-title>\u041A\u043E\u043D\u0442\u0430\u043A\u0442</h1>\n    <div mat-dialog-content>\n        <form [formGroup]=\"contactForm\">\n            <mat-form-field>\n                <mat-label>\u0418\u043C\u044F</mat-label>\n                <input formControlName=\"name\" matInput>\n            </mat-form-field>\n            <mat-form-field>\n                <mat-label>\u0422\u0435\u043B\u0435\u0444\u043E\u043D</mat-label>\n                <input formControlName=\"phone\" matInput>\n            </mat-form-field>\n            <mat-form-field>\n                <mat-label>\u041F\u043E\u0447\u0442\u0430</mat-label>\n                <input formControlName=\"email\" matInput>\n            </mat-form-field>\n        </form>\n    </div>\n    <div mat-dialog-actions>\n        <button mat-button (click)=\"onNoClick()\">\u0417\u0430\u043A\u0440\u044B\u0442\u044C</button>\n        <button mat-button (click)=\"setContact()\" [disabled]=\"!contactForm.valid\">\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C</button>\n    </div>\n  ",
+            template: "\n    <h1 mat-dialog-title>\u041A\u043E\u043D\u0442\u0430\u043A\u0442</h1>\n    <div mat-dialog-content>\n        <form [formGroup]=\"contactForm\">\n            <mat-form-field>\n                <mat-label>\u0418\u043C\u044F</mat-label>\n                <input formControlName=\"name\" matInput>\n                <mat-error *ngIf=\"contactForm.get('name').invalid\">{{getNameErrorMessage()}}</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n                <mat-label>\u0422\u0435\u043B\u0435\u0444\u043E\u043D</mat-label>\n                <input formControlName=\"phone\" matInput>\n                <mat-error *ngIf=\"contactForm.get('phone').invalid\">{{getPhoneErrorMessage()}}</mat-error>\n            </mat-form-field>\n            <mat-form-field>\n                <mat-label>\u041F\u043E\u0447\u0442\u0430</mat-label>\n                <input formControlName=\"email\" matInput>\n                <mat-error *ngIf=\"contactForm.get('email').invalid\">{{getEmailErrorMessage()}}</mat-error>\n            </mat-form-field>\n        </form>\n    </div>\n    <div mat-dialog-actions>\n        <button mat-button (click)=\"close()\">\u0417\u0430\u043A\u0440\u044B\u0442\u044C</button>\n        <button mat-button (click)=\"setContact()\" [disabled]=\"!contactForm.valid\">\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C</button>\n    </div>\n  ",
             styles: ["\n        form > mat-form-field {\n            width: 100%;\n        }\n\n        .mat-dialog-actions {\n            float: right;\n        }\n      "]
           }]
         }], function () {
           return [{
             type: src_app_services_contacts_service__WEBPACK_IMPORTED_MODULE_5__["ContactsService"]
+          }, {
+            type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_6__["MatSnackBar"]
           }, {
             type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
           }, {
@@ -17775,7607 +15520,6 @@
           }];
         }, null);
       })();
-      /***/
-
-    },
-
-    /***/
-    "rDax":
-    /*!********************************************************************!*\
-      !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js ***!
-      \********************************************************************/
-
-    /*! exports provided: CdkScrollable, ScrollDispatcher, ViewportRuler, BlockScrollStrategy, CdkConnectedOverlay, CdkOverlayOrigin, CloseScrollStrategy, ConnectedOverlayPositionChange, ConnectedPositionStrategy, ConnectionPositionPair, FlexibleConnectedPositionStrategy, FullscreenOverlayContainer, GlobalPositionStrategy, NoopScrollStrategy, OVERLAY_PROVIDERS, Overlay, OverlayConfig, OverlayContainer, OverlayKeyboardDispatcher, OverlayModule, OverlayOutsideClickDispatcher, OverlayPositionBuilder, OverlayRef, RepositionScrollStrategy, ScrollStrategyOptions, ScrollingVisibility, validateHorizontalPosition, validateVerticalPosition, ɵangular_material_src_cdk_overlay_overlay_a, ɵangular_material_src_cdk_overlay_overlay_b, ɵangular_material_src_cdk_overlay_overlay_c, ɵangular_material_src_cdk_overlay_overlay_d, ɵangular_material_src_cdk_overlay_overlay_e, ɵangular_material_src_cdk_overlay_overlay_f, ɵangular_material_src_cdk_overlay_overlay_g, ɵangular_material_src_cdk_overlay_overlay_h */
-
-    /***/
-    function rDax(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "BlockScrollStrategy", function () {
-        return BlockScrollStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkConnectedOverlay", function () {
-        return CdkConnectedOverlay;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkOverlayOrigin", function () {
-        return CdkOverlayOrigin;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CloseScrollStrategy", function () {
-        return CloseScrollStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ConnectedOverlayPositionChange", function () {
-        return ConnectedOverlayPositionChange;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ConnectedPositionStrategy", function () {
-        return ConnectedPositionStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ConnectionPositionPair", function () {
-        return ConnectionPositionPair;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "FlexibleConnectedPositionStrategy", function () {
-        return FlexibleConnectedPositionStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "FullscreenOverlayContainer", function () {
-        return FullscreenOverlayContainer;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "GlobalPositionStrategy", function () {
-        return GlobalPositionStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "NoopScrollStrategy", function () {
-        return NoopScrollStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "OVERLAY_PROVIDERS", function () {
-        return OVERLAY_PROVIDERS;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "Overlay", function () {
-        return Overlay;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "OverlayConfig", function () {
-        return OverlayConfig;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "OverlayContainer", function () {
-        return OverlayContainer;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "OverlayKeyboardDispatcher", function () {
-        return OverlayKeyboardDispatcher;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "OverlayModule", function () {
-        return OverlayModule;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "OverlayOutsideClickDispatcher", function () {
-        return OverlayOutsideClickDispatcher;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "OverlayPositionBuilder", function () {
-        return OverlayPositionBuilder;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "OverlayRef", function () {
-        return OverlayRef;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "RepositionScrollStrategy", function () {
-        return RepositionScrollStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ScrollStrategyOptions", function () {
-        return ScrollStrategyOptions;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ScrollingVisibility", function () {
-        return ScrollingVisibility;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "validateHorizontalPosition", function () {
-        return validateHorizontalPosition;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "validateVerticalPosition", function () {
-        return validateVerticalPosition;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_overlay_overlay_a", function () {
-        return OVERLAY_KEYBOARD_DISPATCHER_PROVIDER_FACTORY;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_overlay_overlay_b", function () {
-        return OVERLAY_KEYBOARD_DISPATCHER_PROVIDER;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_overlay_overlay_c", function () {
-        return OVERLAY_CONTAINER_PROVIDER_FACTORY;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_overlay_overlay_d", function () {
-        return OVERLAY_CONTAINER_PROVIDER;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_overlay_overlay_e", function () {
-        return CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_overlay_overlay_f", function () {
-        return CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_overlay_overlay_g", function () {
-        return CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ɵangular_material_src_cdk_overlay_overlay_h", function () {
-        return BaseOverlayDispatcher;
-      });
-      /* harmony import */
-
-
-      var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/cdk/scrolling */
-      "vxfF");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/cdk/platform */
-      "nLfN");
-      /* harmony import */
-
-
-      var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @angular/cdk/bidi */
-      "cH1L");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! @angular/common */
-      "ofXK");
-      /* harmony reexport (safe) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkScrollable", function () {
-        return _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["CdkScrollable"];
-      });
-      /* harmony reexport (safe) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ScrollDispatcher", function () {
-        return _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollDispatcher"];
-      });
-      /* harmony reexport (safe) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ViewportRuler", function () {
-        return _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"];
-      });
-      /* harmony import */
-
-
-      var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! @angular/cdk/coercion */
-      "8LU1");
-      /* harmony import */
-
-
-      var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! @angular/cdk/portal */
-      "+rOU");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! rxjs */
-      "qCKp");
-      /* harmony import */
-
-
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! rxjs/operators */
-      "kU1M");
-      /* harmony import */
-
-
-      var _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! @angular/cdk/keycodes */
-      "FtGj");
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Strategy that will prevent the user from scrolling while the overlay is visible.
-       */
-
-
-      var BlockScrollStrategy = /*#__PURE__*/function () {
-        function BlockScrollStrategy(_viewportRuler, document) {
-          _classCallCheck(this, BlockScrollStrategy);
-
-          this._viewportRuler = _viewportRuler;
-          this._previousHTMLStyles = {
-            top: '',
-            left: ''
-          };
-          this._isEnabled = false;
-          this._document = document;
-        }
-        /** Attaches this scroll strategy to an overlay. */
-
-
-        _createClass(BlockScrollStrategy, [{
-          key: "attach",
-          value: function attach() {}
-          /** Blocks page-level scroll while the attached overlay is open. */
-
-        }, {
-          key: "enable",
-          value: function enable() {
-            if (this._canBeEnabled()) {
-              var root = this._document.documentElement;
-              this._previousScrollPosition = this._viewportRuler.getViewportScrollPosition(); // Cache the previous inline styles in case the user had set them.
-
-              this._previousHTMLStyles.left = root.style.left || '';
-              this._previousHTMLStyles.top = root.style.top || ''; // Note: we're using the `html` node, instead of the `body`, because the `body` may
-              // have the user agent margin, whereas the `html` is guaranteed not to have one.
-
-              root.style.left = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(-this._previousScrollPosition.left);
-              root.style.top = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(-this._previousScrollPosition.top);
-              root.classList.add('cdk-global-scrollblock');
-              this._isEnabled = true;
-            }
-          }
-          /** Unblocks page-level scroll while the attached overlay is open. */
-
-        }, {
-          key: "disable",
-          value: function disable() {
-            if (this._isEnabled) {
-              var html = this._document.documentElement;
-              var body = this._document.body;
-              var htmlStyle = html.style;
-              var bodyStyle = body.style;
-              var previousHtmlScrollBehavior = htmlStyle.scrollBehavior || '';
-              var previousBodyScrollBehavior = bodyStyle.scrollBehavior || '';
-              this._isEnabled = false;
-              htmlStyle.left = this._previousHTMLStyles.left;
-              htmlStyle.top = this._previousHTMLStyles.top;
-              html.classList.remove('cdk-global-scrollblock'); // Disable user-defined smooth scrolling temporarily while we restore the scroll position.
-              // See https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
-
-              htmlStyle.scrollBehavior = bodyStyle.scrollBehavior = 'auto';
-              window.scroll(this._previousScrollPosition.left, this._previousScrollPosition.top);
-              htmlStyle.scrollBehavior = previousHtmlScrollBehavior;
-              bodyStyle.scrollBehavior = previousBodyScrollBehavior;
-            }
-          }
-        }, {
-          key: "_canBeEnabled",
-          value: function _canBeEnabled() {
-            // Since the scroll strategies can't be singletons, we have to use a global CSS class
-            // (`cdk-global-scrollblock`) to make sure that we don't try to disable global
-            // scrolling multiple times.
-            var html = this._document.documentElement;
-
-            if (html.classList.contains('cdk-global-scrollblock') || this._isEnabled) {
-              return false;
-            }
-
-            var body = this._document.body;
-
-            var viewport = this._viewportRuler.getViewportSize();
-
-            return body.scrollHeight > viewport.height || body.scrollWidth > viewport.width;
-          }
-        }]);
-
-        return BlockScrollStrategy;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Returns an error to be thrown when attempting to attach an already-attached scroll strategy.
-       */
-
-
-      function getMatScrollStrategyAlreadyAttachedError() {
-        return Error("Scroll strategy has already been attached.");
-      }
-      /**
-       * Strategy that will close the overlay as soon as the user starts scrolling.
-       */
-
-
-      var CloseScrollStrategy = /*#__PURE__*/function () {
-        function CloseScrollStrategy(_scrollDispatcher, _ngZone, _viewportRuler, _config) {
-          var _this82 = this;
-
-          _classCallCheck(this, CloseScrollStrategy);
-
-          this._scrollDispatcher = _scrollDispatcher;
-          this._ngZone = _ngZone;
-          this._viewportRuler = _viewportRuler;
-          this._config = _config;
-          this._scrollSubscription = null;
-          /** Detaches the overlay ref and disables the scroll strategy. */
-
-          this._detach = function () {
-            _this82.disable();
-
-            if (_this82._overlayRef.hasAttached()) {
-              _this82._ngZone.run(function () {
-                return _this82._overlayRef.detach();
-              });
-            }
-          };
-        }
-        /** Attaches this scroll strategy to an overlay. */
-
-
-        _createClass(CloseScrollStrategy, [{
-          key: "attach",
-          value: function attach(overlayRef) {
-            if (this._overlayRef && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw getMatScrollStrategyAlreadyAttachedError();
-            }
-
-            this._overlayRef = overlayRef;
-          }
-          /** Enables the closing of the attached overlay on scroll. */
-
-        }, {
-          key: "enable",
-          value: function enable() {
-            var _this83 = this;
-
-            if (this._scrollSubscription) {
-              return;
-            }
-
-            var stream = this._scrollDispatcher.scrolled(0);
-
-            if (this._config && this._config.threshold && this._config.threshold > 1) {
-              this._initialScrollPosition = this._viewportRuler.getViewportScrollPosition().top;
-              this._scrollSubscription = stream.subscribe(function () {
-                var scrollPosition = _this83._viewportRuler.getViewportScrollPosition().top;
-
-                if (Math.abs(scrollPosition - _this83._initialScrollPosition) > _this83._config.threshold) {
-                  _this83._detach();
-                } else {
-                  _this83._overlayRef.updatePosition();
-                }
-              });
-            } else {
-              this._scrollSubscription = stream.subscribe(this._detach);
-            }
-          }
-          /** Disables the closing the attached overlay on scroll. */
-
-        }, {
-          key: "disable",
-          value: function disable() {
-            if (this._scrollSubscription) {
-              this._scrollSubscription.unsubscribe();
-
-              this._scrollSubscription = null;
-            }
-          }
-        }, {
-          key: "detach",
-          value: function detach() {
-            this.disable();
-            this._overlayRef = null;
-          }
-        }]);
-
-        return CloseScrollStrategy;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Scroll strategy that doesn't do anything. */
-
-
-      var NoopScrollStrategy = /*#__PURE__*/function () {
-        function NoopScrollStrategy() {
-          _classCallCheck(this, NoopScrollStrategy);
-        }
-
-        _createClass(NoopScrollStrategy, [{
-          key: "enable",
-
-          /** Does nothing, as this scroll strategy is a no-op. */
-          value: function enable() {}
-          /** Does nothing, as this scroll strategy is a no-op. */
-
-        }, {
-          key: "disable",
-          value: function disable() {}
-          /** Does nothing, as this scroll strategy is a no-op. */
-
-        }, {
-          key: "attach",
-          value: function attach() {}
-        }]);
-
-        return NoopScrollStrategy;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-      // TODO(jelbourn): move this to live with the rest of the scrolling code
-      // TODO(jelbourn): someday replace this with IntersectionObservers
-
-      /**
-       * Gets whether an element is scrolled outside of view by any of its parent scrolling containers.
-       * @param element Dimensions of the element (from getBoundingClientRect)
-       * @param scrollContainers Dimensions of element's scrolling containers (from getBoundingClientRect)
-       * @returns Whether the element is scrolled out of view
-       * @docs-private
-       */
-
-
-      function isElementScrolledOutsideView(element, scrollContainers) {
-        return scrollContainers.some(function (containerBounds) {
-          var outsideAbove = element.bottom < containerBounds.top;
-          var outsideBelow = element.top > containerBounds.bottom;
-          var outsideLeft = element.right < containerBounds.left;
-          var outsideRight = element.left > containerBounds.right;
-          return outsideAbove || outsideBelow || outsideLeft || outsideRight;
-        });
-      }
-      /**
-       * Gets whether an element is clipped by any of its scrolling containers.
-       * @param element Dimensions of the element (from getBoundingClientRect)
-       * @param scrollContainers Dimensions of element's scrolling containers (from getBoundingClientRect)
-       * @returns Whether the element is clipped
-       * @docs-private
-       */
-
-
-      function isElementClippedByScrolling(element, scrollContainers) {
-        return scrollContainers.some(function (scrollContainerRect) {
-          var clippedAbove = element.top < scrollContainerRect.top;
-          var clippedBelow = element.bottom > scrollContainerRect.bottom;
-          var clippedLeft = element.left < scrollContainerRect.left;
-          var clippedRight = element.right > scrollContainerRect.right;
-          return clippedAbove || clippedBelow || clippedLeft || clippedRight;
-        });
-      }
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Strategy that will update the element position as the user is scrolling.
-       */
-
-
-      var RepositionScrollStrategy = /*#__PURE__*/function () {
-        function RepositionScrollStrategy(_scrollDispatcher, _viewportRuler, _ngZone, _config) {
-          _classCallCheck(this, RepositionScrollStrategy);
-
-          this._scrollDispatcher = _scrollDispatcher;
-          this._viewportRuler = _viewportRuler;
-          this._ngZone = _ngZone;
-          this._config = _config;
-          this._scrollSubscription = null;
-        }
-        /** Attaches this scroll strategy to an overlay. */
-
-
-        _createClass(RepositionScrollStrategy, [{
-          key: "attach",
-          value: function attach(overlayRef) {
-            if (this._overlayRef && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw getMatScrollStrategyAlreadyAttachedError();
-            }
-
-            this._overlayRef = overlayRef;
-          }
-          /** Enables repositioning of the attached overlay on scroll. */
-
-        }, {
-          key: "enable",
-          value: function enable() {
-            var _this84 = this;
-
-            if (!this._scrollSubscription) {
-              var throttle = this._config ? this._config.scrollThrottle : 0;
-              this._scrollSubscription = this._scrollDispatcher.scrolled(throttle).subscribe(function () {
-                _this84._overlayRef.updatePosition(); // TODO(crisbeto): make `close` on by default once all components can handle it.
-
-
-                if (_this84._config && _this84._config.autoClose) {
-                  var overlayRect = _this84._overlayRef.overlayElement.getBoundingClientRect();
-
-                  var _this84$_viewportRule = _this84._viewportRuler.getViewportSize(),
-                      width = _this84$_viewportRule.width,
-                      height = _this84$_viewportRule.height; // TODO(crisbeto): include all ancestor scroll containers here once
-                  // we have a way of exposing the trigger element to the scroll strategy.
-
-
-                  var parentRects = [{
-                    width: width,
-                    height: height,
-                    bottom: height,
-                    right: width,
-                    top: 0,
-                    left: 0
-                  }];
-
-                  if (isElementScrolledOutsideView(overlayRect, parentRects)) {
-                    _this84.disable();
-
-                    _this84._ngZone.run(function () {
-                      return _this84._overlayRef.detach();
-                    });
-                  }
-                }
-              });
-            }
-          }
-          /** Disables repositioning of the attached overlay on scroll. */
-
-        }, {
-          key: "disable",
-          value: function disable() {
-            if (this._scrollSubscription) {
-              this._scrollSubscription.unsubscribe();
-
-              this._scrollSubscription = null;
-            }
-          }
-        }, {
-          key: "detach",
-          value: function detach() {
-            this.disable();
-            this._overlayRef = null;
-          }
-        }]);
-
-        return RepositionScrollStrategy;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Options for how an overlay will handle scrolling.
-       *
-       * Users can provide a custom value for `ScrollStrategyOptions` to replace the default
-       * behaviors. This class primarily acts as a factory for ScrollStrategy instances.
-       */
-
-
-      var ScrollStrategyOptions = function ScrollStrategyOptions(_scrollDispatcher, _viewportRuler, _ngZone, document) {
-        var _this85 = this;
-
-        _classCallCheck(this, ScrollStrategyOptions);
-
-        this._scrollDispatcher = _scrollDispatcher;
-        this._viewportRuler = _viewportRuler;
-        this._ngZone = _ngZone;
-        /** Do nothing on scroll. */
-
-        this.noop = function () {
-          return new NoopScrollStrategy();
-        };
-        /**
-         * Close the overlay as soon as the user scrolls.
-         * @param config Configuration to be used inside the scroll strategy.
-         */
-
-
-        this.close = function (config) {
-          return new CloseScrollStrategy(_this85._scrollDispatcher, _this85._ngZone, _this85._viewportRuler, config);
-        };
-        /** Block scrolling. */
-
-
-        this.block = function () {
-          return new BlockScrollStrategy(_this85._viewportRuler, _this85._document);
-        };
-        /**
-         * Update the overlay's position on scroll.
-         * @param config Configuration to be used inside the scroll strategy.
-         * Allows debouncing the reposition calls.
-         */
-
-
-        this.reposition = function (config) {
-          return new RepositionScrollStrategy(_this85._scrollDispatcher, _this85._viewportRuler, _this85._ngZone, config);
-        };
-
-        this._document = document;
-      };
-
-      ScrollStrategyOptions.ɵfac = function ScrollStrategyOptions_Factory(t) {
-        return new (t || ScrollStrategyOptions)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollDispatcher"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]));
-      };
-
-      ScrollStrategyOptions.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function ScrollStrategyOptions_Factory() {
-          return new ScrollStrategyOptions(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollDispatcher"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]));
-        },
-        token: ScrollStrategyOptions,
-        providedIn: "root"
-      });
-
-      ScrollStrategyOptions.ctorParameters = function () {
-        return [{
-          type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollDispatcher"]
-        }, {
-          type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-          }]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ScrollStrategyOptions, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollDispatcher"]
-          }, {
-            type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-          }, {
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-            }]
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Initial configuration used when creating an overlay. */
-
-
-      var OverlayConfig = function OverlayConfig(config) {
-        _classCallCheck(this, OverlayConfig);
-
-        /** Strategy to be used when handling scroll events while the overlay is open. */
-        this.scrollStrategy = new NoopScrollStrategy();
-        /** Custom class to add to the overlay pane. */
-
-        this.panelClass = '';
-        /** Whether the overlay has a backdrop. */
-
-        this.hasBackdrop = false;
-        /** Custom class to add to the backdrop */
-
-        this.backdropClass = 'cdk-overlay-dark-backdrop';
-        /**
-         * Whether the overlay should be disposed of when the user goes backwards/forwards in history.
-         * Note that this usually doesn't include clicking on links (unless the user is using
-         * the `HashLocationStrategy`).
-         */
-
-        this.disposeOnNavigation = false;
-
-        if (config) {
-          // Use `Iterable` instead of `Array` because TypeScript, as of 3.6.3,
-          // loses the array generic type in the `for of`. But we *also* have to use `Array` because
-          // typescript won't iterate over an `Iterable` unless you compile with `--downlevelIteration`
-          var configKeys = Object.keys(config);
-
-          for (var _i3 = 0, _configKeys = configKeys; _i3 < _configKeys.length; _i3++) {
-            var key = _configKeys[_i3];
-
-            if (config[key] !== undefined) {
-              // TypeScript, as of version 3.5, sees the left-hand-side of this expression
-              // as "I don't know *which* key this is, so the only valid value is the intersection
-              // of all the posible values." In this case, that happens to be `undefined`. TypeScript
-              // is not smart enough to see that the right-hand-side is actually an access of the same
-              // exact type with the same exact key, meaning that the value type must be identical.
-              // So we use `any` to work around this.
-              this[key] = config[key];
-            }
-          }
-        }
-      };
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** The points of the origin element and the overlay element to connect. */
-
-
-      var ConnectionPositionPair = function ConnectionPositionPair(origin, overlay,
-      /** Offset along the X axis. */
-      offsetX,
-      /** Offset along the Y axis. */
-      offsetY,
-      /** Class(es) to be applied to the panel while this position is active. */
-      panelClass) {
-        _classCallCheck(this, ConnectionPositionPair);
-
-        this.offsetX = offsetX;
-        this.offsetY = offsetY;
-        this.panelClass = panelClass;
-        this.originX = origin.originX;
-        this.originY = origin.originY;
-        this.overlayX = overlay.overlayX;
-        this.overlayY = overlay.overlayY;
-      };
-      /**
-       * Set of properties regarding the position of the origin and overlay relative to the viewport
-       * with respect to the containing Scrollable elements.
-       *
-       * The overlay and origin are clipped if any part of their bounding client rectangle exceeds the
-       * bounds of any one of the strategy's Scrollable's bounding client rectangle.
-       *
-       * The overlay and origin are outside view if there is no overlap between their bounding client
-       * rectangle and any one of the strategy's Scrollable's bounding client rectangle.
-       *
-       *       -----------                    -----------
-       *       | outside |                    | clipped |
-       *       |  view   |              --------------------------
-       *       |         |              |     |         |        |
-       *       ----------               |     -----------        |
-       *  --------------------------    |                        |
-       *  |                        |    |      Scrollable        |
-       *  |                        |    |                        |
-       *  |                        |     --------------------------
-       *  |      Scrollable        |
-       *  |                        |
-       *  --------------------------
-       *
-       *  @docs-private
-       */
-
-
-      var ScrollingVisibility = function ScrollingVisibility() {
-        _classCallCheck(this, ScrollingVisibility);
-      };
-      /** The change event emitted by the strategy when a fallback position is used. */
-
-
-      var ConnectedOverlayPositionChange = function ConnectedOverlayPositionChange(
-      /** The position used as a result of this change. */
-      connectionPair,
-      /** @docs-private */
-      scrollableViewProperties) {
-        _classCallCheck(this, ConnectedOverlayPositionChange);
-
-        this.connectionPair = connectionPair;
-        this.scrollableViewProperties = scrollableViewProperties;
-      };
-
-      ConnectedOverlayPositionChange.ctorParameters = function () {
-        return [{
-          type: ConnectionPositionPair
-        }, {
-          type: ScrollingVisibility,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }]
-        }];
-      };
-      /**
-       * Validates whether a vertical position property matches the expected values.
-       * @param property Name of the property being validated.
-       * @param value Value of the property being validated.
-       * @docs-private
-       */
-
-
-      function validateVerticalPosition(property, value) {
-        if (value !== 'top' && value !== 'bottom' && value !== 'center') {
-          throw Error("ConnectedPosition: Invalid ".concat(property, " \"").concat(value, "\". ") + "Expected \"top\", \"bottom\" or \"center\".");
-        }
-      }
-      /**
-       * Validates whether a horizontal position property matches the expected values.
-       * @param property Name of the property being validated.
-       * @param value Value of the property being validated.
-       * @docs-private
-       */
-
-
-      function validateHorizontalPosition(property, value) {
-        if (value !== 'start' && value !== 'end' && value !== 'center') {
-          throw Error("ConnectedPosition: Invalid ".concat(property, " \"").concat(value, "\". ") + "Expected \"start\", \"end\" or \"center\".");
-        }
-      }
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Service for dispatching events that land on the body to appropriate overlay ref,
-       * if any. It maintains a list of attached overlays to determine best suited overlay based
-       * on event target and order of overlay opens.
-       */
-
-
-      var BaseOverlayDispatcher = /*#__PURE__*/function () {
-        function BaseOverlayDispatcher(document) {
-          _classCallCheck(this, BaseOverlayDispatcher);
-
-          /** Currently attached overlays in the order they were attached. */
-          this._attachedOverlays = [];
-          this._document = document;
-        }
-
-        _createClass(BaseOverlayDispatcher, [{
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.detach();
-          }
-          /** Add a new overlay to the list of attached overlay refs. */
-
-        }, {
-          key: "add",
-          value: function add(overlayRef) {
-            // Ensure that we don't get the same overlay multiple times.
-            this.remove(overlayRef);
-
-            this._attachedOverlays.push(overlayRef);
-          }
-          /** Remove an overlay from the list of attached overlay refs. */
-
-        }, {
-          key: "remove",
-          value: function remove(overlayRef) {
-            var index = this._attachedOverlays.indexOf(overlayRef);
-
-            if (index > -1) {
-              this._attachedOverlays.splice(index, 1);
-            } // Remove the global listener once there are no more overlays.
-
-
-            if (this._attachedOverlays.length === 0) {
-              this.detach();
-            }
-          }
-        }]);
-
-        return BaseOverlayDispatcher;
-      }();
-
-      BaseOverlayDispatcher.ɵfac = function BaseOverlayDispatcher_Factory(t) {
-        return new (t || BaseOverlayDispatcher)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]));
-      };
-
-      BaseOverlayDispatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function BaseOverlayDispatcher_Factory() {
-          return new BaseOverlayDispatcher(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]));
-        },
-        token: BaseOverlayDispatcher,
-        providedIn: "root"
-      });
-
-      BaseOverlayDispatcher.ctorParameters = function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-          }]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](BaseOverlayDispatcher, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-            }]
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Service for dispatching keyboard events that land on the body to appropriate overlay ref,
-       * if any. It maintains a list of attached overlays to determine best suited overlay based
-       * on event target and order of overlay opens.
-       */
-
-
-      var OverlayKeyboardDispatcher = /*#__PURE__*/function (_BaseOverlayDispatche) {
-        _inherits(OverlayKeyboardDispatcher, _BaseOverlayDispatche);
-
-        var _super47 = _createSuper(OverlayKeyboardDispatcher);
-
-        function OverlayKeyboardDispatcher(document) {
-          var _this86;
-
-          _classCallCheck(this, OverlayKeyboardDispatcher);
-
-          _this86 = _super47.call(this, document);
-          /** Keyboard event listener that will be attached to the body. */
-
-          _this86._keydownListener = function (event) {
-            var overlays = _this86._attachedOverlays;
-
-            for (var i = overlays.length - 1; i > -1; i--) {
-              // Dispatch the keydown event to the top overlay which has subscribers to its keydown events.
-              // We want to target the most recent overlay, rather than trying to match where the event came
-              // from, because some components might open an overlay, but keep focus on a trigger element
-              // (e.g. for select and autocomplete). We skip overlays without keydown event subscriptions,
-              // because we don't want overlays that don't handle keyboard events to block the ones below
-              // them that do.
-              if (overlays[i]._keydownEvents.observers.length > 0) {
-                overlays[i]._keydownEvents.next(event);
-
-                break;
-              }
-            }
-          };
-
-          return _this86;
-        }
-        /** Add a new overlay to the list of attached overlay refs. */
-
-
-        _createClass(OverlayKeyboardDispatcher, [{
-          key: "add",
-          value: function add(overlayRef) {
-            _get(_getPrototypeOf(OverlayKeyboardDispatcher.prototype), "add", this).call(this, overlayRef); // Lazily start dispatcher once first overlay is added
-
-
-            if (!this._isAttached) {
-              this._document.body.addEventListener('keydown', this._keydownListener);
-
-              this._isAttached = true;
-            }
-          }
-          /** Detaches the global keyboard event listener. */
-
-        }, {
-          key: "detach",
-          value: function detach() {
-            if (this._isAttached) {
-              this._document.body.removeEventListener('keydown', this._keydownListener);
-
-              this._isAttached = false;
-            }
-          }
-        }]);
-
-        return OverlayKeyboardDispatcher;
-      }(BaseOverlayDispatcher);
-
-      OverlayKeyboardDispatcher.ɵfac = function OverlayKeyboardDispatcher_Factory(t) {
-        return new (t || OverlayKeyboardDispatcher)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]));
-      };
-
-      OverlayKeyboardDispatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function OverlayKeyboardDispatcher_Factory() {
-          return new OverlayKeyboardDispatcher(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]));
-        },
-        token: OverlayKeyboardDispatcher,
-        providedIn: "root"
-      });
-
-      OverlayKeyboardDispatcher.ctorParameters = function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-          }]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](OverlayKeyboardDispatcher, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-            }]
-          }];
-        }, null);
-      })();
-      /** @docs-private @deprecated @breaking-change 8.0.0 */
-
-
-      function OVERLAY_KEYBOARD_DISPATCHER_PROVIDER_FACTORY(dispatcher, _document) {
-        return dispatcher || new OverlayKeyboardDispatcher(_document);
-      }
-      /** @docs-private @deprecated @breaking-change 8.0.0 */
-
-
-      var OVERLAY_KEYBOARD_DISPATCHER_PROVIDER = {
-        // If there is already an OverlayKeyboardDispatcher available, use that.
-        // Otherwise, provide a new one.
-        provide: OverlayKeyboardDispatcher,
-        deps: [[new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"](), new _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"](), OverlayKeyboardDispatcher], // Coerce to `InjectionToken` so that the `deps` match the "shape"
-        // of the type expected by Angular
-        _angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]],
-        useFactory: OVERLAY_KEYBOARD_DISPATCHER_PROVIDER_FACTORY
-      };
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Service for dispatching mouse click events that land on the body to appropriate overlay ref,
-       * if any. It maintains a list of attached overlays to determine best suited overlay based
-       * on event target and order of overlay opens.
-       */
-
-      var OverlayOutsideClickDispatcher = /*#__PURE__*/function (_BaseOverlayDispatche2) {
-        _inherits(OverlayOutsideClickDispatcher, _BaseOverlayDispatche2);
-
-        var _super48 = _createSuper(OverlayOutsideClickDispatcher);
-
-        function OverlayOutsideClickDispatcher(document, _platform) {
-          var _this87;
-
-          _classCallCheck(this, OverlayOutsideClickDispatcher);
-
-          _this87 = _super48.call(this, document);
-          _this87._platform = _platform;
-          _this87._cursorStyleIsSet = false;
-          /** Click event listener that will be attached to the body propagate phase. */
-
-          _this87._clickListener = function (event) {
-            // Get the target through the `composedPath` if possible to account for shadow DOM.
-            var target = event.composedPath ? event.composedPath()[0] : event.target; // We copy the array because the original may be modified asynchronously if the
-            // outsidePointerEvents listener decides to detach overlays resulting in index errors inside
-            // the for loop.
-
-            var overlays = _this87._attachedOverlays.slice(); // Dispatch the mouse event to the top overlay which has subscribers to its mouse events.
-            // We want to target all overlays for which the click could be considered as outside click.
-            // As soon as we reach an overlay for which the click is not outside click we break off
-            // the loop.
-
-
-            for (var i = overlays.length - 1; i > -1; i--) {
-              var overlayRef = overlays[i];
-
-              if (overlayRef._outsidePointerEvents.observers.length < 1 || !overlayRef.hasAttached()) {
-                continue;
-              } // If it's a click inside the overlay, just break - we should do nothing
-              // If it's an outside click dispatch the mouse event, and proceed with the next overlay
-
-
-              if (overlayRef.overlayElement.contains(target)) {
-                break;
-              }
-
-              overlayRef._outsidePointerEvents.next(event);
-            }
-          };
-
-          return _this87;
-        }
-        /** Add a new overlay to the list of attached overlay refs. */
-
-
-        _createClass(OverlayOutsideClickDispatcher, [{
-          key: "add",
-          value: function add(overlayRef) {
-            _get(_getPrototypeOf(OverlayOutsideClickDispatcher.prototype), "add", this).call(this, overlayRef); // tslint:disable: max-line-length
-            // Safari on iOS does not generate click events for non-interactive
-            // elements. However, we want to receive a click for any element outside
-            // the overlay. We can force a "clickable" state by setting
-            // `cursor: pointer` on the document body.
-            // See https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event#Safari_Mobile
-            // and https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html
-            // tslint:enable: max-line-length
-
-
-            if (!this._isAttached) {
-              this._document.body.addEventListener('click', this._clickListener, true);
-
-              this._document.body.addEventListener('contextmenu', this._clickListener, true); // click event is not fired on iOS. To make element "clickable" we are
-              // setting the cursor to pointer
-
-
-              if (this._platform.IOS && !this._cursorStyleIsSet) {
-                this._cursorOriginalValue = this._document.body.style.cursor;
-                this._document.body.style.cursor = 'pointer';
-                this._cursorStyleIsSet = true;
-              }
-
-              this._isAttached = true;
-            }
-          }
-          /** Detaches the global keyboard event listener. */
-
-        }, {
-          key: "detach",
-          value: function detach() {
-            if (this._isAttached) {
-              this._document.body.removeEventListener('click', this._clickListener, true);
-
-              this._document.body.removeEventListener('contextmenu', this._clickListener, true);
-
-              if (this._platform.IOS && this._cursorStyleIsSet) {
-                this._document.body.style.cursor = this._cursorOriginalValue;
-                this._cursorStyleIsSet = false;
-              }
-
-              this._isAttached = false;
-            }
-          }
-        }]);
-
-        return OverlayOutsideClickDispatcher;
-      }(BaseOverlayDispatcher);
-
-      OverlayOutsideClickDispatcher.ɵfac = function OverlayOutsideClickDispatcher_Factory(t) {
-        return new (t || OverlayOutsideClickDispatcher)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]));
-      };
-
-      OverlayOutsideClickDispatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function OverlayOutsideClickDispatcher_Factory() {
-          return new OverlayOutsideClickDispatcher(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]));
-        },
-        token: OverlayOutsideClickDispatcher,
-        providedIn: "root"
-      });
-
-      OverlayOutsideClickDispatcher.ctorParameters = function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-          }]
-        }, {
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](OverlayOutsideClickDispatcher, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-            }]
-          }, {
-            type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Whether we're in a testing environment.
-       * TODO(crisbeto): remove this once we have an overlay testing module.
-       */
-
-
-      var isTestEnvironment = typeof window !== 'undefined' && !!window && !!(window.__karma__ || window.jasmine);
-      /** Container inside which all overlays will render. */
-
-      var OverlayContainer = /*#__PURE__*/function () {
-        function OverlayContainer(document,
-        /**
-         * @deprecated `platform` parameter to become required.
-         * @breaking-change 10.0.0
-         */
-        _platform) {
-          _classCallCheck(this, OverlayContainer);
-
-          this._platform = _platform;
-          this._document = document;
-        }
-
-        _createClass(OverlayContainer, [{
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            var container = this._containerElement;
-
-            if (container && container.parentNode) {
-              container.parentNode.removeChild(container);
-            }
-          }
-          /**
-           * This method returns the overlay container element. It will lazily
-           * create the element the first time  it is called to facilitate using
-           * the container in non-browser environments.
-           * @returns the container element
-           */
-
-        }, {
-          key: "getContainerElement",
-          value: function getContainerElement() {
-            if (!this._containerElement) {
-              this._createContainer();
-            }
-
-            return this._containerElement;
-          }
-          /**
-           * Create the overlay container element, which is simply a div
-           * with the 'cdk-overlay-container' class on the document body.
-           */
-
-        }, {
-          key: "_createContainer",
-          value: function _createContainer() {
-            // @breaking-change 10.0.0 Remove null check for `_platform`.
-            var isBrowser = this._platform ? this._platform.isBrowser : typeof window !== 'undefined';
-            var containerClass = 'cdk-overlay-container';
-
-            if (isBrowser || isTestEnvironment) {
-              var oppositePlatformContainers = this._document.querySelectorAll(".".concat(containerClass, "[platform=\"server\"], ") + ".".concat(containerClass, "[platform=\"test\"]")); // Remove any old containers from the opposite platform.
-              // This can happen when transitioning from the server to the client.
-
-
-              for (var i = 0; i < oppositePlatformContainers.length; i++) {
-                oppositePlatformContainers[i].parentNode.removeChild(oppositePlatformContainers[i]);
-              }
-            }
-
-            var container = this._document.createElement('div');
-
-            container.classList.add(containerClass); // A long time ago we kept adding new overlay containers whenever a new app was instantiated,
-            // but at some point we added logic which clears the duplicate ones in order to avoid leaks.
-            // The new logic was a little too aggressive since it was breaking some legitimate use cases.
-            // To mitigate the problem we made it so that only containers from a different platform are
-            // cleared, but the side-effect was that people started depending on the overly-aggressive
-            // logic to clean up their tests for them. Until we can introduce an overlay-specific testing
-            // module which does the cleanup, we try to detect that we're in a test environment and we
-            // always clear the container. See #17006.
-            // TODO(crisbeto): remove the test environment check once we have an overlay testing module.
-
-            if (isTestEnvironment) {
-              container.setAttribute('platform', 'test');
-            } else if (!isBrowser) {
-              container.setAttribute('platform', 'server');
-            }
-
-            this._document.body.appendChild(container);
-
-            this._containerElement = container;
-          }
-        }]);
-
-        return OverlayContainer;
-      }();
-
-      OverlayContainer.ɵfac = function OverlayContainer_Factory(t) {
-        return new (t || OverlayContainer)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]));
-      };
-
-      OverlayContainer.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function OverlayContainer_Factory() {
-          return new OverlayContainer(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]));
-        },
-        token: OverlayContainer,
-        providedIn: "root"
-      });
-
-      OverlayContainer.ctorParameters = function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-          }]
-        }, {
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](OverlayContainer, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-            }]
-          }, {
-            type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-          }];
-        }, null);
-      })();
-      /** @docs-private @deprecated @breaking-change 8.0.0 */
-
-
-      function OVERLAY_CONTAINER_PROVIDER_FACTORY(parentContainer, _document) {
-        return parentContainer || new OverlayContainer(_document);
-      }
-      /** @docs-private @deprecated @breaking-change 8.0.0 */
-
-
-      var OVERLAY_CONTAINER_PROVIDER = {
-        // If there is already an OverlayContainer available, use that. Otherwise, provide a new one.
-        provide: OverlayContainer,
-        deps: [[new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"](), new _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"](), OverlayContainer], _angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"] // We need to use the InjectionToken somewhere to keep TS happy
-        ],
-        useFactory: OVERLAY_CONTAINER_PROVIDER_FACTORY
-      };
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Reference to an overlay that has been created with the Overlay service.
-       * Used to manipulate or dispose of said overlay.
-       */
-
-      var OverlayRef = /*#__PURE__*/function () {
-        function OverlayRef(_portalOutlet, _host, _pane, _config, _ngZone, _keyboardDispatcher, _document, // @breaking-change 8.0.0 `_location` parameter to be made required.
-        _location, // @breaking-change 9.0.0 `_mouseClickDispatcher` parameter to be made required.
-        _outsideClickDispatcher) {
-          var _this88 = this;
-
-          _classCallCheck(this, OverlayRef);
-
-          this._portalOutlet = _portalOutlet;
-          this._host = _host;
-          this._pane = _pane;
-          this._config = _config;
-          this._ngZone = _ngZone;
-          this._keyboardDispatcher = _keyboardDispatcher;
-          this._document = _document;
-          this._location = _location;
-          this._outsideClickDispatcher = _outsideClickDispatcher;
-          this._backdropElement = null;
-          this._backdropClick = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
-          this._attachments = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
-          this._detachments = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
-          this._locationChanges = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
-
-          this._backdropClickHandler = function (event) {
-            return _this88._backdropClick.next(event);
-          };
-          /** Stream of keydown events dispatched to this overlay. */
-
-
-          this._keydownEvents = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
-          /** Stream of mouse outside events dispatched to this overlay. */
-
-          this._outsidePointerEvents = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
-
-          if (_config.scrollStrategy) {
-            this._scrollStrategy = _config.scrollStrategy;
-
-            this._scrollStrategy.attach(this);
-          }
-
-          this._positionStrategy = _config.positionStrategy;
-        }
-        /** The overlay's HTML element */
-
-
-        _createClass(OverlayRef, [{
-          key: "attach",
-
-          /**
-           * Attaches content, given via a Portal, to the overlay.
-           * If the overlay is configured to have a backdrop, it will be created.
-           *
-           * @param portal Portal instance to which to attach the overlay.
-           * @returns The portal attachment result.
-           */
-          value: function attach(portal) {
-            var _this89 = this;
-
-            var attachResult = this._portalOutlet.attach(portal); // Update the pane element with the given configuration.
-
-
-            if (!this._host.parentElement && this._previousHostParent) {
-              this._previousHostParent.appendChild(this._host);
-            }
-
-            if (this._positionStrategy) {
-              this._positionStrategy.attach(this);
-            }
-
-            this._updateStackingOrder();
-
-            this._updateElementSize();
-
-            this._updateElementDirection();
-
-            if (this._scrollStrategy) {
-              this._scrollStrategy.enable();
-            } // Update the position once the zone is stable so that the overlay will be fully rendered
-            // before attempting to position it, as the position may depend on the size of the rendered
-            // content.
-
-
-            this._ngZone.onStable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1)).subscribe(function () {
-              // The overlay could've been detached before the zone has stabilized.
-              if (_this89.hasAttached()) {
-                _this89.updatePosition();
-              }
-            }); // Enable pointer events for the overlay pane element.
-
-
-            this._togglePointerEvents(true);
-
-            if (this._config.hasBackdrop) {
-              this._attachBackdrop();
-            }
-
-            if (this._config.panelClass) {
-              this._toggleClasses(this._pane, this._config.panelClass, true);
-            } // Only emit the `attachments` event once all other setup is done.
-
-
-            this._attachments.next(); // Track this overlay by the keyboard dispatcher
-
-
-            this._keyboardDispatcher.add(this); // @breaking-change 8.0.0 remove the null check for `_location`
-            // once the constructor parameter is made required.
-
-
-            if (this._config.disposeOnNavigation && this._location) {
-              this._locationChanges = this._location.subscribe(function () {
-                return _this89.dispose();
-              });
-            } // @breaking-change 9.0.0 remove the null check for `_mouseClickDispatcher`
-
-
-            if (this._outsideClickDispatcher) {
-              this._outsideClickDispatcher.add(this);
-            }
-
-            return attachResult;
-          }
-          /**
-           * Detaches an overlay from a portal.
-           * @returns The portal detachment result.
-           */
-
-        }, {
-          key: "detach",
-          value: function detach() {
-            if (!this.hasAttached()) {
-              return;
-            }
-
-            this.detachBackdrop(); // When the overlay is detached, the pane element should disable pointer events.
-            // This is necessary because otherwise the pane element will cover the page and disable
-            // pointer events therefore. Depends on the position strategy and the applied pane boundaries.
-
-            this._togglePointerEvents(false);
-
-            if (this._positionStrategy && this._positionStrategy.detach) {
-              this._positionStrategy.detach();
-            }
-
-            if (this._scrollStrategy) {
-              this._scrollStrategy.disable();
-            }
-
-            var detachmentResult = this._portalOutlet.detach(); // Only emit after everything is detached.
-
-
-            this._detachments.next(); // Remove this overlay from keyboard dispatcher tracking.
-
-
-            this._keyboardDispatcher.remove(this); // Keeping the host element in the DOM can cause scroll jank, because it still gets
-            // rendered, even though it's transparent and unclickable which is why we remove it.
-
-
-            this._detachContentWhenStable(); // Stop listening for location changes.
-
-
-            this._locationChanges.unsubscribe(); // @breaking-change 9.0.0 remove the null check for `_outsideClickDispatcher`
-
-
-            if (this._outsideClickDispatcher) {
-              this._outsideClickDispatcher.remove(this);
-            }
-
-            return detachmentResult;
-          }
-          /** Cleans up the overlay from the DOM. */
-
-        }, {
-          key: "dispose",
-          value: function dispose() {
-            var isAttached = this.hasAttached();
-
-            if (this._positionStrategy) {
-              this._positionStrategy.dispose();
-            }
-
-            this._disposeScrollStrategy();
-
-            this.detachBackdrop();
-
-            this._locationChanges.unsubscribe();
-
-            this._keyboardDispatcher.remove(this);
-
-            this._portalOutlet.dispose();
-
-            this._attachments.complete();
-
-            this._backdropClick.complete();
-
-            this._keydownEvents.complete();
-
-            this._outsidePointerEvents.complete(); // @breaking-change 9.0.0 remove the null check for `_outsideClickDispatcher`
-
-
-            if (this._outsideClickDispatcher) {
-              this._outsideClickDispatcher.remove(this);
-            }
-
-            if (this._host && this._host.parentNode) {
-              this._host.parentNode.removeChild(this._host);
-
-              this._host = null;
-            }
-
-            this._previousHostParent = this._pane = null;
-
-            if (isAttached) {
-              this._detachments.next();
-            }
-
-            this._detachments.complete();
-          }
-          /** Whether the overlay has attached content. */
-
-        }, {
-          key: "hasAttached",
-          value: function hasAttached() {
-            return this._portalOutlet.hasAttached();
-          }
-          /** Gets an observable that emits when the backdrop has been clicked. */
-
-        }, {
-          key: "backdropClick",
-          value: function backdropClick() {
-            return this._backdropClick;
-          }
-          /** Gets an observable that emits when the overlay has been attached. */
-
-        }, {
-          key: "attachments",
-          value: function attachments() {
-            return this._attachments;
-          }
-          /** Gets an observable that emits when the overlay has been detached. */
-
-        }, {
-          key: "detachments",
-          value: function detachments() {
-            return this._detachments;
-          }
-          /** Gets an observable of keydown events targeted to this overlay. */
-
-        }, {
-          key: "keydownEvents",
-          value: function keydownEvents() {
-            return this._keydownEvents;
-          }
-          /** Gets an observable of pointer events targeted outside this overlay. */
-
-        }, {
-          key: "outsidePointerEvents",
-          value: function outsidePointerEvents() {
-            return this._outsidePointerEvents;
-          }
-          /** Gets the current overlay configuration, which is immutable. */
-
-        }, {
-          key: "getConfig",
-          value: function getConfig() {
-            return this._config;
-          }
-          /** Updates the position of the overlay based on the position strategy. */
-
-        }, {
-          key: "updatePosition",
-          value: function updatePosition() {
-            if (this._positionStrategy) {
-              this._positionStrategy.apply();
-            }
-          }
-          /** Switches to a new position strategy and updates the overlay position. */
-
-        }, {
-          key: "updatePositionStrategy",
-          value: function updatePositionStrategy(strategy) {
-            if (strategy === this._positionStrategy) {
-              return;
-            }
-
-            if (this._positionStrategy) {
-              this._positionStrategy.dispose();
-            }
-
-            this._positionStrategy = strategy;
-
-            if (this.hasAttached()) {
-              strategy.attach(this);
-              this.updatePosition();
-            }
-          }
-          /** Update the size properties of the overlay. */
-
-        }, {
-          key: "updateSize",
-          value: function updateSize(sizeConfig) {
-            this._config = Object.assign(Object.assign({}, this._config), sizeConfig);
-
-            this._updateElementSize();
-          }
-          /** Sets the LTR/RTL direction for the overlay. */
-
-        }, {
-          key: "setDirection",
-          value: function setDirection(dir) {
-            this._config = Object.assign(Object.assign({}, this._config), {
-              direction: dir
-            });
-
-            this._updateElementDirection();
-          }
-          /** Add a CSS class or an array of classes to the overlay pane. */
-
-        }, {
-          key: "addPanelClass",
-          value: function addPanelClass(classes) {
-            if (this._pane) {
-              this._toggleClasses(this._pane, classes, true);
-            }
-          }
-          /** Remove a CSS class or an array of classes from the overlay pane. */
-
-        }, {
-          key: "removePanelClass",
-          value: function removePanelClass(classes) {
-            if (this._pane) {
-              this._toggleClasses(this._pane, classes, false);
-            }
-          }
-          /**
-           * Returns the layout direction of the overlay panel.
-           */
-
-        }, {
-          key: "getDirection",
-          value: function getDirection() {
-            var direction = this._config.direction;
-
-            if (!direction) {
-              return 'ltr';
-            }
-
-            return typeof direction === 'string' ? direction : direction.value;
-          }
-          /** Switches to a new scroll strategy. */
-
-        }, {
-          key: "updateScrollStrategy",
-          value: function updateScrollStrategy(strategy) {
-            if (strategy === this._scrollStrategy) {
-              return;
-            }
-
-            this._disposeScrollStrategy();
-
-            this._scrollStrategy = strategy;
-
-            if (this.hasAttached()) {
-              strategy.attach(this);
-              strategy.enable();
-            }
-          }
-          /** Updates the text direction of the overlay panel. */
-
-        }, {
-          key: "_updateElementDirection",
-          value: function _updateElementDirection() {
-            this._host.setAttribute('dir', this.getDirection());
-          }
-          /** Updates the size of the overlay element based on the overlay config. */
-
-        }, {
-          key: "_updateElementSize",
-          value: function _updateElementSize() {
-            if (!this._pane) {
-              return;
-            }
-
-            var style = this._pane.style;
-            style.width = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(this._config.width);
-            style.height = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(this._config.height);
-            style.minWidth = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(this._config.minWidth);
-            style.minHeight = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(this._config.minHeight);
-            style.maxWidth = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(this._config.maxWidth);
-            style.maxHeight = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(this._config.maxHeight);
-          }
-          /** Toggles the pointer events for the overlay pane element. */
-
-        }, {
-          key: "_togglePointerEvents",
-          value: function _togglePointerEvents(enablePointer) {
-            this._pane.style.pointerEvents = enablePointer ? 'auto' : 'none';
-          }
-          /** Attaches a backdrop for this overlay. */
-
-        }, {
-          key: "_attachBackdrop",
-          value: function _attachBackdrop() {
-            var _this90 = this;
-
-            var showingClass = 'cdk-overlay-backdrop-showing';
-            this._backdropElement = this._document.createElement('div');
-
-            this._backdropElement.classList.add('cdk-overlay-backdrop');
-
-            if (this._config.backdropClass) {
-              this._toggleClasses(this._backdropElement, this._config.backdropClass, true);
-            } // Insert the backdrop before the pane in the DOM order,
-            // in order to handle stacked overlays properly.
-
-
-            this._host.parentElement.insertBefore(this._backdropElement, this._host); // Forward backdrop clicks such that the consumer of the overlay can perform whatever
-            // action desired when such a click occurs (usually closing the overlay).
-
-
-            this._backdropElement.addEventListener('click', this._backdropClickHandler); // Add class to fade-in the backdrop after one frame.
-
-
-            if (typeof requestAnimationFrame !== 'undefined') {
-              this._ngZone.runOutsideAngular(function () {
-                requestAnimationFrame(function () {
-                  if (_this90._backdropElement) {
-                    _this90._backdropElement.classList.add(showingClass);
-                  }
-                });
-              });
-            } else {
-              this._backdropElement.classList.add(showingClass);
-            }
-          }
-          /**
-           * Updates the stacking order of the element, moving it to the top if necessary.
-           * This is required in cases where one overlay was detached, while another one,
-           * that should be behind it, was destroyed. The next time both of them are opened,
-           * the stacking will be wrong, because the detached element's pane will still be
-           * in its original DOM position.
-           */
-
-        }, {
-          key: "_updateStackingOrder",
-          value: function _updateStackingOrder() {
-            if (this._host.nextSibling) {
-              this._host.parentNode.appendChild(this._host);
-            }
-          }
-          /** Detaches the backdrop (if any) associated with the overlay. */
-
-        }, {
-          key: "detachBackdrop",
-          value: function detachBackdrop() {
-            var _this91 = this;
-
-            var backdropToDetach = this._backdropElement;
-
-            if (!backdropToDetach) {
-              return;
-            }
-
-            var timeoutId;
-
-            var finishDetach = function finishDetach() {
-              // It may not be attached to anything in certain cases (e.g. unit tests).
-              if (backdropToDetach) {
-                backdropToDetach.removeEventListener('click', _this91._backdropClickHandler);
-                backdropToDetach.removeEventListener('transitionend', finishDetach);
-
-                if (backdropToDetach.parentNode) {
-                  backdropToDetach.parentNode.removeChild(backdropToDetach);
-                }
-              } // It is possible that a new portal has been attached to this overlay since we started
-              // removing the backdrop. If that is the case, only clear the backdrop reference if it
-              // is still the same instance that we started to remove.
-
-
-              if (_this91._backdropElement == backdropToDetach) {
-                _this91._backdropElement = null;
-              }
-
-              if (_this91._config.backdropClass) {
-                _this91._toggleClasses(backdropToDetach, _this91._config.backdropClass, false);
-              }
-
-              clearTimeout(timeoutId);
-            };
-
-            backdropToDetach.classList.remove('cdk-overlay-backdrop-showing');
-
-            this._ngZone.runOutsideAngular(function () {
-              backdropToDetach.addEventListener('transitionend', finishDetach);
-            }); // If the backdrop doesn't have a transition, the `transitionend` event won't fire.
-            // In this case we make it unclickable and we try to remove it after a delay.
-
-
-            backdropToDetach.style.pointerEvents = 'none'; // Run this outside the Angular zone because there's nothing that Angular cares about.
-            // If it were to run inside the Angular zone, every test that used Overlay would have to be
-            // either async or fakeAsync.
-
-            timeoutId = this._ngZone.runOutsideAngular(function () {
-              return setTimeout(finishDetach, 500);
-            });
-          }
-          /** Toggles a single CSS class or an array of classes on an element. */
-
-        }, {
-          key: "_toggleClasses",
-          value: function _toggleClasses(element, cssClasses, isAdd) {
-            var classList = element.classList;
-            Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceArray"])(cssClasses).forEach(function (cssClass) {
-              // We can't do a spread here, because IE doesn't support setting multiple classes.
-              // Also trying to add an empty string to a DOMTokenList will throw.
-              if (cssClass) {
-                isAdd ? classList.add(cssClass) : classList.remove(cssClass);
-              }
-            });
-          }
-          /** Detaches the overlay content next time the zone stabilizes. */
-
-        }, {
-          key: "_detachContentWhenStable",
-          value: function _detachContentWhenStable() {
-            var _this92 = this;
-
-            // Normally we wouldn't have to explicitly run this outside the `NgZone`, however
-            // if the consumer is using `zone-patch-rxjs`, the `Subscription.unsubscribe` call will
-            // be patched to run inside the zone, which will throw us into an infinite loop.
-            this._ngZone.runOutsideAngular(function () {
-              // We can't remove the host here immediately, because the overlay pane's content
-              // might still be animating. This stream helps us avoid interrupting the animation
-              // by waiting for the pane to become empty.
-              var subscription = _this92._ngZone.onStable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["merge"])(_this92._attachments, _this92._detachments))).subscribe(function () {
-                // Needs a couple of checks for the pane and host, because
-                // they may have been removed by the time the zone stabilizes.
-                if (!_this92._pane || !_this92._host || _this92._pane.children.length === 0) {
-                  if (_this92._pane && _this92._config.panelClass) {
-                    _this92._toggleClasses(_this92._pane, _this92._config.panelClass, false);
-                  }
-
-                  if (_this92._host && _this92._host.parentElement) {
-                    _this92._previousHostParent = _this92._host.parentElement;
-
-                    _this92._previousHostParent.removeChild(_this92._host);
-                  }
-
-                  subscription.unsubscribe();
-                }
-              });
-            });
-          }
-          /** Disposes of a scroll strategy. */
-
-        }, {
-          key: "_disposeScrollStrategy",
-          value: function _disposeScrollStrategy() {
-            var scrollStrategy = this._scrollStrategy;
-
-            if (scrollStrategy) {
-              scrollStrategy.disable();
-
-              if (scrollStrategy.detach) {
-                scrollStrategy.detach();
-              }
-            }
-          }
-        }, {
-          key: "overlayElement",
-          get: function get() {
-            return this._pane;
-          }
-          /** The overlay's backdrop HTML element. */
-
-        }, {
-          key: "backdropElement",
-          get: function get() {
-            return this._backdropElement;
-          }
-          /**
-           * Wrapper around the panel element. Can be used for advanced
-           * positioning where a wrapper with specific styling is
-           * required around the overlay pane.
-           */
-
-        }, {
-          key: "hostElement",
-          get: function get() {
-            return this._host;
-          }
-        }]);
-
-        return OverlayRef;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-      // TODO: refactor clipping detection into a separate thing (part of scrolling module)
-      // TODO: doesn't handle both flexible width and height when it has to scroll along both axis.
-
-      /** Class to be added to the overlay bounding box. */
-
-
-      var boundingBoxClass = 'cdk-overlay-connected-position-bounding-box';
-      /** Regex used to split a string on its CSS units. */
-
-      var cssUnitPattern = /([A-Za-z%]+)$/;
-      /**
-       * A strategy for positioning overlays. Using this strategy, an overlay is given an
-       * implicit position relative some origin element. The relative position is defined in terms of
-       * a point on the origin element that is connected to a point on the overlay element. For example,
-       * a basic dropdown is connecting the bottom-left corner of the origin to the top-left corner
-       * of the overlay.
-       */
-
-      var FlexibleConnectedPositionStrategy = /*#__PURE__*/function () {
-        function FlexibleConnectedPositionStrategy(connectedTo, _viewportRuler, _document, _platform, _overlayContainer) {
-          _classCallCheck(this, FlexibleConnectedPositionStrategy);
-
-          this._viewportRuler = _viewportRuler;
-          this._document = _document;
-          this._platform = _platform;
-          this._overlayContainer = _overlayContainer;
-          /** Last size used for the bounding box. Used to avoid resizing the overlay after open. */
-
-          this._lastBoundingBoxSize = {
-            width: 0,
-            height: 0
-          };
-          /** Whether the overlay was pushed in a previous positioning. */
-
-          this._isPushed = false;
-          /** Whether the overlay can be pushed on-screen on the initial open. */
-
-          this._canPush = true;
-          /** Whether the overlay can grow via flexible width/height after the initial open. */
-
-          this._growAfterOpen = false;
-          /** Whether the overlay's width and height can be constrained to fit within the viewport. */
-
-          this._hasFlexibleDimensions = true;
-          /** Whether the overlay position is locked. */
-
-          this._positionLocked = false;
-          /** Amount of space that must be maintained between the overlay and the edge of the viewport. */
-
-          this._viewportMargin = 0;
-          /** The Scrollable containers used to check scrollable view properties on position change. */
-
-          this._scrollables = [];
-          /** Ordered list of preferred positions, from most to least desirable. */
-
-          this._preferredPositions = [];
-          /** Subject that emits whenever the position changes. */
-
-          this._positionChanges = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
-          /** Subscription to viewport size changes. */
-
-          this._resizeSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
-          /** Default offset for the overlay along the x axis. */
-
-          this._offsetX = 0;
-          /** Default offset for the overlay along the y axis. */
-
-          this._offsetY = 0;
-          /** Keeps track of the CSS classes that the position strategy has applied on the overlay panel. */
-
-          this._appliedPanelClasses = [];
-          /** Observable sequence of position changes. */
-
-          this.positionChanges = this._positionChanges;
-          this.setOrigin(connectedTo);
-        }
-        /** Ordered list of preferred positions, from most to least desirable. */
-
-
-        _createClass(FlexibleConnectedPositionStrategy, [{
-          key: "attach",
-
-          /** Attaches this position strategy to an overlay. */
-          value: function attach(overlayRef) {
-            var _this93 = this;
-
-            if (this._overlayRef && overlayRef !== this._overlayRef && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw Error('This position strategy is already attached to an overlay');
-            }
-
-            this._validatePositions();
-
-            overlayRef.hostElement.classList.add(boundingBoxClass);
-            this._overlayRef = overlayRef;
-            this._boundingBox = overlayRef.hostElement;
-            this._pane = overlayRef.overlayElement;
-            this._isDisposed = false;
-            this._isInitialRender = true;
-            this._lastPosition = null;
-
-            this._resizeSubscription.unsubscribe();
-
-            this._resizeSubscription = this._viewportRuler.change().subscribe(function () {
-              // When the window is resized, we want to trigger the next reposition as if it
-              // was an initial render, in order for the strategy to pick a new optimal position,
-              // otherwise position locking will cause it to stay at the old one.
-              _this93._isInitialRender = true;
-
-              _this93.apply();
-            });
-          }
-          /**
-           * Updates the position of the overlay element, using whichever preferred position relative
-           * to the origin best fits on-screen.
-           *
-           * The selection of a position goes as follows:
-           *  - If any positions fit completely within the viewport as-is,
-           *      choose the first position that does so.
-           *  - If flexible dimensions are enabled and at least one satifies the given minimum width/height,
-           *      choose the position with the greatest available size modified by the positions' weight.
-           *  - If pushing is enabled, take the position that went off-screen the least and push it
-           *      on-screen.
-           *  - If none of the previous criteria were met, use the position that goes off-screen the least.
-           * @docs-private
-           */
-
-        }, {
-          key: "apply",
-          value: function apply() {
-            // We shouldn't do anything if the strategy was disposed or we're on the server.
-            if (this._isDisposed || !this._platform.isBrowser) {
-              return;
-            } // If the position has been applied already (e.g. when the overlay was opened) and the
-            // consumer opted into locking in the position, re-use the old position, in order to
-            // prevent the overlay from jumping around.
-
-
-            if (!this._isInitialRender && this._positionLocked && this._lastPosition) {
-              this.reapplyLastPosition();
-              return;
-            }
-
-            this._clearPanelClasses();
-
-            this._resetOverlayElementStyles();
-
-            this._resetBoundingBoxStyles(); // We need the bounding rects for the origin and the overlay to determine how to position
-            // the overlay relative to the origin.
-            // We use the viewport rect to determine whether a position would go off-screen.
-
-
-            this._viewportRect = this._getNarrowedViewportRect();
-            this._originRect = this._getOriginRect();
-            this._overlayRect = this._pane.getBoundingClientRect();
-            var originRect = this._originRect;
-            var overlayRect = this._overlayRect;
-            var viewportRect = this._viewportRect; // Positions where the overlay will fit with flexible dimensions.
-
-            var flexibleFits = []; // Fallback if none of the preferred positions fit within the viewport.
-
-            var fallback; // Go through each of the preferred positions looking for a good fit.
-            // If a good fit is found, it will be applied immediately.
-
-            var _iterator14 = _createForOfIteratorHelper(this._preferredPositions),
-                _step14;
-
-            try {
-              for (_iterator14.s(); !(_step14 = _iterator14.n()).done;) {
-                var pos = _step14.value;
-
-                // Get the exact (x, y) coordinate for the point-of-origin on the origin element.
-                var originPoint = this._getOriginPoint(originRect, pos); // From that point-of-origin, get the exact (x, y) coordinate for the top-left corner of the
-                // overlay in this position. We use the top-left corner for calculations and later translate
-                // this into an appropriate (top, left, bottom, right) style.
-
-
-                var overlayPoint = this._getOverlayPoint(originPoint, overlayRect, pos); // Calculate how well the overlay would fit into the viewport with this point.
-
-
-                var overlayFit = this._getOverlayFit(overlayPoint, overlayRect, viewportRect, pos); // If the overlay, without any further work, fits into the viewport, use this position.
-
-
-                if (overlayFit.isCompletelyWithinViewport) {
-                  this._isPushed = false;
-
-                  this._applyPosition(pos, originPoint);
-
-                  return;
-                } // If the overlay has flexible dimensions, we can use this position
-                // so long as there's enough space for the minimum dimensions.
-
-
-                if (this._canFitWithFlexibleDimensions(overlayFit, overlayPoint, viewportRect)) {
-                  // Save positions where the overlay will fit with flexible dimensions. We will use these
-                  // if none of the positions fit *without* flexible dimensions.
-                  flexibleFits.push({
-                    position: pos,
-                    origin: originPoint,
-                    overlayRect: overlayRect,
-                    boundingBoxRect: this._calculateBoundingBoxRect(originPoint, pos)
-                  });
-                  continue;
-                } // If the current preferred position does not fit on the screen, remember the position
-                // if it has more visible area on-screen than we've seen and move onto the next preferred
-                // position.
-
-
-                if (!fallback || fallback.overlayFit.visibleArea < overlayFit.visibleArea) {
-                  fallback = {
-                    overlayFit: overlayFit,
-                    overlayPoint: overlayPoint,
-                    originPoint: originPoint,
-                    position: pos,
-                    overlayRect: overlayRect
-                  };
-                }
-              } // If there are any positions where the overlay would fit with flexible dimensions, choose the
-              // one that has the greatest area available modified by the position's weight
-
-            } catch (err) {
-              _iterator14.e(err);
-            } finally {
-              _iterator14.f();
-            }
-
-            if (flexibleFits.length) {
-              var bestFit = null;
-              var bestScore = -1;
-
-              var _iterator15 = _createForOfIteratorHelper(flexibleFits),
-                  _step15;
-
-              try {
-                for (_iterator15.s(); !(_step15 = _iterator15.n()).done;) {
-                  var fit = _step15.value;
-                  var score = fit.boundingBoxRect.width * fit.boundingBoxRect.height * (fit.position.weight || 1);
-
-                  if (score > bestScore) {
-                    bestScore = score;
-                    bestFit = fit;
-                  }
-                }
-              } catch (err) {
-                _iterator15.e(err);
-              } finally {
-                _iterator15.f();
-              }
-
-              this._isPushed = false;
-
-              this._applyPosition(bestFit.position, bestFit.origin);
-
-              return;
-            } // When none of the preferred positions fit within the viewport, take the position
-            // that went off-screen the least and attempt to push it on-screen.
-
-
-            if (this._canPush) {
-              // TODO(jelbourn): after pushing, the opening "direction" of the overlay might not make sense.
-              this._isPushed = true;
-
-              this._applyPosition(fallback.position, fallback.originPoint);
-
-              return;
-            } // All options for getting the overlay within the viewport have been exhausted, so go with the
-            // position that went off-screen the least.
-
-
-            this._applyPosition(fallback.position, fallback.originPoint);
-          }
-        }, {
-          key: "detach",
-          value: function detach() {
-            this._clearPanelClasses();
-
-            this._lastPosition = null;
-            this._previousPushAmount = null;
-
-            this._resizeSubscription.unsubscribe();
-          }
-          /** Cleanup after the element gets destroyed. */
-
-        }, {
-          key: "dispose",
-          value: function dispose() {
-            if (this._isDisposed) {
-              return;
-            } // We can't use `_resetBoundingBoxStyles` here, because it resets
-            // some properties to zero, rather than removing them.
-
-
-            if (this._boundingBox) {
-              extendStyles(this._boundingBox.style, {
-                top: '',
-                left: '',
-                right: '',
-                bottom: '',
-                height: '',
-                width: '',
-                alignItems: '',
-                justifyContent: ''
-              });
-            }
-
-            if (this._pane) {
-              this._resetOverlayElementStyles();
-            }
-
-            if (this._overlayRef) {
-              this._overlayRef.hostElement.classList.remove(boundingBoxClass);
-            }
-
-            this.detach();
-
-            this._positionChanges.complete();
-
-            this._overlayRef = this._boundingBox = null;
-            this._isDisposed = true;
-          }
-          /**
-           * This re-aligns the overlay element with the trigger in its last calculated position,
-           * even if a position higher in the "preferred positions" list would now fit. This
-           * allows one to re-align the panel without changing the orientation of the panel.
-           */
-
-        }, {
-          key: "reapplyLastPosition",
-          value: function reapplyLastPosition() {
-            if (!this._isDisposed && (!this._platform || this._platform.isBrowser)) {
-              this._originRect = this._getOriginRect();
-              this._overlayRect = this._pane.getBoundingClientRect();
-              this._viewportRect = this._getNarrowedViewportRect();
-              var lastPosition = this._lastPosition || this._preferredPositions[0];
-
-              var originPoint = this._getOriginPoint(this._originRect, lastPosition);
-
-              this._applyPosition(lastPosition, originPoint);
-            }
-          }
-          /**
-           * Sets the list of Scrollable containers that host the origin element so that
-           * on reposition we can evaluate if it or the overlay has been clipped or outside view. Every
-           * Scrollable must be an ancestor element of the strategy's origin element.
-           */
-
-        }, {
-          key: "withScrollableContainers",
-          value: function withScrollableContainers(scrollables) {
-            this._scrollables = scrollables;
-            return this;
-          }
-          /**
-           * Adds new preferred positions.
-           * @param positions List of positions options for this overlay.
-           */
-
-        }, {
-          key: "withPositions",
-          value: function withPositions(positions) {
-            this._preferredPositions = positions; // If the last calculated position object isn't part of the positions anymore, clear
-            // it in order to avoid it being picked up if the consumer tries to re-apply.
-
-            if (positions.indexOf(this._lastPosition) === -1) {
-              this._lastPosition = null;
-            }
-
-            this._validatePositions();
-
-            return this;
-          }
-          /**
-           * Sets a minimum distance the overlay may be positioned to the edge of the viewport.
-           * @param margin Required margin between the overlay and the viewport edge in pixels.
-           */
-
-        }, {
-          key: "withViewportMargin",
-          value: function withViewportMargin(margin) {
-            this._viewportMargin = margin;
-            return this;
-          }
-          /** Sets whether the overlay's width and height can be constrained to fit within the viewport. */
-
-        }, {
-          key: "withFlexibleDimensions",
-          value: function withFlexibleDimensions() {
-            var flexibleDimensions = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-            this._hasFlexibleDimensions = flexibleDimensions;
-            return this;
-          }
-          /** Sets whether the overlay can grow after the initial open via flexible width/height. */
-
-        }, {
-          key: "withGrowAfterOpen",
-          value: function withGrowAfterOpen() {
-            var growAfterOpen = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-            this._growAfterOpen = growAfterOpen;
-            return this;
-          }
-          /** Sets whether the overlay can be pushed on-screen if none of the provided positions fit. */
-
-        }, {
-          key: "withPush",
-          value: function withPush() {
-            var canPush = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-            this._canPush = canPush;
-            return this;
-          }
-          /**
-           * Sets whether the overlay's position should be locked in after it is positioned
-           * initially. When an overlay is locked in, it won't attempt to reposition itself
-           * when the position is re-applied (e.g. when the user scrolls away).
-           * @param isLocked Whether the overlay should locked in.
-           */
-
-        }, {
-          key: "withLockedPosition",
-          value: function withLockedPosition() {
-            var isLocked = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-            this._positionLocked = isLocked;
-            return this;
-          }
-          /**
-           * Sets the origin, relative to which to position the overlay.
-           * Using an element origin is useful for building components that need to be positioned
-           * relatively to a trigger (e.g. dropdown menus or tooltips), whereas using a point can be
-           * used for cases like contextual menus which open relative to the user's pointer.
-           * @param origin Reference to the new origin.
-           */
-
-        }, {
-          key: "setOrigin",
-          value: function setOrigin(origin) {
-            this._origin = origin;
-            return this;
-          }
-          /**
-           * Sets the default offset for the overlay's connection point on the x-axis.
-           * @param offset New offset in the X axis.
-           */
-
-        }, {
-          key: "withDefaultOffsetX",
-          value: function withDefaultOffsetX(offset) {
-            this._offsetX = offset;
-            return this;
-          }
-          /**
-           * Sets the default offset for the overlay's connection point on the y-axis.
-           * @param offset New offset in the Y axis.
-           */
-
-        }, {
-          key: "withDefaultOffsetY",
-          value: function withDefaultOffsetY(offset) {
-            this._offsetY = offset;
-            return this;
-          }
-          /**
-           * Configures that the position strategy should set a `transform-origin` on some elements
-           * inside the overlay, depending on the current position that is being applied. This is
-           * useful for the cases where the origin of an animation can change depending on the
-           * alignment of the overlay.
-           * @param selector CSS selector that will be used to find the target
-           *    elements onto which to set the transform origin.
-           */
-
-        }, {
-          key: "withTransformOriginOn",
-          value: function withTransformOriginOn(selector) {
-            this._transformOriginSelector = selector;
-            return this;
-          }
-          /**
-           * Gets the (x, y) coordinate of a connection point on the origin based on a relative position.
-           */
-
-        }, {
-          key: "_getOriginPoint",
-          value: function _getOriginPoint(originRect, pos) {
-            var x;
-
-            if (pos.originX == 'center') {
-              // Note: when centering we should always use the `left`
-              // offset, otherwise the position will be wrong in RTL.
-              x = originRect.left + originRect.width / 2;
-            } else {
-              var startX = this._isRtl() ? originRect.right : originRect.left;
-              var endX = this._isRtl() ? originRect.left : originRect.right;
-              x = pos.originX == 'start' ? startX : endX;
-            }
-
-            var y;
-
-            if (pos.originY == 'center') {
-              y = originRect.top + originRect.height / 2;
-            } else {
-              y = pos.originY == 'top' ? originRect.top : originRect.bottom;
-            }
-
-            return {
-              x: x,
-              y: y
-            };
-          }
-          /**
-           * Gets the (x, y) coordinate of the top-left corner of the overlay given a given position and
-           * origin point to which the overlay should be connected.
-           */
-
-        }, {
-          key: "_getOverlayPoint",
-          value: function _getOverlayPoint(originPoint, overlayRect, pos) {
-            // Calculate the (overlayStartX, overlayStartY), the start of the
-            // potential overlay position relative to the origin point.
-            var overlayStartX;
-
-            if (pos.overlayX == 'center') {
-              overlayStartX = -overlayRect.width / 2;
-            } else if (pos.overlayX === 'start') {
-              overlayStartX = this._isRtl() ? -overlayRect.width : 0;
-            } else {
-              overlayStartX = this._isRtl() ? 0 : -overlayRect.width;
-            }
-
-            var overlayStartY;
-
-            if (pos.overlayY == 'center') {
-              overlayStartY = -overlayRect.height / 2;
-            } else {
-              overlayStartY = pos.overlayY == 'top' ? 0 : -overlayRect.height;
-            } // The (x, y) coordinates of the overlay.
-
-
-            return {
-              x: originPoint.x + overlayStartX,
-              y: originPoint.y + overlayStartY
-            };
-          }
-          /** Gets how well an overlay at the given point will fit within the viewport. */
-
-        }, {
-          key: "_getOverlayFit",
-          value: function _getOverlayFit(point, overlay, viewport, position) {
-            var x = point.x,
-                y = point.y;
-
-            var offsetX = this._getOffset(position, 'x');
-
-            var offsetY = this._getOffset(position, 'y'); // Account for the offsets since they could push the overlay out of the viewport.
-
-
-            if (offsetX) {
-              x += offsetX;
-            }
-
-            if (offsetY) {
-              y += offsetY;
-            } // How much the overlay would overflow at this position, on each side.
-
-
-            var leftOverflow = 0 - x;
-            var rightOverflow = x + overlay.width - viewport.width;
-            var topOverflow = 0 - y;
-            var bottomOverflow = y + overlay.height - viewport.height; // Visible parts of the element on each axis.
-
-            var visibleWidth = this._subtractOverflows(overlay.width, leftOverflow, rightOverflow);
-
-            var visibleHeight = this._subtractOverflows(overlay.height, topOverflow, bottomOverflow);
-
-            var visibleArea = visibleWidth * visibleHeight;
-            return {
-              visibleArea: visibleArea,
-              isCompletelyWithinViewport: overlay.width * overlay.height === visibleArea,
-              fitsInViewportVertically: visibleHeight === overlay.height,
-              fitsInViewportHorizontally: visibleWidth == overlay.width
-            };
-          }
-          /**
-           * Whether the overlay can fit within the viewport when it may resize either its width or height.
-           * @param fit How well the overlay fits in the viewport at some position.
-           * @param point The (x, y) coordinates of the overlat at some position.
-           * @param viewport The geometry of the viewport.
-           */
-
-        }, {
-          key: "_canFitWithFlexibleDimensions",
-          value: function _canFitWithFlexibleDimensions(fit, point, viewport) {
-            if (this._hasFlexibleDimensions) {
-              var availableHeight = viewport.bottom - point.y;
-              var availableWidth = viewport.right - point.x;
-              var minHeight = getPixelValue(this._overlayRef.getConfig().minHeight);
-              var minWidth = getPixelValue(this._overlayRef.getConfig().minWidth);
-              var verticalFit = fit.fitsInViewportVertically || minHeight != null && minHeight <= availableHeight;
-              var horizontalFit = fit.fitsInViewportHorizontally || minWidth != null && minWidth <= availableWidth;
-              return verticalFit && horizontalFit;
-            }
-
-            return false;
-          }
-          /**
-           * Gets the point at which the overlay can be "pushed" on-screen. If the overlay is larger than
-           * the viewport, the top-left corner will be pushed on-screen (with overflow occuring on the
-           * right and bottom).
-           *
-           * @param start Starting point from which the overlay is pushed.
-           * @param overlay Dimensions of the overlay.
-           * @param scrollPosition Current viewport scroll position.
-           * @returns The point at which to position the overlay after pushing. This is effectively a new
-           *     originPoint.
-           */
-
-        }, {
-          key: "_pushOverlayOnScreen",
-          value: function _pushOverlayOnScreen(start, overlay, scrollPosition) {
-            // If the position is locked and we've pushed the overlay already, reuse the previous push
-            // amount, rather than pushing it again. If we were to continue pushing, the element would
-            // remain in the viewport, which goes against the expectations when position locking is enabled.
-            if (this._previousPushAmount && this._positionLocked) {
-              return {
-                x: start.x + this._previousPushAmount.x,
-                y: start.y + this._previousPushAmount.y
-              };
-            }
-
-            var viewport = this._viewportRect; // Determine how much the overlay goes outside the viewport on each
-            // side, which we'll use to decide which direction to push it.
-
-            var overflowRight = Math.max(start.x + overlay.width - viewport.width, 0);
-            var overflowBottom = Math.max(start.y + overlay.height - viewport.height, 0);
-            var overflowTop = Math.max(viewport.top - scrollPosition.top - start.y, 0);
-            var overflowLeft = Math.max(viewport.left - scrollPosition.left - start.x, 0); // Amount by which to push the overlay in each axis such that it remains on-screen.
-
-            var pushX = 0;
-            var pushY = 0; // If the overlay fits completely within the bounds of the viewport, push it from whichever
-            // direction is goes off-screen. Otherwise, push the top-left corner such that its in the
-            // viewport and allow for the trailing end of the overlay to go out of bounds.
-
-            if (overlay.width <= viewport.width) {
-              pushX = overflowLeft || -overflowRight;
-            } else {
-              pushX = start.x < this._viewportMargin ? viewport.left - scrollPosition.left - start.x : 0;
-            }
-
-            if (overlay.height <= viewport.height) {
-              pushY = overflowTop || -overflowBottom;
-            } else {
-              pushY = start.y < this._viewportMargin ? viewport.top - scrollPosition.top - start.y : 0;
-            }
-
-            this._previousPushAmount = {
-              x: pushX,
-              y: pushY
-            };
-            return {
-              x: start.x + pushX,
-              y: start.y + pushY
-            };
-          }
-          /**
-           * Applies a computed position to the overlay and emits a position change.
-           * @param position The position preference
-           * @param originPoint The point on the origin element where the overlay is connected.
-           */
-
-        }, {
-          key: "_applyPosition",
-          value: function _applyPosition(position, originPoint) {
-            this._setTransformOrigin(position);
-
-            this._setOverlayElementStyles(originPoint, position);
-
-            this._setBoundingBoxStyles(originPoint, position);
-
-            if (position.panelClass) {
-              this._addPanelClasses(position.panelClass);
-            } // Save the last connected position in case the position needs to be re-calculated.
-
-
-            this._lastPosition = position; // Notify that the position has been changed along with its change properties.
-            // We only emit if we've got any subscriptions, because the scroll visibility
-            // calculcations can be somewhat expensive.
-
-            if (this._positionChanges.observers.length) {
-              var scrollableViewProperties = this._getScrollVisibility();
-
-              var changeEvent = new ConnectedOverlayPositionChange(position, scrollableViewProperties);
-
-              this._positionChanges.next(changeEvent);
-            }
-
-            this._isInitialRender = false;
-          }
-          /** Sets the transform origin based on the configured selector and the passed-in position.  */
-
-        }, {
-          key: "_setTransformOrigin",
-          value: function _setTransformOrigin(position) {
-            if (!this._transformOriginSelector) {
-              return;
-            }
-
-            var elements = this._boundingBox.querySelectorAll(this._transformOriginSelector);
-
-            var xOrigin;
-            var yOrigin = position.overlayY;
-
-            if (position.overlayX === 'center') {
-              xOrigin = 'center';
-            } else if (this._isRtl()) {
-              xOrigin = position.overlayX === 'start' ? 'right' : 'left';
-            } else {
-              xOrigin = position.overlayX === 'start' ? 'left' : 'right';
-            }
-
-            for (var i = 0; i < elements.length; i++) {
-              elements[i].style.transformOrigin = "".concat(xOrigin, " ").concat(yOrigin);
-            }
-          }
-          /**
-           * Gets the position and size of the overlay's sizing container.
-           *
-           * This method does no measuring and applies no styles so that we can cheaply compute the
-           * bounds for all positions and choose the best fit based on these results.
-           */
-
-        }, {
-          key: "_calculateBoundingBoxRect",
-          value: function _calculateBoundingBoxRect(origin, position) {
-            var viewport = this._viewportRect;
-
-            var isRtl = this._isRtl();
-
-            var height, top, bottom;
-
-            if (position.overlayY === 'top') {
-              // Overlay is opening "downward" and thus is bound by the bottom viewport edge.
-              top = origin.y;
-              height = viewport.height - top + this._viewportMargin;
-            } else if (position.overlayY === 'bottom') {
-              // Overlay is opening "upward" and thus is bound by the top viewport edge. We need to add
-              // the viewport margin back in, because the viewport rect is narrowed down to remove the
-              // margin, whereas the `origin` position is calculated based on its `ClientRect`.
-              bottom = viewport.height - origin.y + this._viewportMargin * 2;
-              height = viewport.height - bottom + this._viewportMargin;
-            } else {
-              // If neither top nor bottom, it means that the overlay is vertically centered on the
-              // origin point. Note that we want the position relative to the viewport, rather than
-              // the page, which is why we don't use something like `viewport.bottom - origin.y` and
-              // `origin.y - viewport.top`.
-              var smallestDistanceToViewportEdge = Math.min(viewport.bottom - origin.y + viewport.top, origin.y);
-              var previousHeight = this._lastBoundingBoxSize.height;
-              height = smallestDistanceToViewportEdge * 2;
-              top = origin.y - smallestDistanceToViewportEdge;
-
-              if (height > previousHeight && !this._isInitialRender && !this._growAfterOpen) {
-                top = origin.y - previousHeight / 2;
-              }
-            } // The overlay is opening 'right-ward' (the content flows to the right).
-
-
-            var isBoundedByRightViewportEdge = position.overlayX === 'start' && !isRtl || position.overlayX === 'end' && isRtl; // The overlay is opening 'left-ward' (the content flows to the left).
-
-            var isBoundedByLeftViewportEdge = position.overlayX === 'end' && !isRtl || position.overlayX === 'start' && isRtl;
-            var width, left, right;
-
-            if (isBoundedByLeftViewportEdge) {
-              right = viewport.width - origin.x + this._viewportMargin;
-              width = origin.x - this._viewportMargin;
-            } else if (isBoundedByRightViewportEdge) {
-              left = origin.x;
-              width = viewport.right - origin.x;
-            } else {
-              // If neither start nor end, it means that the overlay is horizontally centered on the
-              // origin point. Note that we want the position relative to the viewport, rather than
-              // the page, which is why we don't use something like `viewport.right - origin.x` and
-              // `origin.x - viewport.left`.
-              var _smallestDistanceToViewportEdge = Math.min(viewport.right - origin.x + viewport.left, origin.x);
-
-              var previousWidth = this._lastBoundingBoxSize.width;
-              width = _smallestDistanceToViewportEdge * 2;
-              left = origin.x - _smallestDistanceToViewportEdge;
-
-              if (width > previousWidth && !this._isInitialRender && !this._growAfterOpen) {
-                left = origin.x - previousWidth / 2;
-              }
-            }
-
-            return {
-              top: top,
-              left: left,
-              bottom: bottom,
-              right: right,
-              width: width,
-              height: height
-            };
-          }
-          /**
-           * Sets the position and size of the overlay's sizing wrapper. The wrapper is positioned on the
-           * origin's connection point and stetches to the bounds of the viewport.
-           *
-           * @param origin The point on the origin element where the overlay is connected.
-           * @param position The position preference
-           */
-
-        }, {
-          key: "_setBoundingBoxStyles",
-          value: function _setBoundingBoxStyles(origin, position) {
-            var boundingBoxRect = this._calculateBoundingBoxRect(origin, position); // It's weird if the overlay *grows* while scrolling, so we take the last size into account
-            // when applying a new size.
-
-
-            if (!this._isInitialRender && !this._growAfterOpen) {
-              boundingBoxRect.height = Math.min(boundingBoxRect.height, this._lastBoundingBoxSize.height);
-              boundingBoxRect.width = Math.min(boundingBoxRect.width, this._lastBoundingBoxSize.width);
-            }
-
-            var styles = {};
-
-            if (this._hasExactPosition()) {
-              styles.top = styles.left = '0';
-              styles.bottom = styles.right = styles.maxHeight = styles.maxWidth = '';
-              styles.width = styles.height = '100%';
-            } else {
-              var maxHeight = this._overlayRef.getConfig().maxHeight;
-
-              var maxWidth = this._overlayRef.getConfig().maxWidth;
-
-              styles.height = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(boundingBoxRect.height);
-              styles.top = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(boundingBoxRect.top);
-              styles.bottom = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(boundingBoxRect.bottom);
-              styles.width = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(boundingBoxRect.width);
-              styles.left = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(boundingBoxRect.left);
-              styles.right = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(boundingBoxRect.right); // Push the pane content towards the proper direction.
-
-              if (position.overlayX === 'center') {
-                styles.alignItems = 'center';
-              } else {
-                styles.alignItems = position.overlayX === 'end' ? 'flex-end' : 'flex-start';
-              }
-
-              if (position.overlayY === 'center') {
-                styles.justifyContent = 'center';
-              } else {
-                styles.justifyContent = position.overlayY === 'bottom' ? 'flex-end' : 'flex-start';
-              }
-
-              if (maxHeight) {
-                styles.maxHeight = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(maxHeight);
-              }
-
-              if (maxWidth) {
-                styles.maxWidth = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(maxWidth);
-              }
-            }
-
-            this._lastBoundingBoxSize = boundingBoxRect;
-            extendStyles(this._boundingBox.style, styles);
-          }
-          /** Resets the styles for the bounding box so that a new positioning can be computed. */
-
-        }, {
-          key: "_resetBoundingBoxStyles",
-          value: function _resetBoundingBoxStyles() {
-            extendStyles(this._boundingBox.style, {
-              top: '0',
-              left: '0',
-              right: '0',
-              bottom: '0',
-              height: '',
-              width: '',
-              alignItems: '',
-              justifyContent: ''
-            });
-          }
-          /** Resets the styles for the overlay pane so that a new positioning can be computed. */
-
-        }, {
-          key: "_resetOverlayElementStyles",
-          value: function _resetOverlayElementStyles() {
-            extendStyles(this._pane.style, {
-              top: '',
-              left: '',
-              bottom: '',
-              right: '',
-              position: '',
-              transform: ''
-            });
-          }
-          /** Sets positioning styles to the overlay element. */
-
-        }, {
-          key: "_setOverlayElementStyles",
-          value: function _setOverlayElementStyles(originPoint, position) {
-            var styles = {};
-
-            var hasExactPosition = this._hasExactPosition();
-
-            var hasFlexibleDimensions = this._hasFlexibleDimensions;
-
-            var config = this._overlayRef.getConfig();
-
-            if (hasExactPosition) {
-              var scrollPosition = this._viewportRuler.getViewportScrollPosition();
-
-              extendStyles(styles, this._getExactOverlayY(position, originPoint, scrollPosition));
-              extendStyles(styles, this._getExactOverlayX(position, originPoint, scrollPosition));
-            } else {
-              styles.position = 'static';
-            } // Use a transform to apply the offsets. We do this because the `center` positions rely on
-            // being in the normal flex flow and setting a `top` / `left` at all will completely throw
-            // off the position. We also can't use margins, because they won't have an effect in some
-            // cases where the element doesn't have anything to "push off of". Finally, this works
-            // better both with flexible and non-flexible positioning.
-
-
-            var transformString = '';
-
-            var offsetX = this._getOffset(position, 'x');
-
-            var offsetY = this._getOffset(position, 'y');
-
-            if (offsetX) {
-              transformString += "translateX(".concat(offsetX, "px) ");
-            }
-
-            if (offsetY) {
-              transformString += "translateY(".concat(offsetY, "px)");
-            }
-
-            styles.transform = transformString.trim(); // If a maxWidth or maxHeight is specified on the overlay, we remove them. We do this because
-            // we need these values to both be set to "100%" for the automatic flexible sizing to work.
-            // The maxHeight and maxWidth are set on the boundingBox in order to enforce the constraint.
-            // Note that this doesn't apply when we have an exact position, in which case we do want to
-            // apply them because they'll be cleared from the bounding box.
-
-            if (config.maxHeight) {
-              if (hasExactPosition) {
-                styles.maxHeight = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(config.maxHeight);
-              } else if (hasFlexibleDimensions) {
-                styles.maxHeight = '';
-              }
-            }
-
-            if (config.maxWidth) {
-              if (hasExactPosition) {
-                styles.maxWidth = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(config.maxWidth);
-              } else if (hasFlexibleDimensions) {
-                styles.maxWidth = '';
-              }
-            }
-
-            extendStyles(this._pane.style, styles);
-          }
-          /** Gets the exact top/bottom for the overlay when not using flexible sizing or when pushing. */
-
-        }, {
-          key: "_getExactOverlayY",
-          value: function _getExactOverlayY(position, originPoint, scrollPosition) {
-            // Reset any existing styles. This is necessary in case the
-            // preferred position has changed since the last `apply`.
-            var styles = {
-              top: '',
-              bottom: ''
-            };
-
-            var overlayPoint = this._getOverlayPoint(originPoint, this._overlayRect, position);
-
-            if (this._isPushed) {
-              overlayPoint = this._pushOverlayOnScreen(overlayPoint, this._overlayRect, scrollPosition);
-            }
-
-            var virtualKeyboardOffset = this._overlayContainer.getContainerElement().getBoundingClientRect().top; // Normally this would be zero, however when the overlay is attached to an input (e.g. in an
-            // autocomplete), mobile browsers will shift everything in order to put the input in the middle
-            // of the screen and to make space for the virtual keyboard. We need to account for this offset,
-            // otherwise our positioning will be thrown off.
-
-
-            overlayPoint.y -= virtualKeyboardOffset; // We want to set either `top` or `bottom` based on whether the overlay wants to appear
-            // above or below the origin and the direction in which the element will expand.
-
-            if (position.overlayY === 'bottom') {
-              // When using `bottom`, we adjust the y position such that it is the distance
-              // from the bottom of the viewport rather than the top.
-              var documentHeight = this._document.documentElement.clientHeight;
-              styles.bottom = "".concat(documentHeight - (overlayPoint.y + this._overlayRect.height), "px");
-            } else {
-              styles.top = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(overlayPoint.y);
-            }
-
-            return styles;
-          }
-          /** Gets the exact left/right for the overlay when not using flexible sizing or when pushing. */
-
-        }, {
-          key: "_getExactOverlayX",
-          value: function _getExactOverlayX(position, originPoint, scrollPosition) {
-            // Reset any existing styles. This is necessary in case the preferred position has
-            // changed since the last `apply`.
-            var styles = {
-              left: '',
-              right: ''
-            };
-
-            var overlayPoint = this._getOverlayPoint(originPoint, this._overlayRect, position);
-
-            if (this._isPushed) {
-              overlayPoint = this._pushOverlayOnScreen(overlayPoint, this._overlayRect, scrollPosition);
-            } // We want to set either `left` or `right` based on whether the overlay wants to appear "before"
-            // or "after" the origin, which determines the direction in which the element will expand.
-            // For the horizontal axis, the meaning of "before" and "after" change based on whether the
-            // page is in RTL or LTR.
-
-
-            var horizontalStyleProperty;
-
-            if (this._isRtl()) {
-              horizontalStyleProperty = position.overlayX === 'end' ? 'left' : 'right';
-            } else {
-              horizontalStyleProperty = position.overlayX === 'end' ? 'right' : 'left';
-            } // When we're setting `right`, we adjust the x position such that it is the distance
-            // from the right edge of the viewport rather than the left edge.
-
-
-            if (horizontalStyleProperty === 'right') {
-              var documentWidth = this._document.documentElement.clientWidth;
-              styles.right = "".concat(documentWidth - (overlayPoint.x + this._overlayRect.width), "px");
-            } else {
-              styles.left = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceCssPixelValue"])(overlayPoint.x);
-            }
-
-            return styles;
-          }
-          /**
-           * Gets the view properties of the trigger and overlay, including whether they are clipped
-           * or completely outside the view of any of the strategy's scrollables.
-           */
-
-        }, {
-          key: "_getScrollVisibility",
-          value: function _getScrollVisibility() {
-            // Note: needs fresh rects since the position could've changed.
-            var originBounds = this._getOriginRect();
-
-            var overlayBounds = this._pane.getBoundingClientRect(); // TODO(jelbourn): instead of needing all of the client rects for these scrolling containers
-            // every time, we should be able to use the scrollTop of the containers if the size of those
-            // containers hasn't changed.
-
-
-            var scrollContainerBounds = this._scrollables.map(function (scrollable) {
-              return scrollable.getElementRef().nativeElement.getBoundingClientRect();
-            });
-
-            return {
-              isOriginClipped: isElementClippedByScrolling(originBounds, scrollContainerBounds),
-              isOriginOutsideView: isElementScrolledOutsideView(originBounds, scrollContainerBounds),
-              isOverlayClipped: isElementClippedByScrolling(overlayBounds, scrollContainerBounds),
-              isOverlayOutsideView: isElementScrolledOutsideView(overlayBounds, scrollContainerBounds)
-            };
-          }
-          /** Subtracts the amount that an element is overflowing on an axis from its length. */
-
-        }, {
-          key: "_subtractOverflows",
-          value: function _subtractOverflows(length) {
-            for (var _len4 = arguments.length, overflows = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
-              overflows[_key4 - 1] = arguments[_key4];
-            }
-
-            return overflows.reduce(function (currentValue, currentOverflow) {
-              return currentValue - Math.max(currentOverflow, 0);
-            }, length);
-          }
-          /** Narrows the given viewport rect by the current _viewportMargin. */
-
-        }, {
-          key: "_getNarrowedViewportRect",
-          value: function _getNarrowedViewportRect() {
-            // We recalculate the viewport rect here ourselves, rather than using the ViewportRuler,
-            // because we want to use the `clientWidth` and `clientHeight` as the base. The difference
-            // being that the client properties don't include the scrollbar, as opposed to `innerWidth`
-            // and `innerHeight` that do. This is necessary, because the overlay container uses
-            // 100% `width` and `height` which don't include the scrollbar either.
-            var width = this._document.documentElement.clientWidth;
-            var height = this._document.documentElement.clientHeight;
-
-            var scrollPosition = this._viewportRuler.getViewportScrollPosition();
-
-            return {
-              top: scrollPosition.top + this._viewportMargin,
-              left: scrollPosition.left + this._viewportMargin,
-              right: scrollPosition.left + width - this._viewportMargin,
-              bottom: scrollPosition.top + height - this._viewportMargin,
-              width: width - 2 * this._viewportMargin,
-              height: height - 2 * this._viewportMargin
-            };
-          }
-          /** Whether the we're dealing with an RTL context */
-
-        }, {
-          key: "_isRtl",
-          value: function _isRtl() {
-            return this._overlayRef.getDirection() === 'rtl';
-          }
-          /** Determines whether the overlay uses exact or flexible positioning. */
-
-        }, {
-          key: "_hasExactPosition",
-          value: function _hasExactPosition() {
-            return !this._hasFlexibleDimensions || this._isPushed;
-          }
-          /** Retrieves the offset of a position along the x or y axis. */
-
-        }, {
-          key: "_getOffset",
-          value: function _getOffset(position, axis) {
-            if (axis === 'x') {
-              // We don't do something like `position['offset' + axis]` in
-              // order to avoid breking minifiers that rename properties.
-              return position.offsetX == null ? this._offsetX : position.offsetX;
-            }
-
-            return position.offsetY == null ? this._offsetY : position.offsetY;
-          }
-          /** Validates that the current position match the expected values. */
-
-        }, {
-          key: "_validatePositions",
-          value: function _validatePositions() {
-            if (typeof ngDevMode === 'undefined' || ngDevMode) {
-              if (!this._preferredPositions.length) {
-                throw Error('FlexibleConnectedPositionStrategy: At least one position is required.');
-              } // TODO(crisbeto): remove these once Angular's template type
-              // checking is advanced enough to catch these cases.
-
-
-              this._preferredPositions.forEach(function (pair) {
-                validateHorizontalPosition('originX', pair.originX);
-                validateVerticalPosition('originY', pair.originY);
-                validateHorizontalPosition('overlayX', pair.overlayX);
-                validateVerticalPosition('overlayY', pair.overlayY);
-              });
-            }
-          }
-          /** Adds a single CSS class or an array of classes on the overlay panel. */
-
-        }, {
-          key: "_addPanelClasses",
-          value: function _addPanelClasses(cssClasses) {
-            var _this94 = this;
-
-            if (this._pane) {
-              Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceArray"])(cssClasses).forEach(function (cssClass) {
-                if (cssClass !== '' && _this94._appliedPanelClasses.indexOf(cssClass) === -1) {
-                  _this94._appliedPanelClasses.push(cssClass);
-
-                  _this94._pane.classList.add(cssClass);
-                }
-              });
-            }
-          }
-          /** Clears the classes that the position strategy has applied from the overlay panel. */
-
-        }, {
-          key: "_clearPanelClasses",
-          value: function _clearPanelClasses() {
-            var _this95 = this;
-
-            if (this._pane) {
-              this._appliedPanelClasses.forEach(function (cssClass) {
-                _this95._pane.classList.remove(cssClass);
-              });
-
-              this._appliedPanelClasses = [];
-            }
-          }
-          /** Returns the ClientRect of the current origin. */
-
-        }, {
-          key: "_getOriginRect",
-          value: function _getOriginRect() {
-            var origin = this._origin;
-
-            if (origin instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]) {
-              return origin.nativeElement.getBoundingClientRect();
-            } // Check for Element so SVG elements are also supported.
-
-
-            if (origin instanceof Element) {
-              return origin.getBoundingClientRect();
-            }
-
-            var width = origin.width || 0;
-            var height = origin.height || 0; // If the origin is a point, return a client rect as if it was a 0x0 element at the point.
-
-            return {
-              top: origin.y,
-              bottom: origin.y + height,
-              left: origin.x,
-              right: origin.x + width,
-              height: height,
-              width: width
-            };
-          }
-        }, {
-          key: "positions",
-          get: function get() {
-            return this._preferredPositions;
-          }
-        }]);
-
-        return FlexibleConnectedPositionStrategy;
-      }();
-      /** Shallow-extends a stylesheet object with another stylesheet object. */
-
-
-      function extendStyles(destination, source) {
-        for (var key in source) {
-          if (source.hasOwnProperty(key)) {
-            destination[key] = source[key];
-          }
-        }
-
-        return destination;
-      }
-      /**
-       * Extracts the pixel value as a number from a value, if it's a number
-       * or a CSS pixel string (e.g. `1337px`). Otherwise returns null.
-       */
-
-
-      function getPixelValue(input) {
-        if (typeof input !== 'number' && input != null) {
-          var _input$split = input.split(cssUnitPattern),
-              _input$split2 = _slicedToArray(_input$split, 2),
-              value = _input$split2[0],
-              units = _input$split2[1];
-
-          return !units || units === 'px' ? parseFloat(value) : null;
-        }
-
-        return input || null;
-      }
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * A strategy for positioning overlays. Using this strategy, an overlay is given an
-       * implicit position relative to some origin element. The relative position is defined in terms of
-       * a point on the origin element that is connected to a point on the overlay element. For example,
-       * a basic dropdown is connecting the bottom-left corner of the origin to the top-left corner
-       * of the overlay.
-       * @deprecated Use `FlexibleConnectedPositionStrategy` instead.
-       * @breaking-change 8.0.0
-       */
-
-
-      var ConnectedPositionStrategy = /*#__PURE__*/function () {
-        function ConnectedPositionStrategy(originPos, overlayPos, connectedTo, viewportRuler, document, platform, overlayContainer) {
-          _classCallCheck(this, ConnectedPositionStrategy);
-
-          /** Ordered list of preferred positions, from most to least desirable. */
-          this._preferredPositions = []; // Since the `ConnectedPositionStrategy` is deprecated and we don't want to maintain
-          // the extra logic, we create an instance of the positioning strategy that has some
-          // defaults that make it behave as the old position strategy and to which we'll
-          // proxy all of the API calls.
-
-          this._positionStrategy = new FlexibleConnectedPositionStrategy(connectedTo, viewportRuler, document, platform, overlayContainer).withFlexibleDimensions(false).withPush(false).withViewportMargin(0);
-          this.withFallbackPosition(originPos, overlayPos);
-          this.onPositionChange = this._positionStrategy.positionChanges;
-        }
-        /** Ordered list of preferred positions, from most to least desirable. */
-
-
-        _createClass(ConnectedPositionStrategy, [{
-          key: "attach",
-
-          /** Attach this position strategy to an overlay. */
-          value: function attach(overlayRef) {
-            this._overlayRef = overlayRef;
-
-            this._positionStrategy.attach(overlayRef);
-
-            if (this._direction) {
-              overlayRef.setDirection(this._direction);
-              this._direction = null;
-            }
-          }
-          /** Disposes all resources used by the position strategy. */
-
-        }, {
-          key: "dispose",
-          value: function dispose() {
-            this._positionStrategy.dispose();
-          }
-          /** @docs-private */
-
-        }, {
-          key: "detach",
-          value: function detach() {
-            this._positionStrategy.detach();
-          }
-          /**
-           * Updates the position of the overlay element, using whichever preferred position relative
-           * to the origin fits on-screen.
-           * @docs-private
-           */
-
-        }, {
-          key: "apply",
-          value: function apply() {
-            this._positionStrategy.apply();
-          }
-          /**
-           * Re-positions the overlay element with the trigger in its last calculated position,
-           * even if a position higher in the "preferred positions" list would now fit. This
-           * allows one to re-align the panel without changing the orientation of the panel.
-           */
-
-        }, {
-          key: "recalculateLastPosition",
-          value: function recalculateLastPosition() {
-            this._positionStrategy.reapplyLastPosition();
-          }
-          /**
-           * Sets the list of Scrollable containers that host the origin element so that
-           * on reposition we can evaluate if it or the overlay has been clipped or outside view. Every
-           * Scrollable must be an ancestor element of the strategy's origin element.
-           */
-
-        }, {
-          key: "withScrollableContainers",
-          value: function withScrollableContainers(scrollables) {
-            this._positionStrategy.withScrollableContainers(scrollables);
-          }
-          /**
-           * Adds a new preferred fallback position.
-           * @param originPos
-           * @param overlayPos
-           */
-
-        }, {
-          key: "withFallbackPosition",
-          value: function withFallbackPosition(originPos, overlayPos, offsetX, offsetY) {
-            var position = new ConnectionPositionPair(originPos, overlayPos, offsetX, offsetY);
-
-            this._preferredPositions.push(position);
-
-            this._positionStrategy.withPositions(this._preferredPositions);
-
-            return this;
-          }
-          /**
-           * Sets the layout direction so the overlay's position can be adjusted to match.
-           * @param dir New layout direction.
-           */
-
-        }, {
-          key: "withDirection",
-          value: function withDirection(dir) {
-            // Since the direction might be declared before the strategy is attached,
-            // we save the value in a temporary property and we'll transfer it to the
-            // overlay ref on attachment.
-            if (this._overlayRef) {
-              this._overlayRef.setDirection(dir);
-            } else {
-              this._direction = dir;
-            }
-
-            return this;
-          }
-          /**
-           * Sets an offset for the overlay's connection point on the x-axis
-           * @param offset New offset in the X axis.
-           */
-
-        }, {
-          key: "withOffsetX",
-          value: function withOffsetX(offset) {
-            this._positionStrategy.withDefaultOffsetX(offset);
-
-            return this;
-          }
-          /**
-           * Sets an offset for the overlay's connection point on the y-axis
-           * @param  offset New offset in the Y axis.
-           */
-
-        }, {
-          key: "withOffsetY",
-          value: function withOffsetY(offset) {
-            this._positionStrategy.withDefaultOffsetY(offset);
-
-            return this;
-          }
-          /**
-           * Sets whether the overlay's position should be locked in after it is positioned
-           * initially. When an overlay is locked in, it won't attempt to reposition itself
-           * when the position is re-applied (e.g. when the user scrolls away).
-           * @param isLocked Whether the overlay should locked in.
-           */
-
-        }, {
-          key: "withLockedPosition",
-          value: function withLockedPosition(isLocked) {
-            this._positionStrategy.withLockedPosition(isLocked);
-
-            return this;
-          }
-          /**
-           * Overwrites the current set of positions with an array of new ones.
-           * @param positions Position pairs to be set on the strategy.
-           */
-
-        }, {
-          key: "withPositions",
-          value: function withPositions(positions) {
-            this._preferredPositions = positions.slice();
-
-            this._positionStrategy.withPositions(this._preferredPositions);
-
-            return this;
-          }
-          /**
-           * Sets the origin element, relative to which to position the overlay.
-           * @param origin Reference to the new origin element.
-           */
-
-        }, {
-          key: "setOrigin",
-          value: function setOrigin(origin) {
-            this._positionStrategy.setOrigin(origin);
-
-            return this;
-          }
-        }, {
-          key: "positions",
-          get: function get() {
-            return this._preferredPositions;
-          }
-        }]);
-
-        return ConnectedPositionStrategy;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Class to be added to the overlay pane wrapper. */
-
-
-      var wrapperClass = 'cdk-global-overlay-wrapper';
-      /**
-       * A strategy for positioning overlays. Using this strategy, an overlay is given an
-       * explicit position relative to the browser's viewport. We use flexbox, instead of
-       * transforms, in order to avoid issues with subpixel rendering which can cause the
-       * element to become blurry.
-       */
-
-      var GlobalPositionStrategy = /*#__PURE__*/function () {
-        function GlobalPositionStrategy() {
-          _classCallCheck(this, GlobalPositionStrategy);
-
-          this._cssPosition = 'static';
-          this._topOffset = '';
-          this._bottomOffset = '';
-          this._leftOffset = '';
-          this._rightOffset = '';
-          this._alignItems = '';
-          this._justifyContent = '';
-          this._width = '';
-          this._height = '';
-        }
-
-        _createClass(GlobalPositionStrategy, [{
-          key: "attach",
-          value: function attach(overlayRef) {
-            var config = overlayRef.getConfig();
-            this._overlayRef = overlayRef;
-
-            if (this._width && !config.width) {
-              overlayRef.updateSize({
-                width: this._width
-              });
-            }
-
-            if (this._height && !config.height) {
-              overlayRef.updateSize({
-                height: this._height
-              });
-            }
-
-            overlayRef.hostElement.classList.add(wrapperClass);
-            this._isDisposed = false;
-          }
-          /**
-           * Sets the top position of the overlay. Clears any previously set vertical position.
-           * @param value New top offset.
-           */
-
-        }, {
-          key: "top",
-          value: function top() {
-            var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-            this._bottomOffset = '';
-            this._topOffset = value;
-            this._alignItems = 'flex-start';
-            return this;
-          }
-          /**
-           * Sets the left position of the overlay. Clears any previously set horizontal position.
-           * @param value New left offset.
-           */
-
-        }, {
-          key: "left",
-          value: function left() {
-            var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-            this._rightOffset = '';
-            this._leftOffset = value;
-            this._justifyContent = 'flex-start';
-            return this;
-          }
-          /**
-           * Sets the bottom position of the overlay. Clears any previously set vertical position.
-           * @param value New bottom offset.
-           */
-
-        }, {
-          key: "bottom",
-          value: function bottom() {
-            var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-            this._topOffset = '';
-            this._bottomOffset = value;
-            this._alignItems = 'flex-end';
-            return this;
-          }
-          /**
-           * Sets the right position of the overlay. Clears any previously set horizontal position.
-           * @param value New right offset.
-           */
-
-        }, {
-          key: "right",
-          value: function right() {
-            var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-            this._leftOffset = '';
-            this._rightOffset = value;
-            this._justifyContent = 'flex-end';
-            return this;
-          }
-          /**
-           * Sets the overlay width and clears any previously set width.
-           * @param value New width for the overlay
-           * @deprecated Pass the `width` through the `OverlayConfig`.
-           * @breaking-change 8.0.0
-           */
-
-        }, {
-          key: "width",
-          value: function width() {
-            var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-            if (this._overlayRef) {
-              this._overlayRef.updateSize({
-                width: value
-              });
-            } else {
-              this._width = value;
-            }
-
-            return this;
-          }
-          /**
-           * Sets the overlay height and clears any previously set height.
-           * @param value New height for the overlay
-           * @deprecated Pass the `height` through the `OverlayConfig`.
-           * @breaking-change 8.0.0
-           */
-
-        }, {
-          key: "height",
-          value: function height() {
-            var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-            if (this._overlayRef) {
-              this._overlayRef.updateSize({
-                height: value
-              });
-            } else {
-              this._height = value;
-            }
-
-            return this;
-          }
-          /**
-           * Centers the overlay horizontally with an optional offset.
-           * Clears any previously set horizontal position.
-           *
-           * @param offset Overlay offset from the horizontal center.
-           */
-
-        }, {
-          key: "centerHorizontally",
-          value: function centerHorizontally() {
-            var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-            this.left(offset);
-            this._justifyContent = 'center';
-            return this;
-          }
-          /**
-           * Centers the overlay vertically with an optional offset.
-           * Clears any previously set vertical position.
-           *
-           * @param offset Overlay offset from the vertical center.
-           */
-
-        }, {
-          key: "centerVertically",
-          value: function centerVertically() {
-            var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-            this.top(offset);
-            this._alignItems = 'center';
-            return this;
-          }
-          /**
-           * Apply the position to the element.
-           * @docs-private
-           */
-
-        }, {
-          key: "apply",
-          value: function apply() {
-            // Since the overlay ref applies the strategy asynchronously, it could
-            // have been disposed before it ends up being applied. If that is the
-            // case, we shouldn't do anything.
-            if (!this._overlayRef || !this._overlayRef.hasAttached()) {
-              return;
-            }
-
-            var styles = this._overlayRef.overlayElement.style;
-            var parentStyles = this._overlayRef.hostElement.style;
-
-            var config = this._overlayRef.getConfig();
-
-            var width = config.width,
-                height = config.height,
-                maxWidth = config.maxWidth,
-                maxHeight = config.maxHeight;
-            var shouldBeFlushHorizontally = (width === '100%' || width === '100vw') && (!maxWidth || maxWidth === '100%' || maxWidth === '100vw');
-            var shouldBeFlushVertically = (height === '100%' || height === '100vh') && (!maxHeight || maxHeight === '100%' || maxHeight === '100vh');
-            styles.position = this._cssPosition;
-            styles.marginLeft = shouldBeFlushHorizontally ? '0' : this._leftOffset;
-            styles.marginTop = shouldBeFlushVertically ? '0' : this._topOffset;
-            styles.marginBottom = this._bottomOffset;
-            styles.marginRight = this._rightOffset;
-
-            if (shouldBeFlushHorizontally) {
-              parentStyles.justifyContent = 'flex-start';
-            } else if (this._justifyContent === 'center') {
-              parentStyles.justifyContent = 'center';
-            } else if (this._overlayRef.getConfig().direction === 'rtl') {
-              // In RTL the browser will invert `flex-start` and `flex-end` automatically, but we
-              // don't want that because our positioning is explicitly `left` and `right`, hence
-              // why we do another inversion to ensure that the overlay stays in the same position.
-              // TODO: reconsider this if we add `start` and `end` methods.
-              if (this._justifyContent === 'flex-start') {
-                parentStyles.justifyContent = 'flex-end';
-              } else if (this._justifyContent === 'flex-end') {
-                parentStyles.justifyContent = 'flex-start';
-              }
-            } else {
-              parentStyles.justifyContent = this._justifyContent;
-            }
-
-            parentStyles.alignItems = shouldBeFlushVertically ? 'flex-start' : this._alignItems;
-          }
-          /**
-           * Cleans up the DOM changes from the position strategy.
-           * @docs-private
-           */
-
-        }, {
-          key: "dispose",
-          value: function dispose() {
-            if (this._isDisposed || !this._overlayRef) {
-              return;
-            }
-
-            var styles = this._overlayRef.overlayElement.style;
-            var parent = this._overlayRef.hostElement;
-            var parentStyles = parent.style;
-            parent.classList.remove(wrapperClass);
-            parentStyles.justifyContent = parentStyles.alignItems = styles.marginTop = styles.marginBottom = styles.marginLeft = styles.marginRight = styles.position = '';
-            this._overlayRef = null;
-            this._isDisposed = true;
-          }
-        }]);
-
-        return GlobalPositionStrategy;
-      }();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Builder for overlay position strategy. */
-
-
-      var OverlayPositionBuilder = /*#__PURE__*/function () {
-        function OverlayPositionBuilder(_viewportRuler, _document, _platform, _overlayContainer) {
-          _classCallCheck(this, OverlayPositionBuilder);
-
-          this._viewportRuler = _viewportRuler;
-          this._document = _document;
-          this._platform = _platform;
-          this._overlayContainer = _overlayContainer;
-        }
-        /**
-         * Creates a global position strategy.
-         */
-
-
-        _createClass(OverlayPositionBuilder, [{
-          key: "global",
-          value: function global() {
-            return new GlobalPositionStrategy();
-          }
-          /**
-           * Creates a relative position strategy.
-           * @param elementRef
-           * @param originPos
-           * @param overlayPos
-           * @deprecated Use `flexibleConnectedTo` instead.
-           * @breaking-change 8.0.0
-           */
-
-        }, {
-          key: "connectedTo",
-          value: function connectedTo(elementRef, originPos, overlayPos) {
-            return new ConnectedPositionStrategy(originPos, overlayPos, elementRef, this._viewportRuler, this._document, this._platform, this._overlayContainer);
-          }
-          /**
-           * Creates a flexible position strategy.
-           * @param origin Origin relative to which to position the overlay.
-           */
-
-        }, {
-          key: "flexibleConnectedTo",
-          value: function flexibleConnectedTo(origin) {
-            return new FlexibleConnectedPositionStrategy(origin, this._viewportRuler, this._document, this._platform, this._overlayContainer);
-          }
-        }]);
-
-        return OverlayPositionBuilder;
-      }();
-
-      OverlayPositionBuilder.ɵfac = function OverlayPositionBuilder_Factory(t) {
-        return new (t || OverlayPositionBuilder)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](OverlayContainer));
-      };
-
-      OverlayPositionBuilder.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function OverlayPositionBuilder_Factory() {
-          return new OverlayPositionBuilder(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(OverlayContainer));
-        },
-        token: OverlayPositionBuilder,
-        providedIn: "root"
-      });
-
-      OverlayPositionBuilder.ctorParameters = function () {
-        return [{
-          type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-          }]
-        }, {
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-        }, {
-          type: OverlayContainer
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](OverlayPositionBuilder, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ViewportRuler"]
-          }, {
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-            }]
-          }, {
-            type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-          }, {
-            type: OverlayContainer
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Next overlay unique ID. */
-
-
-      var nextUniqueId = 0; // Note that Overlay is *not* scoped to the app root because of the ComponentFactoryResolver
-      // which needs to be different depending on where OverlayModule is imported.
-
-      /**
-       * Service to create Overlays. Overlays are dynamically added pieces of floating UI, meant to be
-       * used as a low-level building block for other components. Dialogs, tooltips, menus,
-       * selects, etc. can all be built using overlays. The service should primarily be used by authors
-       * of re-usable components rather than developers building end-user applications.
-       *
-       * An overlay *is* a PortalOutlet, so any kind of Portal can be loaded into one.
-       */
-
-      var Overlay = /*#__PURE__*/function () {
-        function Overlay(
-        /** Scrolling strategies that can be used when creating an overlay. */
-        scrollStrategies, _overlayContainer, _componentFactoryResolver, _positionBuilder, _keyboardDispatcher, _injector, _ngZone, _document, _directionality, // @breaking-change 8.0.0 `_location` parameter to be made required.
-        _location, // @breaking-change 9.0.0 `_outsideClickDispatcher` parameter to be made required.
-        _outsideClickDispatcher) {
-          _classCallCheck(this, Overlay);
-
-          this.scrollStrategies = scrollStrategies;
-          this._overlayContainer = _overlayContainer;
-          this._componentFactoryResolver = _componentFactoryResolver;
-          this._positionBuilder = _positionBuilder;
-          this._keyboardDispatcher = _keyboardDispatcher;
-          this._injector = _injector;
-          this._ngZone = _ngZone;
-          this._document = _document;
-          this._directionality = _directionality;
-          this._location = _location;
-          this._outsideClickDispatcher = _outsideClickDispatcher;
-        }
-        /**
-         * Creates an overlay.
-         * @param config Configuration applied to the overlay.
-         * @returns Reference to the created overlay.
-         */
-
-
-        _createClass(Overlay, [{
-          key: "create",
-          value: function create(config) {
-            var host = this._createHostElement();
-
-            var pane = this._createPaneElement(host);
-
-            var portalOutlet = this._createPortalOutlet(pane);
-
-            var overlayConfig = new OverlayConfig(config);
-            overlayConfig.direction = overlayConfig.direction || this._directionality.value;
-            return new OverlayRef(portalOutlet, host, pane, overlayConfig, this._ngZone, this._keyboardDispatcher, this._document, this._location, this._outsideClickDispatcher);
-          }
-          /**
-           * Gets a position builder that can be used, via fluent API,
-           * to construct and configure a position strategy.
-           * @returns An overlay position builder.
-           */
-
-        }, {
-          key: "position",
-          value: function position() {
-            return this._positionBuilder;
-          }
-          /**
-           * Creates the DOM element for an overlay and appends it to the overlay container.
-           * @returns Newly-created pane element
-           */
-
-        }, {
-          key: "_createPaneElement",
-          value: function _createPaneElement(host) {
-            var pane = this._document.createElement('div');
-
-            pane.id = "cdk-overlay-".concat(nextUniqueId++);
-            pane.classList.add('cdk-overlay-pane');
-            host.appendChild(pane);
-            return pane;
-          }
-          /**
-           * Creates the host element that wraps around an overlay
-           * and can be used for advanced positioning.
-           * @returns Newly-create host element.
-           */
-
-        }, {
-          key: "_createHostElement",
-          value: function _createHostElement() {
-            var host = this._document.createElement('div');
-
-            this._overlayContainer.getContainerElement().appendChild(host);
-
-            return host;
-          }
-          /**
-           * Create a DomPortalOutlet into which the overlay content can be loaded.
-           * @param pane The DOM element to turn into a portal outlet.
-           * @returns A portal outlet for the given DOM element.
-           */
-
-        }, {
-          key: "_createPortalOutlet",
-          value: function _createPortalOutlet(pane) {
-            // We have to resolve the ApplicationRef later in order to allow people
-            // to use overlay-based providers during app initialization.
-            if (!this._appRef) {
-              this._appRef = this._injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationRef"]);
-            }
-
-            return new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["DomPortalOutlet"](pane, this._componentFactoryResolver, this._appRef, this._injector, this._document);
-          }
-        }]);
-
-        return Overlay;
-      }();
-
-      Overlay.ɵfac = function Overlay_Factory(t) {
-        return new (t || Overlay)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](ScrollStrategyOptions), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](OverlayContainer), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](OverlayPositionBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](OverlayKeyboardDispatcher), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["Directionality"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](OverlayOutsideClickDispatcher));
-      };
-
-      Overlay.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
-        token: Overlay,
-        factory: Overlay.ɵfac
-      });
-
-      Overlay.ctorParameters = function () {
-        return [{
-          type: ScrollStrategyOptions
-        }, {
-          type: OverlayContainer
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"]
-        }, {
-          type: OverlayPositionBuilder
-        }, {
-          type: OverlayKeyboardDispatcher
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-          }]
-        }, {
-          type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["Directionality"]
-        }, {
-          type: _angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"]
-        }, {
-          type: OverlayOutsideClickDispatcher
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](Overlay, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
-        }], function () {
-          return [{
-            type: ScrollStrategyOptions
-          }, {
-            type: OverlayContainer
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"]
-          }, {
-            type: OverlayPositionBuilder
-          }, {
-            type: OverlayKeyboardDispatcher
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-          }, {
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-            }]
-          }, {
-            type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["Directionality"]
-          }, {
-            type: _angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"]
-          }, {
-            type: OverlayOutsideClickDispatcher
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Default set of positions for the overlay. Follows the behavior of a dropdown. */
-
-
-      var defaultPositionList = [{
-        originX: 'start',
-        originY: 'bottom',
-        overlayX: 'start',
-        overlayY: 'top'
-      }, {
-        originX: 'start',
-        originY: 'top',
-        overlayX: 'start',
-        overlayY: 'bottom'
-      }, {
-        originX: 'end',
-        originY: 'top',
-        overlayX: 'end',
-        overlayY: 'bottom'
-      }, {
-        originX: 'end',
-        originY: 'bottom',
-        overlayX: 'end',
-        overlayY: 'top'
-      }];
-      /** Injection token that determines the scroll handling while the connected overlay is open. */
-
-      var CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('cdk-connected-overlay-scroll-strategy');
-      /** @docs-private @deprecated @breaking-change 8.0.0 */
-
-      function CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_FACTORY(overlay) {
-        return function (config) {
-          return overlay.scrollStrategies.reposition(config);
-        };
-      }
-      /**
-       * Directive applied to an element to make it usable as an origin for an Overlay using a
-       * ConnectedPositionStrategy.
-       */
-
-
-      var CdkOverlayOrigin = function CdkOverlayOrigin(
-      /** Reference to the element on which the directive is applied. */
-      elementRef) {
-        _classCallCheck(this, CdkOverlayOrigin);
-
-        this.elementRef = elementRef;
-      };
-
-      CdkOverlayOrigin.ɵfac = function CdkOverlayOrigin_Factory(t) {
-        return new (t || CdkOverlayOrigin)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]));
-      };
-
-      CdkOverlayOrigin.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-        type: CdkOverlayOrigin,
-        selectors: [["", "cdk-overlay-origin", ""], ["", "overlay-origin", ""], ["", "cdkOverlayOrigin", ""]],
-        exportAs: ["cdkOverlayOrigin"]
-      });
-
-      CdkOverlayOrigin.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkOverlayOrigin, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-          args: [{
-            selector: '[cdk-overlay-origin], [overlay-origin], [cdkOverlayOrigin]',
-            exportAs: 'cdkOverlayOrigin'
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-          }];
-        }, null);
-      })();
-      /**
-       * Directive to facilitate declarative creation of an
-       * Overlay using a FlexibleConnectedPositionStrategy.
-       */
-
-
-      var CdkConnectedOverlay = /*#__PURE__*/function () {
-        // TODO(jelbourn): inputs for size, scroll behavior, animation, etc.
-        function CdkConnectedOverlay(_overlay, templateRef, viewContainerRef, scrollStrategyFactory, _dir) {
-          _classCallCheck(this, CdkConnectedOverlay);
-
-          this._overlay = _overlay;
-          this._dir = _dir;
-          this._hasBackdrop = false;
-          this._lockPosition = false;
-          this._growAfterOpen = false;
-          this._flexibleDimensions = false;
-          this._push = false;
-          this._backdropSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
-          this._attachSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
-          this._detachSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
-          this._positionSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
-          /** Margin between the overlay and the viewport edges. */
-
-          this.viewportMargin = 0;
-          /** Whether the overlay is open. */
-
-          this.open = false;
-          /** Event emitted when the backdrop is clicked. */
-
-          this.backdropClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          /** Event emitted when the position has changed. */
-
-          this.positionChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          /** Event emitted when the overlay has been attached. */
-
-          this.attach = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          /** Event emitted when the overlay has been detached. */
-
-          this.detach = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          /** Emits when there are keyboard events that are targeted at the overlay. */
-
-          this.overlayKeydown = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          /** Emits when there are mouse outside click events that are targeted at the overlay. */
-
-          this.overlayOutsideClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          this._templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["TemplatePortal"](templateRef, viewContainerRef);
-          this._scrollStrategyFactory = scrollStrategyFactory;
-          this.scrollStrategy = this._scrollStrategyFactory();
-        }
-        /** The offset in pixels for the overlay connection point on the x-axis */
-
-
-        _createClass(CdkConnectedOverlay, [{
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this._attachSubscription.unsubscribe();
-
-            this._detachSubscription.unsubscribe();
-
-            this._backdropSubscription.unsubscribe();
-
-            this._positionSubscription.unsubscribe();
-
-            if (this._overlayRef) {
-              this._overlayRef.dispose();
-            }
-          }
-        }, {
-          key: "ngOnChanges",
-          value: function ngOnChanges(changes) {
-            if (this._position) {
-              this._updatePositionStrategy(this._position);
-
-              this._overlayRef.updateSize({
-                width: this.width,
-                minWidth: this.minWidth,
-                height: this.height,
-                minHeight: this.minHeight
-              });
-
-              if (changes['origin'] && this.open) {
-                this._position.apply();
-              }
-            }
-
-            if (changes['open']) {
-              this.open ? this._attachOverlay() : this._detachOverlay();
-            }
-          }
-          /** Creates an overlay */
-
-        }, {
-          key: "_createOverlay",
-          value: function _createOverlay() {
-            var _this96 = this;
-
-            if (!this.positions || !this.positions.length) {
-              this.positions = defaultPositionList;
-            }
-
-            var overlayRef = this._overlayRef = this._overlay.create(this._buildConfig());
-
-            this._attachSubscription = overlayRef.attachments().subscribe(function () {
-              return _this96.attach.emit();
-            });
-            this._detachSubscription = overlayRef.detachments().subscribe(function () {
-              return _this96.detach.emit();
-            });
-            overlayRef.keydownEvents().subscribe(function (event) {
-              _this96.overlayKeydown.next(event);
-
-              if (event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_9__["ESCAPE"] && !Object(_angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_9__["hasModifierKey"])(event)) {
-                event.preventDefault();
-
-                _this96._detachOverlay();
-              }
-            });
-
-            this._overlayRef.outsidePointerEvents().subscribe(function (event) {
-              _this96.overlayOutsideClick.next(event);
-            });
-          }
-          /** Builds the overlay config based on the directive's inputs */
-
-        }, {
-          key: "_buildConfig",
-          value: function _buildConfig() {
-            var positionStrategy = this._position = this.positionStrategy || this._createPositionStrategy();
-
-            var overlayConfig = new OverlayConfig({
-              direction: this._dir,
-              positionStrategy: positionStrategy,
-              scrollStrategy: this.scrollStrategy,
-              hasBackdrop: this.hasBackdrop
-            });
-
-            if (this.width || this.width === 0) {
-              overlayConfig.width = this.width;
-            }
-
-            if (this.height || this.height === 0) {
-              overlayConfig.height = this.height;
-            }
-
-            if (this.minWidth || this.minWidth === 0) {
-              overlayConfig.minWidth = this.minWidth;
-            }
-
-            if (this.minHeight || this.minHeight === 0) {
-              overlayConfig.minHeight = this.minHeight;
-            }
-
-            if (this.backdropClass) {
-              overlayConfig.backdropClass = this.backdropClass;
-            }
-
-            if (this.panelClass) {
-              overlayConfig.panelClass = this.panelClass;
-            }
-
-            return overlayConfig;
-          }
-          /** Updates the state of a position strategy, based on the values of the directive inputs. */
-
-        }, {
-          key: "_updatePositionStrategy",
-          value: function _updatePositionStrategy(positionStrategy) {
-            var _this97 = this;
-
-            var positions = this.positions.map(function (currentPosition) {
-              return {
-                originX: currentPosition.originX,
-                originY: currentPosition.originY,
-                overlayX: currentPosition.overlayX,
-                overlayY: currentPosition.overlayY,
-                offsetX: currentPosition.offsetX || _this97.offsetX,
-                offsetY: currentPosition.offsetY || _this97.offsetY,
-                panelClass: currentPosition.panelClass || undefined
-              };
-            });
-            return positionStrategy.setOrigin(this.origin.elementRef).withPositions(positions).withFlexibleDimensions(this.flexibleDimensions).withPush(this.push).withGrowAfterOpen(this.growAfterOpen).withViewportMargin(this.viewportMargin).withLockedPosition(this.lockPosition).withTransformOriginOn(this.transformOriginSelector);
-          }
-          /** Returns the position strategy of the overlay to be set on the overlay config */
-
-        }, {
-          key: "_createPositionStrategy",
-          value: function _createPositionStrategy() {
-            var strategy = this._overlay.position().flexibleConnectedTo(this.origin.elementRef);
-
-            this._updatePositionStrategy(strategy);
-
-            return strategy;
-          }
-          /** Attaches the overlay and subscribes to backdrop clicks if backdrop exists */
-
-        }, {
-          key: "_attachOverlay",
-          value: function _attachOverlay() {
-            var _this98 = this;
-
-            if (!this._overlayRef) {
-              this._createOverlay();
-            } else {
-              // Update the overlay size, in case the directive's inputs have changed
-              this._overlayRef.getConfig().hasBackdrop = this.hasBackdrop;
-            }
-
-            if (!this._overlayRef.hasAttached()) {
-              this._overlayRef.attach(this._templatePortal);
-            }
-
-            if (this.hasBackdrop) {
-              this._backdropSubscription = this._overlayRef.backdropClick().subscribe(function (event) {
-                _this98.backdropClick.emit(event);
-              });
-            } else {
-              this._backdropSubscription.unsubscribe();
-            }
-
-            this._positionSubscription.unsubscribe(); // Only subscribe to `positionChanges` if requested, because putting
-            // together all the information for it can be expensive.
-
-
-            if (this.positionChange.observers.length > 0) {
-              this._positionSubscription = this._position.positionChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeWhile"])(function () {
-                return _this98.positionChange.observers.length > 0;
-              })).subscribe(function (position) {
-                _this98.positionChange.emit(position);
-
-                if (_this98.positionChange.observers.length === 0) {
-                  _this98._positionSubscription.unsubscribe();
-                }
-              });
-            }
-          }
-          /** Detaches the overlay and unsubscribes to backdrop clicks if backdrop exists */
-
-        }, {
-          key: "_detachOverlay",
-          value: function _detachOverlay() {
-            if (this._overlayRef) {
-              this._overlayRef.detach();
-            }
-
-            this._backdropSubscription.unsubscribe();
-
-            this._positionSubscription.unsubscribe();
-          }
-        }, {
-          key: "offsetX",
-          get: function get() {
-            return this._offsetX;
-          },
-          set: function set(offsetX) {
-            this._offsetX = offsetX;
-
-            if (this._position) {
-              this._updatePositionStrategy(this._position);
-            }
-          }
-          /** The offset in pixels for the overlay connection point on the y-axis */
-
-        }, {
-          key: "offsetY",
-          get: function get() {
-            return this._offsetY;
-          },
-          set: function set(offsetY) {
-            this._offsetY = offsetY;
-
-            if (this._position) {
-              this._updatePositionStrategy(this._position);
-            }
-          }
-          /** Whether or not the overlay should attach a backdrop. */
-
-        }, {
-          key: "hasBackdrop",
-          get: function get() {
-            return this._hasBackdrop;
-          },
-          set: function set(value) {
-            this._hasBackdrop = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceBooleanProperty"])(value);
-          }
-          /** Whether or not the overlay should be locked when scrolling. */
-
-        }, {
-          key: "lockPosition",
-          get: function get() {
-            return this._lockPosition;
-          },
-          set: function set(value) {
-            this._lockPosition = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceBooleanProperty"])(value);
-          }
-          /** Whether the overlay's width and height can be constrained to fit within the viewport. */
-
-        }, {
-          key: "flexibleDimensions",
-          get: function get() {
-            return this._flexibleDimensions;
-          },
-          set: function set(value) {
-            this._flexibleDimensions = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceBooleanProperty"])(value);
-          }
-          /** Whether the overlay can grow after the initial open when flexible positioning is turned on. */
-
-        }, {
-          key: "growAfterOpen",
-          get: function get() {
-            return this._growAfterOpen;
-          },
-          set: function set(value) {
-            this._growAfterOpen = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceBooleanProperty"])(value);
-          }
-          /** Whether the overlay can be pushed on-screen if none of the provided positions fit. */
-
-        }, {
-          key: "push",
-          get: function get() {
-            return this._push;
-          },
-          set: function set(value) {
-            this._push = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceBooleanProperty"])(value);
-          }
-          /** The associated overlay reference. */
-
-        }, {
-          key: "overlayRef",
-          get: function get() {
-            return this._overlayRef;
-          }
-          /** The element's layout direction. */
-
-        }, {
-          key: "dir",
-          get: function get() {
-            return this._dir ? this._dir.value : 'ltr';
-          }
-        }]);
-
-        return CdkConnectedOverlay;
-      }();
-
-      CdkConnectedOverlay.ɵfac = function CdkConnectedOverlay_Factory(t) {
-        return new (t || CdkConnectedOverlay)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](Overlay), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["Directionality"], 8));
-      };
-
-      CdkConnectedOverlay.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-        type: CdkConnectedOverlay,
-        selectors: [["", "cdk-connected-overlay", ""], ["", "connected-overlay", ""], ["", "cdkConnectedOverlay", ""]],
-        inputs: {
-          viewportMargin: ["cdkConnectedOverlayViewportMargin", "viewportMargin"],
-          open: ["cdkConnectedOverlayOpen", "open"],
-          scrollStrategy: ["cdkConnectedOverlayScrollStrategy", "scrollStrategy"],
-          offsetX: ["cdkConnectedOverlayOffsetX", "offsetX"],
-          offsetY: ["cdkConnectedOverlayOffsetY", "offsetY"],
-          hasBackdrop: ["cdkConnectedOverlayHasBackdrop", "hasBackdrop"],
-          lockPosition: ["cdkConnectedOverlayLockPosition", "lockPosition"],
-          flexibleDimensions: ["cdkConnectedOverlayFlexibleDimensions", "flexibleDimensions"],
-          growAfterOpen: ["cdkConnectedOverlayGrowAfterOpen", "growAfterOpen"],
-          push: ["cdkConnectedOverlayPush", "push"],
-          positions: ["cdkConnectedOverlayPositions", "positions"],
-          origin: ["cdkConnectedOverlayOrigin", "origin"],
-          positionStrategy: ["cdkConnectedOverlayPositionStrategy", "positionStrategy"],
-          width: ["cdkConnectedOverlayWidth", "width"],
-          height: ["cdkConnectedOverlayHeight", "height"],
-          minWidth: ["cdkConnectedOverlayMinWidth", "minWidth"],
-          minHeight: ["cdkConnectedOverlayMinHeight", "minHeight"],
-          backdropClass: ["cdkConnectedOverlayBackdropClass", "backdropClass"],
-          panelClass: ["cdkConnectedOverlayPanelClass", "panelClass"],
-          transformOriginSelector: ["cdkConnectedOverlayTransformOriginOn", "transformOriginSelector"]
-        },
-        outputs: {
-          backdropClick: "backdropClick",
-          positionChange: "positionChange",
-          attach: "attach",
-          detach: "detach",
-          overlayKeydown: "overlayKeydown",
-          overlayOutsideClick: "overlayOutsideClick"
-        },
-        exportAs: ["cdkConnectedOverlay"],
-        features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]]
-      });
-
-      CdkConnectedOverlay.ctorParameters = function () {
-        return [{
-          type: Overlay
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY]
-          }]
-        }, {
-          type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["Directionality"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }]
-        }];
-      };
-
-      CdkConnectedOverlay.propDecorators = {
-        origin: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayOrigin']
-        }],
-        positions: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayPositions']
-        }],
-        positionStrategy: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayPositionStrategy']
-        }],
-        offsetX: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayOffsetX']
-        }],
-        offsetY: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayOffsetY']
-        }],
-        width: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayWidth']
-        }],
-        height: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayHeight']
-        }],
-        minWidth: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayMinWidth']
-        }],
-        minHeight: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayMinHeight']
-        }],
-        backdropClass: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayBackdropClass']
-        }],
-        panelClass: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayPanelClass']
-        }],
-        viewportMargin: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayViewportMargin']
-        }],
-        scrollStrategy: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayScrollStrategy']
-        }],
-        open: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayOpen']
-        }],
-        transformOriginSelector: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayTransformOriginOn']
-        }],
-        hasBackdrop: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayHasBackdrop']
-        }],
-        lockPosition: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayLockPosition']
-        }],
-        flexibleDimensions: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayFlexibleDimensions']
-        }],
-        growAfterOpen: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayGrowAfterOpen']
-        }],
-        push: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['cdkConnectedOverlayPush']
-        }],
-        backdropClick: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        positionChange: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        attach: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        detach: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        overlayKeydown: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        overlayOutsideClick: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }]
-      };
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkConnectedOverlay, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-          args: [{
-            selector: '[cdk-connected-overlay], [connected-overlay], [cdkConnectedOverlay]',
-            exportAs: 'cdkConnectedOverlay'
-          }]
-        }], function () {
-          return [{
-            type: Overlay
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
-          }, {
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY]
-            }]
-          }, {
-            type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["Directionality"],
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-            }]
-          }];
-        }, {
-          viewportMargin: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayViewportMargin']
-          }],
-          open: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayOpen']
-          }],
-          backdropClick: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-          }],
-          positionChange: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-          }],
-          attach: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-          }],
-          detach: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-          }],
-          overlayKeydown: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-          }],
-          overlayOutsideClick: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-          }],
-          scrollStrategy: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayScrollStrategy']
-          }],
-          offsetX: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayOffsetX']
-          }],
-          offsetY: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayOffsetY']
-          }],
-          hasBackdrop: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayHasBackdrop']
-          }],
-          lockPosition: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayLockPosition']
-          }],
-          flexibleDimensions: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayFlexibleDimensions']
-          }],
-          growAfterOpen: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayGrowAfterOpen']
-          }],
-          push: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayPush']
-          }],
-          positions: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayPositions']
-          }],
-          origin: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayOrigin']
-          }],
-          positionStrategy: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayPositionStrategy']
-          }],
-          width: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayWidth']
-          }],
-          height: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayHeight']
-          }],
-          minWidth: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayMinWidth']
-          }],
-          minHeight: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayMinHeight']
-          }],
-          backdropClass: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayBackdropClass']
-          }],
-          panelClass: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayPanelClass']
-          }],
-          transformOriginSelector: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-            args: ['cdkConnectedOverlayTransformOriginOn']
-          }]
-        });
-      })();
-      /** @docs-private */
-
-
-      function CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY(overlay) {
-        return function () {
-          return overlay.scrollStrategies.reposition();
-        };
-      }
-      /** @docs-private */
-
-
-      var CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER = {
-        provide: CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY,
-        deps: [Overlay],
-        useFactory: CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY
-      };
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      var OverlayModule = function OverlayModule() {
-        _classCallCheck(this, OverlayModule);
-      };
-
-      OverlayModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
-        type: OverlayModule
-      });
-      OverlayModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-        factory: function OverlayModule_Factory(t) {
-          return new (t || OverlayModule)();
-        },
-        providers: [Overlay, CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER],
-        imports: [[_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["BidiModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["PortalModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollingModule"]], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollingModule"]]
-      });
-
-      (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](OverlayModule, {
-          declarations: function declarations() {
-            return [CdkConnectedOverlay, CdkOverlayOrigin];
-          },
-          imports: function imports() {
-            return [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["BidiModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["PortalModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollingModule"]];
-          },
-          exports: function exports() {
-            return [CdkConnectedOverlay, CdkOverlayOrigin, _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollingModule"]];
-          }
-        });
-      })();
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](OverlayModule, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
-          args: [{
-            imports: [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_3__["BidiModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["PortalModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollingModule"]],
-            exports: [CdkConnectedOverlay, CdkOverlayOrigin, _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_0__["ScrollingModule"]],
-            declarations: [CdkConnectedOverlay, CdkOverlayOrigin],
-            providers: [Overlay, CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER]
-          }]
-        }], null, null);
-      })();
-      /**
-       * @deprecated Use `OverlayModule` instead.
-       * @breaking-change 8.0.0
-       * @docs-private
-       */
-
-
-      var OVERLAY_PROVIDERS = [Overlay, OverlayPositionBuilder, OVERLAY_KEYBOARD_DISPATCHER_PROVIDER, OVERLAY_CONTAINER_PROVIDER, CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER];
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Alternative to OverlayContainer that supports correct displaying of overlay elements in
-       * Fullscreen mode
-       * https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullScreen
-       *
-       * Should be provided in the root component.
-       */
-
-      var FullscreenOverlayContainer = /*#__PURE__*/function (_OverlayContainer) {
-        _inherits(FullscreenOverlayContainer, _OverlayContainer);
-
-        var _super49 = _createSuper(FullscreenOverlayContainer);
-
-        function FullscreenOverlayContainer(_document,
-        /**
-         * @deprecated `platform` parameter to become required.
-         * @breaking-change 10.0.0
-         */
-        platform) {
-          _classCallCheck(this, FullscreenOverlayContainer);
-
-          return _super49.call(this, _document, platform);
-        }
-
-        _createClass(FullscreenOverlayContainer, [{
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            _get(_getPrototypeOf(FullscreenOverlayContainer.prototype), "ngOnDestroy", this).call(this);
-
-            if (this._fullScreenEventName && this._fullScreenListener) {
-              this._document.removeEventListener(this._fullScreenEventName, this._fullScreenListener);
-            }
-          }
-        }, {
-          key: "_createContainer",
-          value: function _createContainer() {
-            var _this99 = this;
-
-            _get(_getPrototypeOf(FullscreenOverlayContainer.prototype), "_createContainer", this).call(this);
-
-            this._adjustParentForFullscreenChange();
-
-            this._addFullscreenChangeListener(function () {
-              return _this99._adjustParentForFullscreenChange();
-            });
-          }
-        }, {
-          key: "_adjustParentForFullscreenChange",
-          value: function _adjustParentForFullscreenChange() {
-            if (!this._containerElement) {
-              return;
-            }
-
-            var fullscreenElement = this.getFullscreenElement();
-            var parent = fullscreenElement || this._document.body;
-            parent.appendChild(this._containerElement);
-          }
-        }, {
-          key: "_addFullscreenChangeListener",
-          value: function _addFullscreenChangeListener(fn) {
-            var eventName = this._getEventName();
-
-            if (eventName) {
-              if (this._fullScreenListener) {
-                this._document.removeEventListener(eventName, this._fullScreenListener);
-              }
-
-              this._document.addEventListener(eventName, fn);
-
-              this._fullScreenListener = fn;
-            }
-          }
-        }, {
-          key: "_getEventName",
-          value: function _getEventName() {
-            if (!this._fullScreenEventName) {
-              var _document = this._document;
-
-              if (_document.fullscreenEnabled) {
-                this._fullScreenEventName = 'fullscreenchange';
-              } else if (_document.webkitFullscreenEnabled) {
-                this._fullScreenEventName = 'webkitfullscreenchange';
-              } else if (_document.mozFullScreenEnabled) {
-                this._fullScreenEventName = 'mozfullscreenchange';
-              } else if (_document.msFullscreenEnabled) {
-                this._fullScreenEventName = 'MSFullscreenChange';
-              }
-            }
-
-            return this._fullScreenEventName;
-          }
-          /**
-           * When the page is put into fullscreen mode, a specific element is specified.
-           * Only that element and its children are visible when in fullscreen mode.
-           */
-
-        }, {
-          key: "getFullscreenElement",
-          value: function getFullscreenElement() {
-            var _document = this._document;
-            return _document.fullscreenElement || _document.webkitFullscreenElement || _document.mozFullScreenElement || _document.msFullscreenElement || null;
-          }
-        }]);
-
-        return FullscreenOverlayContainer;
-      }(OverlayContainer);
-
-      FullscreenOverlayContainer.ɵfac = function FullscreenOverlayContainer_Factory(t) {
-        return new (t || FullscreenOverlayContainer)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]));
-      };
-
-      FullscreenOverlayContainer.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function FullscreenOverlayContainer_Factory() {
-          return new FullscreenOverlayContainer(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]));
-        },
-        token: FullscreenOverlayContainer,
-        providedIn: "root"
-      });
-
-      FullscreenOverlayContainer.ctorParameters = function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-          }]
-        }, {
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FullscreenOverlayContainer, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
-            }]
-          }, {
-            type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Generated bundle index. Do not edit.
-       */
-      //# sourceMappingURL=overlay.js.map
-
-      /***/
-
-    },
-
-    /***/
-    "vxfF":
-    /*!**********************************************************************!*\
-      !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js ***!
-      \**********************************************************************/
-
-    /*! exports provided: CdkFixedSizeVirtualScroll, CdkScrollable, CdkScrollableModule, CdkVirtualForOf, CdkVirtualScrollViewport, DEFAULT_RESIZE_TIME, DEFAULT_SCROLL_TIME, FixedSizeVirtualScrollStrategy, ScrollDispatcher, ScrollingModule, VIRTUAL_SCROLL_STRATEGY, ViewportRuler, _fixedSizeVirtualScrollStrategyFactory */
-
-    /***/
-    function vxfF(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkFixedSizeVirtualScroll", function () {
-        return CdkFixedSizeVirtualScroll;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkScrollable", function () {
-        return CdkScrollable;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkScrollableModule", function () {
-        return CdkScrollableModule;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkVirtualForOf", function () {
-        return CdkVirtualForOf;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CdkVirtualScrollViewport", function () {
-        return CdkVirtualScrollViewport;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DEFAULT_RESIZE_TIME", function () {
-        return DEFAULT_RESIZE_TIME;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DEFAULT_SCROLL_TIME", function () {
-        return DEFAULT_SCROLL_TIME;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "FixedSizeVirtualScrollStrategy", function () {
-        return FixedSizeVirtualScrollStrategy;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ScrollDispatcher", function () {
-        return ScrollDispatcher;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ScrollingModule", function () {
-        return ScrollingModule;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "VIRTUAL_SCROLL_STRATEGY", function () {
-        return VIRTUAL_SCROLL_STRATEGY;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ViewportRuler", function () {
-        return ViewportRuler;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "_fixedSizeVirtualScrollStrategyFactory", function () {
-        return _fixedSizeVirtualScrollStrategyFactory;
-      });
-      /* harmony import */
-
-
-      var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/cdk/coercion */
-      "8LU1");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! rxjs */
-      "qCKp");
-      /* harmony import */
-
-
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! rxjs/operators */
-      "kU1M");
-      /* harmony import */
-
-
-      var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! @angular/cdk/platform */
-      "nLfN");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! @angular/common */
-      "ofXK");
-      /* harmony import */
-
-
-      var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! @angular/cdk/bidi */
-      "cH1L");
-      /* harmony import */
-
-
-      var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! @angular/cdk/collections */
-      "0EQZ");
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** The injection token used to specify the virtual scrolling strategy. */
-
-
-      var _c0 = ["contentWrapper"];
-      var _c1 = ["*"];
-      var VIRTUAL_SCROLL_STRATEGY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('VIRTUAL_SCROLL_STRATEGY');
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Virtual scrolling strategy for lists with items of known fixed size. */
-
-      var FixedSizeVirtualScrollStrategy = /*#__PURE__*/function () {
-        /**
-         * @param itemSize The size of the items in the virtually scrolling list.
-         * @param minBufferPx The minimum amount of buffer (in pixels) before needing to render more
-         * @param maxBufferPx The amount of buffer (in pixels) to render when rendering more.
-         */
-        function FixedSizeVirtualScrollStrategy(itemSize, minBufferPx, maxBufferPx) {
-          _classCallCheck(this, FixedSizeVirtualScrollStrategy);
-
-          this._scrolledIndexChange = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          /** @docs-private Implemented as part of VirtualScrollStrategy. */
-
-          this.scrolledIndexChange = this._scrolledIndexChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])());
-          /** The attached viewport. */
-
-          this._viewport = null;
-          this._itemSize = itemSize;
-          this._minBufferPx = minBufferPx;
-          this._maxBufferPx = maxBufferPx;
-        }
-        /**
-         * Attaches this scroll strategy to a viewport.
-         * @param viewport The viewport to attach this strategy to.
-         */
-
-
-        _createClass(FixedSizeVirtualScrollStrategy, [{
-          key: "attach",
-          value: function attach(viewport) {
-            this._viewport = viewport;
-
-            this._updateTotalContentSize();
-
-            this._updateRenderedRange();
-          }
-          /** Detaches this scroll strategy from the currently attached viewport. */
-
-        }, {
-          key: "detach",
-          value: function detach() {
-            this._scrolledIndexChange.complete();
-
-            this._viewport = null;
-          }
-          /**
-           * Update the item size and buffer size.
-           * @param itemSize The size of the items in the virtually scrolling list.
-           * @param minBufferPx The minimum amount of buffer (in pixels) before needing to render more
-           * @param maxBufferPx The amount of buffer (in pixels) to render when rendering more.
-           */
-
-        }, {
-          key: "updateItemAndBufferSize",
-          value: function updateItemAndBufferSize(itemSize, minBufferPx, maxBufferPx) {
-            if (maxBufferPx < minBufferPx && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw Error('CDK virtual scroll: maxBufferPx must be greater than or equal to minBufferPx');
-            }
-
-            this._itemSize = itemSize;
-            this._minBufferPx = minBufferPx;
-            this._maxBufferPx = maxBufferPx;
-
-            this._updateTotalContentSize();
-
-            this._updateRenderedRange();
-          }
-          /** @docs-private Implemented as part of VirtualScrollStrategy. */
-
-        }, {
-          key: "onContentScrolled",
-          value: function onContentScrolled() {
-            this._updateRenderedRange();
-          }
-          /** @docs-private Implemented as part of VirtualScrollStrategy. */
-
-        }, {
-          key: "onDataLengthChanged",
-          value: function onDataLengthChanged() {
-            this._updateTotalContentSize();
-
-            this._updateRenderedRange();
-          }
-          /** @docs-private Implemented as part of VirtualScrollStrategy. */
-
-        }, {
-          key: "onContentRendered",
-          value: function onContentRendered() {}
-          /** @docs-private Implemented as part of VirtualScrollStrategy. */
-
-        }, {
-          key: "onRenderedOffsetChanged",
-          value: function onRenderedOffsetChanged() {}
-          /**
-           * Scroll to the offset for the given index.
-           * @param index The index of the element to scroll to.
-           * @param behavior The ScrollBehavior to use when scrolling.
-           */
-
-        }, {
-          key: "scrollToIndex",
-          value: function scrollToIndex(index, behavior) {
-            if (this._viewport) {
-              this._viewport.scrollToOffset(index * this._itemSize, behavior);
-            }
-          }
-          /** Update the viewport's total content size. */
-
-        }, {
-          key: "_updateTotalContentSize",
-          value: function _updateTotalContentSize() {
-            if (!this._viewport) {
-              return;
-            }
-
-            this._viewport.setTotalContentSize(this._viewport.getDataLength() * this._itemSize);
-          }
-          /** Update the viewport's rendered range. */
-
-        }, {
-          key: "_updateRenderedRange",
-          value: function _updateRenderedRange() {
-            if (!this._viewport) {
-              return;
-            }
-
-            var renderedRange = this._viewport.getRenderedRange();
-
-            var newRange = {
-              start: renderedRange.start,
-              end: renderedRange.end
-            };
-
-            var viewportSize = this._viewport.getViewportSize();
-
-            var dataLength = this._viewport.getDataLength();
-
-            var scrollOffset = this._viewport.measureScrollOffset();
-
-            var firstVisibleIndex = scrollOffset / this._itemSize; // If user scrolls to the bottom of the list and data changes to a smaller list
-
-            if (newRange.end > dataLength) {
-              // We have to recalculate the first visible index based on new data length and viewport size.
-              var maxVisibleItems = Math.ceil(viewportSize / this._itemSize);
-              var newVisibleIndex = Math.max(0, Math.min(firstVisibleIndex, dataLength - maxVisibleItems)); // If first visible index changed we must update scroll offset to handle start/end buffers
-              // Current range must also be adjusted to cover the new position (bottom of new list).
-
-              if (firstVisibleIndex != newVisibleIndex) {
-                firstVisibleIndex = newVisibleIndex;
-                scrollOffset = newVisibleIndex * this._itemSize;
-                newRange.start = Math.floor(firstVisibleIndex);
-              }
-
-              newRange.end = Math.max(0, Math.min(dataLength, newRange.start + maxVisibleItems));
-            }
-
-            var startBuffer = scrollOffset - newRange.start * this._itemSize;
-
-            if (startBuffer < this._minBufferPx && newRange.start != 0) {
-              var expandStart = Math.ceil((this._maxBufferPx - startBuffer) / this._itemSize);
-              newRange.start = Math.max(0, newRange.start - expandStart);
-              newRange.end = Math.min(dataLength, Math.ceil(firstVisibleIndex + (viewportSize + this._minBufferPx) / this._itemSize));
-            } else {
-              var endBuffer = newRange.end * this._itemSize - (scrollOffset + viewportSize);
-
-              if (endBuffer < this._minBufferPx && newRange.end != dataLength) {
-                var expandEnd = Math.ceil((this._maxBufferPx - endBuffer) / this._itemSize);
-
-                if (expandEnd > 0) {
-                  newRange.end = Math.min(dataLength, newRange.end + expandEnd);
-                  newRange.start = Math.max(0, Math.floor(firstVisibleIndex - this._minBufferPx / this._itemSize));
-                }
-              }
-            }
-
-            this._viewport.setRenderedRange(newRange);
-
-            this._viewport.setRenderedContentOffset(this._itemSize * newRange.start);
-
-            this._scrolledIndexChange.next(Math.floor(firstVisibleIndex));
-          }
-        }]);
-
-        return FixedSizeVirtualScrollStrategy;
-      }();
-      /**
-       * Provider factory for `FixedSizeVirtualScrollStrategy` that simply extracts the already created
-       * `FixedSizeVirtualScrollStrategy` from the given directive.
-       * @param fixedSizeDir The instance of `CdkFixedSizeVirtualScroll` to extract the
-       *     `FixedSizeVirtualScrollStrategy` from.
-       */
-
-
-      function _fixedSizeVirtualScrollStrategyFactory(fixedSizeDir) {
-        return fixedSizeDir._scrollStrategy;
-      }
-      /** A virtual scroll strategy that supports fixed-size items. */
-
-
-      var CdkFixedSizeVirtualScroll = /*#__PURE__*/function () {
-        function CdkFixedSizeVirtualScroll() {
-          _classCallCheck(this, CdkFixedSizeVirtualScroll);
-
-          this._itemSize = 20;
-          this._minBufferPx = 100;
-          this._maxBufferPx = 200;
-          /** The scroll strategy used by this directive. */
-
-          this._scrollStrategy = new FixedSizeVirtualScrollStrategy(this.itemSize, this.minBufferPx, this.maxBufferPx);
-        }
-        /** The size of the items in the list (in pixels). */
-
-
-        _createClass(CdkFixedSizeVirtualScroll, [{
-          key: "ngOnChanges",
-          value: function ngOnChanges() {
-            this._scrollStrategy.updateItemAndBufferSize(this.itemSize, this.minBufferPx, this.maxBufferPx);
-          }
-        }, {
-          key: "itemSize",
-          get: function get() {
-            return this._itemSize;
-          },
-          set: function set(value) {
-            this._itemSize = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__["coerceNumberProperty"])(value);
-          }
-          /**
-           * The minimum amount of buffer rendered beyond the viewport (in pixels).
-           * If the amount of buffer dips below this number, more items will be rendered. Defaults to 100px.
-           */
-
-        }, {
-          key: "minBufferPx",
-          get: function get() {
-            return this._minBufferPx;
-          },
-          set: function set(value) {
-            this._minBufferPx = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__["coerceNumberProperty"])(value);
-          }
-          /**
-           * The number of pixels worth of buffer to render for when rendering new items. Defaults to 200px.
-           */
-
-        }, {
-          key: "maxBufferPx",
-          get: function get() {
-            return this._maxBufferPx;
-          },
-          set: function set(value) {
-            this._maxBufferPx = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__["coerceNumberProperty"])(value);
-          }
-        }]);
-
-        return CdkFixedSizeVirtualScroll;
-      }();
-
-      CdkFixedSizeVirtualScroll.ɵfac = function CdkFixedSizeVirtualScroll_Factory(t) {
-        return new (t || CdkFixedSizeVirtualScroll)();
-      };
-
-      CdkFixedSizeVirtualScroll.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-        type: CdkFixedSizeVirtualScroll,
-        selectors: [["cdk-virtual-scroll-viewport", "itemSize", ""]],
-        inputs: {
-          itemSize: "itemSize",
-          minBufferPx: "minBufferPx",
-          maxBufferPx: "maxBufferPx"
-        },
-        features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([{
-          provide: VIRTUAL_SCROLL_STRATEGY,
-          useFactory: _fixedSizeVirtualScrollStrategyFactory,
-          deps: [Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(function () {
-            return CdkFixedSizeVirtualScroll;
-          })]
-        }]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]]
-      });
-      CdkFixedSizeVirtualScroll.propDecorators = {
-        itemSize: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        minBufferPx: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        maxBufferPx: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      };
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkFixedSizeVirtualScroll, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-          args: [{
-            selector: 'cdk-virtual-scroll-viewport[itemSize]',
-            providers: [{
-              provide: VIRTUAL_SCROLL_STRATEGY,
-              useFactory: _fixedSizeVirtualScrollStrategyFactory,
-              deps: [Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(function () {
-                return CdkFixedSizeVirtualScroll;
-              })]
-            }]
-          }]
-        }], function () {
-          return [];
-        }, {
-          itemSize: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-          }],
-          minBufferPx: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-          }],
-          maxBufferPx: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-          }]
-        });
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Time in ms to throttle the scrolling events by default. */
-
-
-      var DEFAULT_SCROLL_TIME = 20;
-      /**
-       * Service contained all registered Scrollable references and emits an event when any one of the
-       * Scrollable references emit a scrolled event.
-       */
-
-      var ScrollDispatcher = /*#__PURE__*/function () {
-        function ScrollDispatcher(_ngZone, _platform,
-        /** @breaking-change 11.0.0 make document required */
-        document) {
-          _classCallCheck(this, ScrollDispatcher);
-
-          this._ngZone = _ngZone;
-          this._platform = _platform;
-          /** Subject for notifying that a registered scrollable reference element has been scrolled. */
-
-          this._scrolled = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          /** Keeps track of the global `scroll` and `resize` subscriptions. */
-
-          this._globalSubscription = null;
-          /** Keeps track of the amount of subscriptions to `scrolled`. Used for cleaning up afterwards. */
-
-          this._scrolledCount = 0;
-          /**
-           * Map of all the scrollable references that are registered with the service and their
-           * scroll event subscriptions.
-           */
-
-          this.scrollContainers = new Map();
-          this._document = document;
-        }
-        /**
-         * Registers a scrollable instance with the service and listens for its scrolled events. When the
-         * scrollable is scrolled, the service emits the event to its scrolled observable.
-         * @param scrollable Scrollable instance to be registered.
-         */
-
-
-        _createClass(ScrollDispatcher, [{
-          key: "register",
-          value: function register(scrollable) {
-            var _this100 = this;
-
-            if (!this.scrollContainers.has(scrollable)) {
-              this.scrollContainers.set(scrollable, scrollable.elementScrolled().subscribe(function () {
-                return _this100._scrolled.next(scrollable);
-              }));
-            }
-          }
-          /**
-           * Deregisters a Scrollable reference and unsubscribes from its scroll event observable.
-           * @param scrollable Scrollable instance to be deregistered.
-           */
-
-        }, {
-          key: "deregister",
-          value: function deregister(scrollable) {
-            var scrollableReference = this.scrollContainers.get(scrollable);
-
-            if (scrollableReference) {
-              scrollableReference.unsubscribe();
-              this.scrollContainers["delete"](scrollable);
-            }
-          }
-          /**
-           * Returns an observable that emits an event whenever any of the registered Scrollable
-           * references (or window, document, or body) fire a scrolled event. Can provide a time in ms
-           * to override the default "throttle" time.
-           *
-           * **Note:** in order to avoid hitting change detection for every scroll event,
-           * all of the events emitted from this stream will be run outside the Angular zone.
-           * If you need to update any data bindings as a result of a scroll event, you have
-           * to run the callback using `NgZone.run`.
-           */
-
-        }, {
-          key: "scrolled",
-          value: function scrolled() {
-            var _this101 = this;
-
-            var auditTimeInMs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_SCROLL_TIME;
-
-            if (!this._platform.isBrowser) {
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])();
-            }
-
-            return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
-              if (!_this101._globalSubscription) {
-                _this101._addGlobalListener();
-              } // In the case of a 0ms delay, use an observable without auditTime
-              // since it does add a perceptible delay in processing overhead.
-
-
-              var subscription = auditTimeInMs > 0 ? _this101._scrolled.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["auditTime"])(auditTimeInMs)).subscribe(observer) : _this101._scrolled.subscribe(observer);
-              _this101._scrolledCount++;
-              return function () {
-                subscription.unsubscribe();
-                _this101._scrolledCount--;
-
-                if (!_this101._scrolledCount) {
-                  _this101._removeGlobalListener();
-                }
-              };
-            });
-          }
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            var _this102 = this;
-
-            this._removeGlobalListener();
-
-            this.scrollContainers.forEach(function (_, container) {
-              return _this102.deregister(container);
-            });
-
-            this._scrolled.complete();
-          }
-          /**
-           * Returns an observable that emits whenever any of the
-           * scrollable ancestors of an element are scrolled.
-           * @param elementRef Element whose ancestors to listen for.
-           * @param auditTimeInMs Time to throttle the scroll events.
-           */
-
-        }, {
-          key: "ancestorScrolled",
-          value: function ancestorScrolled(elementRef, auditTimeInMs) {
-            var ancestors = this.getAncestorScrollContainers(elementRef);
-            return this.scrolled(auditTimeInMs).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (target) {
-              return !target || ancestors.indexOf(target) > -1;
-            }));
-          }
-          /** Returns all registered Scrollables that contain the provided element. */
-
-        }, {
-          key: "getAncestorScrollContainers",
-          value: function getAncestorScrollContainers(elementRef) {
-            var _this103 = this;
-
-            var scrollingContainers = [];
-            this.scrollContainers.forEach(function (_subscription, scrollable) {
-              if (_this103._scrollableContainsElement(scrollable, elementRef)) {
-                scrollingContainers.push(scrollable);
-              }
-            });
-            return scrollingContainers;
-          }
-          /** Access injected document if available or fallback to global document reference */
-
-        }, {
-          key: "_getDocument",
-          value: function _getDocument() {
-            return this._document || document;
-          }
-          /** Use defaultView of injected document if available or fallback to global window reference */
-
-        }, {
-          key: "_getWindow",
-          value: function _getWindow() {
-            var doc = this._getDocument();
-
-            return doc.defaultView || window;
-          }
-          /** Returns true if the element is contained within the provided Scrollable. */
-
-        }, {
-          key: "_scrollableContainsElement",
-          value: function _scrollableContainsElement(scrollable, elementRef) {
-            var element = elementRef.nativeElement;
-            var scrollableElement = scrollable.getElementRef().nativeElement; // Traverse through the element parents until we reach null, checking if any of the elements
-            // are the scrollable's element.
-
-            do {
-              if (element == scrollableElement) {
-                return true;
-              }
-            } while (element = element.parentElement);
-
-            return false;
-          }
-          /** Sets up the global scroll listeners. */
-
-        }, {
-          key: "_addGlobalListener",
-          value: function _addGlobalListener() {
-            var _this104 = this;
-
-            this._globalSubscription = this._ngZone.runOutsideAngular(function () {
-              var window = _this104._getWindow();
-
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window.document, 'scroll').subscribe(function () {
-                return _this104._scrolled.next();
-              });
-            });
-          }
-          /** Cleans up the global scroll listener. */
-
-        }, {
-          key: "_removeGlobalListener",
-          value: function _removeGlobalListener() {
-            if (this._globalSubscription) {
-              this._globalSubscription.unsubscribe();
-
-              this._globalSubscription = null;
-            }
-          }
-        }]);
-
-        return ScrollDispatcher;
-      }();
-
-      ScrollDispatcher.ɵfac = function ScrollDispatcher_Factory(t) {
-        return new (t || ScrollDispatcher)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"], 8));
-      };
-
-      ScrollDispatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function ScrollDispatcher_Factory() {
-          return new ScrollDispatcher(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"], 8));
-        },
-        token: ScrollDispatcher,
-        providedIn: "root"
-      });
-
-      ScrollDispatcher.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"]]
-          }]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ScrollDispatcher, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-          }, {
-            type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-          }, {
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-            }, {
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"]]
-            }]
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Sends an event when the directive's element is scrolled. Registers itself with the
-       * ScrollDispatcher service to include itself as part of its collection of scrolling events that it
-       * can be listened to through the service.
-       */
-
-
-      var CdkScrollable = /*#__PURE__*/function () {
-        function CdkScrollable(elementRef, scrollDispatcher, ngZone, dir) {
-          var _this105 = this;
-
-          _classCallCheck(this, CdkScrollable);
-
-          this.elementRef = elementRef;
-          this.scrollDispatcher = scrollDispatcher;
-          this.ngZone = ngZone;
-          this.dir = dir;
-          this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          this._elementScrolled = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
-            return _this105.ngZone.runOutsideAngular(function () {
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(_this105.elementRef.nativeElement, 'scroll').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this105._destroyed)).subscribe(observer);
-            });
-          });
-        }
-
-        _createClass(CdkScrollable, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            this.scrollDispatcher.register(this);
-          }
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.scrollDispatcher.deregister(this);
-
-            this._destroyed.next();
-
-            this._destroyed.complete();
-          }
-          /** Returns observable that emits when a scroll event is fired on the host element. */
-
-        }, {
-          key: "elementScrolled",
-          value: function elementScrolled() {
-            return this._elementScrolled;
-          }
-          /** Gets the ElementRef for the viewport. */
-
-        }, {
-          key: "getElementRef",
-          value: function getElementRef() {
-            return this.elementRef;
-          }
-          /**
-           * Scrolls to the specified offsets. This is a normalized version of the browser's native scrollTo
-           * method, since browsers are not consistent about what scrollLeft means in RTL. For this method
-           * left and right always refer to the left and right side of the scrolling container irrespective
-           * of the layout direction. start and end refer to left and right in an LTR context and vice-versa
-           * in an RTL context.
-           * @param options specified the offsets to scroll to.
-           */
-
-        }, {
-          key: "scrollTo",
-          value: function scrollTo(options) {
-            var el = this.elementRef.nativeElement;
-            var isRtl = this.dir && this.dir.value == 'rtl'; // Rewrite start & end offsets as right or left offsets.
-
-            if (options.left == null) {
-              options.left = isRtl ? options.end : options.start;
-            }
-
-            if (options.right == null) {
-              options.right = isRtl ? options.start : options.end;
-            } // Rewrite the bottom offset as a top offset.
-
-
-            if (options.bottom != null) {
-              options.top = el.scrollHeight - el.clientHeight - options.bottom;
-            } // Rewrite the right offset as a left offset.
-
-
-            if (isRtl && Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() != 0
-            /* NORMAL */
-            ) {
-                if (options.left != null) {
-                  options.right = el.scrollWidth - el.clientWidth - options.left;
-                }
-
-                if (Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() == 2
-                /* INVERTED */
-                ) {
-                    options.left = options.right;
-                  } else if (Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() == 1
-                /* NEGATED */
-                ) {
-                    options.left = options.right ? -options.right : options.right;
-                  }
-              } else {
-              if (options.right != null) {
-                options.left = el.scrollWidth - el.clientWidth - options.right;
-              }
-            }
-
-            this._applyScrollToOptions(options);
-          }
-        }, {
-          key: "_applyScrollToOptions",
-          value: function _applyScrollToOptions(options) {
-            var el = this.elementRef.nativeElement;
-
-            if (Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["supportsScrollBehavior"])()) {
-              el.scrollTo(options);
-            } else {
-              if (options.top != null) {
-                el.scrollTop = options.top;
-              }
-
-              if (options.left != null) {
-                el.scrollLeft = options.left;
-              }
-            }
-          }
-          /**
-           * Measures the scroll offset relative to the specified edge of the viewport. This method can be
-           * used instead of directly checking scrollLeft or scrollTop, since browsers are not consistent
-           * about what scrollLeft means in RTL. The values returned by this method are normalized such that
-           * left and right always refer to the left and right side of the scrolling container irrespective
-           * of the layout direction. start and end refer to left and right in an LTR context and vice-versa
-           * in an RTL context.
-           * @param from The edge to measure from.
-           */
-
-        }, {
-          key: "measureScrollOffset",
-          value: function measureScrollOffset(from) {
-            var LEFT = 'left';
-            var RIGHT = 'right';
-            var el = this.elementRef.nativeElement;
-
-            if (from == 'top') {
-              return el.scrollTop;
-            }
-
-            if (from == 'bottom') {
-              return el.scrollHeight - el.clientHeight - el.scrollTop;
-            } // Rewrite start & end as left or right offsets.
-
-
-            var isRtl = this.dir && this.dir.value == 'rtl';
-
-            if (from == 'start') {
-              from = isRtl ? RIGHT : LEFT;
-            } else if (from == 'end') {
-              from = isRtl ? LEFT : RIGHT;
-            }
-
-            if (isRtl && Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() == 2
-            /* INVERTED */
-            ) {
-                // For INVERTED, scrollLeft is (scrollWidth - clientWidth) when scrolled all the way left and
-                // 0 when scrolled all the way right.
-                if (from == LEFT) {
-                  return el.scrollWidth - el.clientWidth - el.scrollLeft;
-                } else {
-                  return el.scrollLeft;
-                }
-              } else if (isRtl && Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["getRtlScrollAxisType"])() == 1
-            /* NEGATED */
-            ) {
-                // For NEGATED, scrollLeft is -(scrollWidth - clientWidth) when scrolled all the way left and
-                // 0 when scrolled all the way right.
-                if (from == LEFT) {
-                  return el.scrollLeft + el.scrollWidth - el.clientWidth;
-                } else {
-                  return -el.scrollLeft;
-                }
-              } else {
-              // For NORMAL, as well as non-RTL contexts, scrollLeft is 0 when scrolled all the way left and
-              // (scrollWidth - clientWidth) when scrolled all the way right.
-              if (from == LEFT) {
-                return el.scrollLeft;
-              } else {
-                return el.scrollWidth - el.clientWidth - el.scrollLeft;
-              }
-            }
-          }
-        }]);
-
-        return CdkScrollable;
-      }();
-
-      CdkScrollable.ɵfac = function CdkScrollable_Factory(t) {
-        return new (t || CdkScrollable)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ScrollDispatcher), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"], 8));
-      };
-
-      CdkScrollable.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-        type: CdkScrollable,
-        selectors: [["", "cdk-scrollable", ""], ["", "cdkScrollable", ""]]
-      });
-
-      CdkScrollable.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }, {
-          type: ScrollDispatcher
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkScrollable, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-          args: [{
-            selector: '[cdk-scrollable], [cdkScrollable]'
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-          }, {
-            type: ScrollDispatcher
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-          }, {
-            type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-            }]
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Time in ms to throttle the resize events by default. */
-
-
-      var DEFAULT_RESIZE_TIME = 20;
-      /**
-       * Simple utility for getting the bounds of the browser viewport.
-       * @docs-private
-       */
-
-      var ViewportRuler = /*#__PURE__*/function () {
-        function ViewportRuler(_platform, ngZone,
-        /** @breaking-change 11.0.0 make document required */
-        document) {
-          var _this106 = this;
-
-          _classCallCheck(this, ViewportRuler);
-
-          this._platform = _platform;
-          /** Stream of viewport change events. */
-
-          this._change = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          /** Event listener that will be used to handle the viewport change events. */
-
-          this._changeListener = function (event) {
-            _this106._change.next(event);
-          };
-
-          this._document = document;
-          ngZone.runOutsideAngular(function () {
-            if (_platform.isBrowser) {
-              var _window = _this106._getWindow(); // Note that bind the events ourselves, rather than going through something like RxJS's
-              // `fromEvent` so that we can ensure that they're bound outside of the NgZone.
-
-
-              _window.addEventListener('resize', _this106._changeListener);
-
-              _window.addEventListener('orientationchange', _this106._changeListener);
-            } // We don't need to keep track of the subscription,
-            // because we complete the `change` stream on destroy.
-
-
-            _this106.change().subscribe(function () {
-              return _this106._updateViewportSize();
-            });
-          });
-        }
-
-        _createClass(ViewportRuler, [{
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            if (this._platform.isBrowser) {
-              var _window2 = this._getWindow();
-
-              _window2.removeEventListener('resize', this._changeListener);
-
-              _window2.removeEventListener('orientationchange', this._changeListener);
-            }
-
-            this._change.complete();
-          }
-          /** Returns the viewport's width and height. */
-
-        }, {
-          key: "getViewportSize",
-          value: function getViewportSize() {
-            if (!this._viewportSize) {
-              this._updateViewportSize();
-            }
-
-            var output = {
-              width: this._viewportSize.width,
-              height: this._viewportSize.height
-            }; // If we're not on a browser, don't cache the size since it'll be mocked out anyway.
-
-            if (!this._platform.isBrowser) {
-              this._viewportSize = null;
-            }
-
-            return output;
-          }
-          /** Gets a ClientRect for the viewport's bounds. */
-
-        }, {
-          key: "getViewportRect",
-          value: function getViewportRect() {
-            // Use the document element's bounding rect rather than the window scroll properties
-            // (e.g. pageYOffset, scrollY) due to in issue in Chrome and IE where window scroll
-            // properties and client coordinates (boundingClientRect, clientX/Y, etc.) are in different
-            // conceptual viewports. Under most circumstances these viewports are equivalent, but they
-            // can disagree when the page is pinch-zoomed (on devices that support touch).
-            // See https://bugs.chromium.org/p/chromium/issues/detail?id=489206#c4
-            // We use the documentElement instead of the body because, by default (without a css reset)
-            // browsers typically give the document body an 8px margin, which is not included in
-            // getBoundingClientRect().
-            var scrollPosition = this.getViewportScrollPosition();
-
-            var _this$getViewportSize = this.getViewportSize(),
-                width = _this$getViewportSize.width,
-                height = _this$getViewportSize.height;
-
-            return {
-              top: scrollPosition.top,
-              left: scrollPosition.left,
-              bottom: scrollPosition.top + height,
-              right: scrollPosition.left + width,
-              height: height,
-              width: width
-            };
-          }
-          /** Gets the (top, left) scroll position of the viewport. */
-
-        }, {
-          key: "getViewportScrollPosition",
-          value: function getViewportScrollPosition() {
-            // While we can get a reference to the fake document
-            // during SSR, it doesn't have getBoundingClientRect.
-            if (!this._platform.isBrowser) {
-              return {
-                top: 0,
-                left: 0
-              };
-            } // The top-left-corner of the viewport is determined by the scroll position of the document
-            // body, normally just (scrollLeft, scrollTop). However, Chrome and Firefox disagree about
-            // whether `document.body` or `document.documentElement` is the scrolled element, so reading
-            // `scrollTop` and `scrollLeft` is inconsistent. However, using the bounding rect of
-            // `document.documentElement` works consistently, where the `top` and `left` values will
-            // equal negative the scroll position.
-
-
-            var document = this._getDocument();
-
-            var window = this._getWindow();
-
-            var documentElement = document.documentElement;
-            var documentRect = documentElement.getBoundingClientRect();
-            var top = -documentRect.top || document.body.scrollTop || window.scrollY || documentElement.scrollTop || 0;
-            var left = -documentRect.left || document.body.scrollLeft || window.scrollX || documentElement.scrollLeft || 0;
-            return {
-              top: top,
-              left: left
-            };
-          }
-          /**
-           * Returns a stream that emits whenever the size of the viewport changes.
-           * @param throttleTime Time in milliseconds to throttle the stream.
-           */
-
-        }, {
-          key: "change",
-          value: function change() {
-            var throttleTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_RESIZE_TIME;
-            return throttleTime > 0 ? this._change.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["auditTime"])(throttleTime)) : this._change;
-          }
-          /** Access injected document if available or fallback to global document reference */
-
-        }, {
-          key: "_getDocument",
-          value: function _getDocument() {
-            return this._document || document;
-          }
-          /** Use defaultView of injected document if available or fallback to global window reference */
-
-        }, {
-          key: "_getWindow",
-          value: function _getWindow() {
-            var doc = this._getDocument();
-
-            return doc.defaultView || window;
-          }
-          /** Updates the cached viewport size. */
-
-        }, {
-          key: "_updateViewportSize",
-          value: function _updateViewportSize() {
-            var window = this._getWindow();
-
-            this._viewportSize = this._platform.isBrowser ? {
-              width: window.innerWidth,
-              height: window.innerHeight
-            } : {
-              width: 0,
-              height: 0
-            };
-          }
-        }]);
-
-        return ViewportRuler;
-      }();
-
-      ViewportRuler.ɵfac = function ViewportRuler_Factory(t) {
-        return new (t || ViewportRuler)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"], 8));
-      };
-
-      ViewportRuler.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function ViewportRuler_Factory() {
-          return new ViewportRuler(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"], 8));
-        },
-        token: ViewportRuler,
-        providedIn: "root"
-      });
-
-      ViewportRuler.ctorParameters = function () {
-        return [{
-          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"]]
-          }]
-        }];
-      };
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ViewportRuler, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["Platform"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-          }, {
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-            }, {
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DOCUMENT"]]
-            }]
-          }];
-        }, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Checks if the given ranges are equal. */
-
-
-      function rangesEqual(r1, r2) {
-        return r1.start == r2.start && r1.end == r2.end;
-      }
-      /**
-       * Scheduler to be used for scroll events. Needs to fall back to
-       * something that doesn't rely on requestAnimationFrame on environments
-       * that don't support it (e.g. server-side rendering).
-       */
-
-
-      var SCROLL_SCHEDULER = typeof requestAnimationFrame !== 'undefined' ? rxjs__WEBPACK_IMPORTED_MODULE_2__["animationFrameScheduler"] : rxjs__WEBPACK_IMPORTED_MODULE_2__["asapScheduler"];
-      /** A viewport that virtualizes its scrolling with the help of `CdkVirtualForOf`. */
-
-      var CdkVirtualScrollViewport = /*#__PURE__*/function (_CdkScrollable) {
-        _inherits(CdkVirtualScrollViewport, _CdkScrollable);
-
-        var _super50 = _createSuper(CdkVirtualScrollViewport);
-
-        function CdkVirtualScrollViewport(elementRef, _changeDetectorRef, ngZone, _scrollStrategy, dir, scrollDispatcher,
-        /**
-         * @deprecated `viewportRuler` parameter to become required.
-         * @breaking-change 11.0.0
-         */
-        viewportRuler) {
-          var _this107;
-
-          _classCallCheck(this, CdkVirtualScrollViewport);
-
-          _this107 = _super50.call(this, elementRef, scrollDispatcher, ngZone, dir);
-          _this107.elementRef = elementRef;
-          _this107._changeDetectorRef = _changeDetectorRef;
-          _this107._scrollStrategy = _scrollStrategy;
-          /** Emits when the viewport is detached from a CdkVirtualForOf. */
-
-          _this107._detachedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          /** Emits when the rendered range changes. */
-
-          _this107._renderedRangeSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          _this107._orientation = 'vertical'; // Note: we don't use the typical EventEmitter here because we need to subscribe to the scroll
-          // strategy lazily (i.e. only if the user is actually listening to the events). We do this because
-          // depending on how the strategy calculates the scrolled index, it may come at a cost to
-          // performance.
-
-          /** Emits when the index of the first element visible in the viewport changes. */
-
-          _this107.scrolledIndexChange = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
-            return _this107._scrollStrategy.scrolledIndexChange.subscribe(function (index) {
-              return Promise.resolve().then(function () {
-                return _this107.ngZone.run(function () {
-                  return observer.next(index);
-                });
-              });
-            });
-          });
-          /** A stream that emits whenever the rendered range changes. */
-
-          _this107.renderedRangeStream = _this107._renderedRangeSubject;
-          /**
-           * The total size of all content (in pixels), including content that is not currently rendered.
-           */
-
-          _this107._totalContentSize = 0;
-          /** A string representing the `style.width` property value to be used for the spacer element. */
-
-          _this107._totalContentWidth = '';
-          /** A string representing the `style.height` property value to be used for the spacer element. */
-
-          _this107._totalContentHeight = '';
-          /** The currently rendered range of indices. */
-
-          _this107._renderedRange = {
-            start: 0,
-            end: 0
-          };
-          /** The length of the data bound to this viewport (in number of items). */
-
-          _this107._dataLength = 0;
-          /** The size of the viewport (in pixels). */
-
-          _this107._viewportSize = 0;
-          /** The last rendered content offset that was set. */
-
-          _this107._renderedContentOffset = 0;
-          /**
-           * Whether the last rendered content offset was to the end of the content (and therefore needs to
-           * be rewritten as an offset to the start of the content).
-           */
-
-          _this107._renderedContentOffsetNeedsRewrite = false;
-          /** Whether there is a pending change detection cycle. */
-
-          _this107._isChangeDetectionPending = false;
-          /** A list of functions to run after the next change detection cycle. */
-
-          _this107._runAfterChangeDetection = [];
-          /** Subscription to changes in the viewport size. */
-
-          _this107._viewportChanges = rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"].EMPTY;
-
-          if (!_scrollStrategy && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-            throw Error('Error: cdk-virtual-scroll-viewport requires the "itemSize" property to be set.');
-          } // @breaking-change 11.0.0 Remove null check for `viewportRuler`.
-
-
-          if (viewportRuler) {
-            _this107._viewportChanges = viewportRuler.change().subscribe(function () {
-              _this107.checkViewportSize();
-            });
-          }
-
-          return _this107;
-        }
-        /** The direction the viewport scrolls. */
-
-
-        _createClass(CdkVirtualScrollViewport, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this108 = this;
-
-            _get(_getPrototypeOf(CdkVirtualScrollViewport.prototype), "ngOnInit", this).call(this); // It's still too early to measure the viewport at this point. Deferring with a promise allows
-            // the Viewport to be rendered with the correct size before we measure. We run this outside the
-            // zone to avoid causing more change detection cycles. We handle the change detection loop
-            // ourselves instead.
-
-
-            this.ngZone.runOutsideAngular(function () {
-              return Promise.resolve().then(function () {
-                _this108._measureViewportSize();
-
-                _this108._scrollStrategy.attach(_this108);
-
-                _this108.elementScrolled().pipe( // Start off with a fake scroll event so we properly detect our initial position.
-                Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(null), // Collect multiple events into one until the next animation frame. This way if
-                // there are multiple scroll events in the same frame we only need to recheck
-                // our layout once.
-                Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["auditTime"])(0, SCROLL_SCHEDULER)).subscribe(function () {
-                  return _this108._scrollStrategy.onContentScrolled();
-                });
-
-                _this108._markChangeDetectionNeeded();
-              });
-            });
-          }
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.detach();
-
-            this._scrollStrategy.detach(); // Complete all subjects
-
-
-            this._renderedRangeSubject.complete();
-
-            this._detachedSubject.complete();
-
-            this._viewportChanges.unsubscribe();
-
-            _get(_getPrototypeOf(CdkVirtualScrollViewport.prototype), "ngOnDestroy", this).call(this);
-          }
-          /** Attaches a `CdkVirtualScrollRepeater` to this viewport. */
-
-        }, {
-          key: "attach",
-          value: function attach(forOf) {
-            var _this109 = this;
-
-            if (this._forOf && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw Error('CdkVirtualScrollViewport is already attached.');
-            } // Subscribe to the data stream of the CdkVirtualForOf to keep track of when the data length
-            // changes. Run outside the zone to avoid triggering change detection, since we're managing the
-            // change detection loop ourselves.
-
-
-            this.ngZone.runOutsideAngular(function () {
-              _this109._forOf = forOf;
-
-              _this109._forOf.dataStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this109._detachedSubject)).subscribe(function (data) {
-                var newLength = data.length;
-
-                if (newLength !== _this109._dataLength) {
-                  _this109._dataLength = newLength;
-
-                  _this109._scrollStrategy.onDataLengthChanged();
-                }
-
-                _this109._doChangeDetection();
-              });
-            });
-          }
-          /** Detaches the current `CdkVirtualForOf`. */
-
-        }, {
-          key: "detach",
-          value: function detach() {
-            this._forOf = null;
-
-            this._detachedSubject.next();
-          }
-          /** Gets the length of the data bound to this viewport (in number of items). */
-
-        }, {
-          key: "getDataLength",
-          value: function getDataLength() {
-            return this._dataLength;
-          }
-          /** Gets the size of the viewport (in pixels). */
-
-        }, {
-          key: "getViewportSize",
-          value: function getViewportSize() {
-            return this._viewportSize;
-          } // TODO(mmalerba): This is technically out of sync with what's really rendered until a render
-          // cycle happens. I'm being careful to only call it after the render cycle is complete and before
-          // setting it to something else, but its error prone and should probably be split into
-          // `pendingRange` and `renderedRange`, the latter reflecting whats actually in the DOM.
-
-          /** Get the current rendered range of items. */
-
-        }, {
-          key: "getRenderedRange",
-          value: function getRenderedRange() {
-            return this._renderedRange;
-          }
-          /**
-           * Sets the total size of all content (in pixels), including content that is not currently
-           * rendered.
-           */
-
-        }, {
-          key: "setTotalContentSize",
-          value: function setTotalContentSize(size) {
-            if (this._totalContentSize !== size) {
-              this._totalContentSize = size;
-
-              this._calculateSpacerSize();
-
-              this._markChangeDetectionNeeded();
-            }
-          }
-          /** Sets the currently rendered range of indices. */
-
-        }, {
-          key: "setRenderedRange",
-          value: function setRenderedRange(range) {
-            var _this110 = this;
-
-            if (!rangesEqual(this._renderedRange, range)) {
-              this._renderedRangeSubject.next(this._renderedRange = range);
-
-              this._markChangeDetectionNeeded(function () {
-                return _this110._scrollStrategy.onContentRendered();
-              });
-            }
-          }
-          /**
-           * Gets the offset from the start of the viewport to the start of the rendered data (in pixels).
-           */
-
-        }, {
-          key: "getOffsetToRenderedContentStart",
-          value: function getOffsetToRenderedContentStart() {
-            return this._renderedContentOffsetNeedsRewrite ? null : this._renderedContentOffset;
-          }
-          /**
-           * Sets the offset from the start of the viewport to either the start or end of the rendered data
-           * (in pixels).
-           */
-
-        }, {
-          key: "setRenderedContentOffset",
-          value: function setRenderedContentOffset(offset) {
-            var _this111 = this;
-
-            var to = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'to-start';
-            // For a horizontal viewport in a right-to-left language we need to translate along the x-axis
-            // in the negative direction.
-            var isRtl = this.dir && this.dir.value == 'rtl';
-            var isHorizontal = this.orientation == 'horizontal';
-            var axis = isHorizontal ? 'X' : 'Y';
-            var axisDirection = isHorizontal && isRtl ? -1 : 1;
-            var transform = "translate".concat(axis, "(").concat(Number(axisDirection * offset), "px)");
-            this._renderedContentOffset = offset;
-
-            if (to === 'to-end') {
-              transform += " translate".concat(axis, "(-100%)"); // The viewport should rewrite this as a `to-start` offset on the next render cycle. Otherwise
-              // elements will appear to expand in the wrong direction (e.g. `mat-expansion-panel` would
-              // expand upward).
-
-              this._renderedContentOffsetNeedsRewrite = true;
-            }
-
-            if (this._renderedContentTransform != transform) {
-              // We know this value is safe because we parse `offset` with `Number()` before passing it
-              // into the string.
-              this._renderedContentTransform = transform;
-
-              this._markChangeDetectionNeeded(function () {
-                if (_this111._renderedContentOffsetNeedsRewrite) {
-                  _this111._renderedContentOffset -= _this111.measureRenderedContentSize();
-                  _this111._renderedContentOffsetNeedsRewrite = false;
-
-                  _this111.setRenderedContentOffset(_this111._renderedContentOffset);
-                } else {
-                  _this111._scrollStrategy.onRenderedOffsetChanged();
-                }
-              });
-            }
-          }
-          /**
-           * Scrolls to the given offset from the start of the viewport. Please note that this is not always
-           * the same as setting `scrollTop` or `scrollLeft`. In a horizontal viewport with right-to-left
-           * direction, this would be the equivalent of setting a fictional `scrollRight` property.
-           * @param offset The offset to scroll to.
-           * @param behavior The ScrollBehavior to use when scrolling. Default is behavior is `auto`.
-           */
-
-        }, {
-          key: "scrollToOffset",
-          value: function scrollToOffset(offset) {
-            var behavior = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'auto';
-            var options = {
-              behavior: behavior
-            };
-
-            if (this.orientation === 'horizontal') {
-              options.start = offset;
-            } else {
-              options.top = offset;
-            }
-
-            this.scrollTo(options);
-          }
-          /**
-           * Scrolls to the offset for the given index.
-           * @param index The index of the element to scroll to.
-           * @param behavior The ScrollBehavior to use when scrolling. Default is behavior is `auto`.
-           */
-
-        }, {
-          key: "scrollToIndex",
-          value: function scrollToIndex(index) {
-            var behavior = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'auto';
-
-            this._scrollStrategy.scrollToIndex(index, behavior);
-          }
-          /**
-           * Gets the current scroll offset from the start of the viewport (in pixels).
-           * @param from The edge to measure the offset from. Defaults to 'top' in vertical mode and 'start'
-           *     in horizontal mode.
-           */
-
-        }, {
-          key: "measureScrollOffset",
-          value: function measureScrollOffset(from) {
-            return from ? _get(_getPrototypeOf(CdkVirtualScrollViewport.prototype), "measureScrollOffset", this).call(this, from) : _get(_getPrototypeOf(CdkVirtualScrollViewport.prototype), "measureScrollOffset", this).call(this, this.orientation === 'horizontal' ? 'start' : 'top');
-          }
-          /** Measure the combined size of all of the rendered items. */
-
-        }, {
-          key: "measureRenderedContentSize",
-          value: function measureRenderedContentSize() {
-            var contentEl = this._contentWrapper.nativeElement;
-            return this.orientation === 'horizontal' ? contentEl.offsetWidth : contentEl.offsetHeight;
-          }
-          /**
-           * Measure the total combined size of the given range. Throws if the range includes items that are
-           * not rendered.
-           */
-
-        }, {
-          key: "measureRangeSize",
-          value: function measureRangeSize(range) {
-            if (!this._forOf) {
-              return 0;
-            }
-
-            return this._forOf.measureRangeSize(range, this.orientation);
-          }
-          /** Update the viewport dimensions and re-render. */
-
-        }, {
-          key: "checkViewportSize",
-          value: function checkViewportSize() {
-            // TODO: Cleanup later when add logic for handling content resize
-            this._measureViewportSize();
-
-            this._scrollStrategy.onDataLengthChanged();
-          }
-          /** Measure the viewport size. */
-
-        }, {
-          key: "_measureViewportSize",
-          value: function _measureViewportSize() {
-            var viewportEl = this.elementRef.nativeElement;
-            this._viewportSize = this.orientation === 'horizontal' ? viewportEl.clientWidth : viewportEl.clientHeight;
-          }
-          /** Queue up change detection to run. */
-
-        }, {
-          key: "_markChangeDetectionNeeded",
-          value: function _markChangeDetectionNeeded(runAfter) {
-            var _this112 = this;
-
-            if (runAfter) {
-              this._runAfterChangeDetection.push(runAfter);
-            } // Use a Promise to batch together calls to `_doChangeDetection`. This way if we set a bunch of
-            // properties sequentially we only have to run `_doChangeDetection` once at the end.
-
-
-            if (!this._isChangeDetectionPending) {
-              this._isChangeDetectionPending = true;
-              this.ngZone.runOutsideAngular(function () {
-                return Promise.resolve().then(function () {
-                  _this112._doChangeDetection();
-                });
-              });
-            }
-          }
-          /** Run change detection. */
-
-        }, {
-          key: "_doChangeDetection",
-          value: function _doChangeDetection() {
-            var _this113 = this;
-
-            this._isChangeDetectionPending = false; // Apply the content transform. The transform can't be set via an Angular binding because
-            // bypassSecurityTrustStyle is banned in Google. However the value is safe, it's composed of
-            // string literals, a variable that can only be 'X' or 'Y', and user input that is run through
-            // the `Number` function first to coerce it to a numeric value.
-
-            this._contentWrapper.nativeElement.style.transform = this._renderedContentTransform; // Apply changes to Angular bindings. Note: We must call `markForCheck` to run change detection
-            // from the root, since the repeated items are content projected in. Calling `detectChanges`
-            // instead does not properly check the projected content.
-
-            this.ngZone.run(function () {
-              return _this113._changeDetectorRef.markForCheck();
-            });
-            var runAfterChangeDetection = this._runAfterChangeDetection;
-            this._runAfterChangeDetection = [];
-
-            var _iterator16 = _createForOfIteratorHelper(runAfterChangeDetection),
-                _step16;
-
-            try {
-              for (_iterator16.s(); !(_step16 = _iterator16.n()).done;) {
-                var fn = _step16.value;
-                fn();
-              }
-            } catch (err) {
-              _iterator16.e(err);
-            } finally {
-              _iterator16.f();
-            }
-          }
-          /** Calculates the `style.width` and `style.height` for the spacer element. */
-
-        }, {
-          key: "_calculateSpacerSize",
-          value: function _calculateSpacerSize() {
-            this._totalContentHeight = this.orientation === 'horizontal' ? '' : "".concat(this._totalContentSize, "px");
-            this._totalContentWidth = this.orientation === 'horizontal' ? "".concat(this._totalContentSize, "px") : '';
-          }
-        }, {
-          key: "orientation",
-          get: function get() {
-            return this._orientation;
-          },
-          set: function set(orientation) {
-            if (this._orientation !== orientation) {
-              this._orientation = orientation;
-
-              this._calculateSpacerSize();
-            }
-          }
-        }]);
-
-        return CdkVirtualScrollViewport;
-      }(CdkScrollable);
-
-      CdkVirtualScrollViewport.ɵfac = function CdkVirtualScrollViewport_Factory(t) {
-        return new (t || CdkVirtualScrollViewport)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](VIRTUAL_SCROLL_STRATEGY, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ScrollDispatcher), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ViewportRuler));
-      };
-
-      CdkVirtualScrollViewport.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
-        type: CdkVirtualScrollViewport,
-        selectors: [["cdk-virtual-scroll-viewport"]],
-        viewQuery: function CdkVirtualScrollViewport_Query(rf, ctx) {
-          if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstaticViewQuery"](_c0, true);
-          }
-
-          if (rf & 2) {
-            var _t;
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._contentWrapper = _t.first);
-          }
-        },
-        hostAttrs: [1, "cdk-virtual-scroll-viewport"],
-        hostVars: 4,
-        hostBindings: function CdkVirtualScrollViewport_HostBindings(rf, ctx) {
-          if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵclassProp"]("cdk-virtual-scroll-orientation-horizontal", ctx.orientation === "horizontal")("cdk-virtual-scroll-orientation-vertical", ctx.orientation !== "horizontal");
-          }
-        },
-        inputs: {
-          orientation: "orientation"
-        },
-        outputs: {
-          scrolledIndexChange: "scrolledIndexChange"
-        },
-        features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([{
-          provide: CdkScrollable,
-          useExisting: CdkVirtualScrollViewport
-        }]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]],
-        ngContentSelectors: _c1,
-        decls: 4,
-        vars: 4,
-        consts: [[1, "cdk-virtual-scroll-content-wrapper"], ["contentWrapper", ""], [1, "cdk-virtual-scroll-spacer"]],
-        template: function CdkVirtualScrollViewport_Template(rf, ctx) {
-          if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojectionDef"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0, 1);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojection"](2);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](3, "div", 2);
-          }
-
-          if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("width", ctx._totalContentWidth)("height", ctx._totalContentHeight);
-          }
-        },
-        styles: ["cdk-virtual-scroll-viewport{display:block;position:relative;overflow:auto;contain:strict;transform:translateZ(0);will-change:scroll-position;-webkit-overflow-scrolling:touch}.cdk-virtual-scroll-content-wrapper{position:absolute;top:0;left:0;contain:content}[dir=rtl] .cdk-virtual-scroll-content-wrapper{right:0;left:auto}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper{min-height:100%}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-left:0;padding-right:0;margin-left:0;margin-right:0;border-left-width:0;border-right-width:0;outline:none}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper{min-width:100%}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;border-top-width:0;border-bottom-width:0;outline:none}.cdk-virtual-scroll-spacer{position:absolute;top:0;left:0;height:1px;width:1px;transform-origin:0 0}[dir=rtl] .cdk-virtual-scroll-spacer{right:0;left:auto;transform-origin:100% 0}\n"],
-        encapsulation: 2,
-        changeDetection: 0
-      });
-
-      CdkVirtualScrollViewport.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [VIRTUAL_SCROLL_STRATEGY]
-          }]
-        }, {
-          type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }]
-        }, {
-          type: ScrollDispatcher
-        }, {
-          type: ViewportRuler
-        }];
-      };
-
-      CdkVirtualScrollViewport.propDecorators = {
-        orientation: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        scrolledIndexChange: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        _contentWrapper: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['contentWrapper', {
-            "static": true
-          }]
-        }]
-      };
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkVirtualScrollViewport, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
-          args: [{
-            selector: 'cdk-virtual-scroll-viewport',
-            template: "<!--\n  Wrap the rendered content in an element that will be used to offset it based on the scroll\n  position.\n-->\n<div #contentWrapper class=\"cdk-virtual-scroll-content-wrapper\">\n  <ng-content></ng-content>\n</div>\n<!--\n  Spacer used to force the scrolling container to the correct size for the *total* number of items\n  so that the scrollbar captures the size of the entire data set.\n-->\n<div class=\"cdk-virtual-scroll-spacer\"\n     [style.width]=\"_totalContentWidth\" [style.height]=\"_totalContentHeight\"></div>\n",
-            host: {
-              'class': 'cdk-virtual-scroll-viewport',
-              '[class.cdk-virtual-scroll-orientation-horizontal]': 'orientation === "horizontal"',
-              '[class.cdk-virtual-scroll-orientation-vertical]': 'orientation !== "horizontal"'
-            },
-            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
-            providers: [{
-              provide: CdkScrollable,
-              useExisting: CdkVirtualScrollViewport
-            }],
-            styles: ["cdk-virtual-scroll-viewport{display:block;position:relative;overflow:auto;contain:strict;transform:translateZ(0);will-change:scroll-position;-webkit-overflow-scrolling:touch}.cdk-virtual-scroll-content-wrapper{position:absolute;top:0;left:0;contain:content}[dir=rtl] .cdk-virtual-scroll-content-wrapper{right:0;left:auto}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper{min-height:100%}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-left:0;padding-right:0;margin-left:0;margin-right:0;border-left-width:0;border-right-width:0;outline:none}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper{min-width:100%}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;border-top-width:0;border-bottom-width:0;outline:none}.cdk-virtual-scroll-spacer{position:absolute;top:0;left:0;height:1px;width:1px;transform-origin:0 0}[dir=rtl] .cdk-virtual-scroll-spacer{right:0;left:auto;transform-origin:100% 0}\n"]
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-          }, {
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-            }, {
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [VIRTUAL_SCROLL_STRATEGY]
-            }]
-          }, {
-            type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-            }]
-          }, {
-            type: ScrollDispatcher
-          }, {
-            type: ViewportRuler
-          }];
-        }, {
-          scrolledIndexChange: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-          }],
-          orientation: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-          }],
-          _contentWrapper: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-            args: ['contentWrapper', {
-              "static": true
-            }]
-          }]
-        });
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /** Helper to extract the offset of a DOM Node in a certain direction. */
-
-
-      function getOffset(orientation, direction, node) {
-        var el = node;
-
-        if (!el.getBoundingClientRect) {
-          return 0;
-        }
-
-        var rect = el.getBoundingClientRect();
-
-        if (orientation === 'horizontal') {
-          return direction === 'start' ? rect.left : rect.right;
-        }
-
-        return direction === 'start' ? rect.top : rect.bottom;
-      }
-      /**
-       * A directive similar to `ngForOf` to be used for rendering data inside a virtual scrolling
-       * container.
-       */
-
-
-      var CdkVirtualForOf = /*#__PURE__*/function () {
-        function CdkVirtualForOf(
-        /** The view container to add items to. */
-        _viewContainerRef,
-        /** The template to use when stamping out new items. */
-        _template,
-        /** The set of available differs. */
-        _differs,
-        /** The strategy used to render items in the virtual scroll viewport. */
-        _viewRepeater,
-        /** The virtual scrolling viewport that these items are being rendered in. */
-        _viewport, ngZone) {
-          var _this114 = this;
-
-          _classCallCheck(this, CdkVirtualForOf);
-
-          this._viewContainerRef = _viewContainerRef;
-          this._template = _template;
-          this._differs = _differs;
-          this._viewRepeater = _viewRepeater;
-          this._viewport = _viewport;
-          /** Emits when the rendered view of the data changes. */
-
-          this.viewChange = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          /** Subject that emits when a new DataSource instance is given. */
-
-          this._dataSourceChanges = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          /** Emits whenever the data in the current DataSource changes. */
-
-          this.dataStream = this._dataSourceChanges.pipe( // Start off with null `DataSource`.
-          Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(null), // Bundle up the previous and current data sources so we can work with both.
-          Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["pairwise"])(), // Use `_changeDataSource` to disconnect from the previous data source and connect to the
-          // new one, passing back a stream of data changes which we run through `switchMap` to give
-          // us a data stream that emits the latest data from whatever the current `DataSource` is.
-          Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (_ref15) {
-            var _ref16 = _slicedToArray(_ref15, 2),
-                prev = _ref16[0],
-                cur = _ref16[1];
-
-            return _this114._changeDataSource(prev, cur);
-          }), // Replay the last emitted data when someone subscribes.
-          Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["shareReplay"])(1));
-          /** The differ used to calculate changes to the data. */
-
-          this._differ = null;
-          /** Whether the rendered data should be updated during the next ngDoCheck cycle. */
-
-          this._needsUpdate = false;
-          this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-          this.dataStream.subscribe(function (data) {
-            _this114._data = data;
-
-            _this114._onRenderedDataChange();
-          });
-
-          this._viewport.renderedRangeStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(function (range) {
-            _this114._renderedRange = range;
-            ngZone.run(function () {
-              return _this114.viewChange.next(_this114._renderedRange);
-            });
-
-            _this114._onRenderedDataChange();
-          });
-
-          this._viewport.attach(this);
-        }
-        /** The DataSource to display. */
-
-
-        _createClass(CdkVirtualForOf, [{
-          key: "measureRangeSize",
-
-          /**
-           * Measures the combined size (width for horizontal orientation, height for vertical) of all items
-           * in the specified range. Throws an error if the range includes items that are not currently
-           * rendered.
-           */
-          value: function measureRangeSize(range, orientation) {
-            if (range.start >= range.end) {
-              return 0;
-            }
-
-            if ((range.start < this._renderedRange.start || range.end > this._renderedRange.end) && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-              throw Error("Error: attempted to measure an item that isn't rendered.");
-            } // The index into the list of rendered views for the first item in the range.
-
-
-            var renderedStartIndex = range.start - this._renderedRange.start; // The length of the range we're measuring.
-
-            var rangeLen = range.end - range.start; // Loop over all the views, find the first and land node and compute the size by subtracting
-            // the top of the first node from the bottom of the last one.
-
-            var firstNode;
-            var lastNode; // Find the first node by starting from the beginning and going forwards.
-
-            for (var i = 0; i < rangeLen; i++) {
-              var view = this._viewContainerRef.get(i + renderedStartIndex);
-
-              if (view && view.rootNodes.length) {
-                firstNode = lastNode = view.rootNodes[0];
-                break;
-              }
-            } // Find the last node by starting from the end and going backwards.
-
-
-            for (var _i4 = rangeLen - 1; _i4 > -1; _i4--) {
-              var _view = this._viewContainerRef.get(_i4 + renderedStartIndex);
-
-              if (_view && _view.rootNodes.length) {
-                lastNode = _view.rootNodes[_view.rootNodes.length - 1];
-                break;
-              }
-            }
-
-            return firstNode && lastNode ? getOffset(orientation, 'end', lastNode) - getOffset(orientation, 'start', firstNode) : 0;
-          }
-        }, {
-          key: "ngDoCheck",
-          value: function ngDoCheck() {
-            if (this._differ && this._needsUpdate) {
-              // TODO(mmalerba): We should differentiate needs update due to scrolling and a new portion of
-              // this list being rendered (can use simpler algorithm) vs needs update due to data actually
-              // changing (need to do this diff).
-              var changes = this._differ.diff(this._renderedItems);
-
-              if (!changes) {
-                this._updateContext();
-              } else {
-                this._applyChanges(changes);
-              }
-
-              this._needsUpdate = false;
-            }
-          }
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this._viewport.detach();
-
-            this._dataSourceChanges.next(undefined);
-
-            this._dataSourceChanges.complete();
-
-            this.viewChange.complete();
-
-            this._destroyed.next();
-
-            this._destroyed.complete();
-
-            this._viewRepeater.detach();
-          }
-          /** React to scroll state changes in the viewport. */
-
-        }, {
-          key: "_onRenderedDataChange",
-          value: function _onRenderedDataChange() {
-            if (!this._renderedRange) {
-              return;
-            }
-
-            this._renderedItems = this._data.slice(this._renderedRange.start, this._renderedRange.end);
-
-            if (!this._differ) {
-              this._differ = this._differs.find(this._renderedItems).create(this.cdkVirtualForTrackBy);
-            }
-
-            this._needsUpdate = true;
-          }
-          /** Swap out one `DataSource` for another. */
-
-        }, {
-          key: "_changeDataSource",
-          value: function _changeDataSource(oldDs, newDs) {
-            if (oldDs) {
-              oldDs.disconnect(this);
-            }
-
-            this._needsUpdate = true;
-            return newDs ? newDs.connect(this) : Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])();
-          }
-          /** Update the `CdkVirtualForOfContext` for all views. */
-
-        }, {
-          key: "_updateContext",
-          value: function _updateContext() {
-            var count = this._data.length;
-            var i = this._viewContainerRef.length;
-
-            while (i--) {
-              var view = this._viewContainerRef.get(i);
-
-              view.context.index = this._renderedRange.start + i;
-              view.context.count = count;
-
-              this._updateComputedContextProperties(view.context);
-
-              view.detectChanges();
-            }
-          }
-          /** Apply changes to the DOM. */
-
-        }, {
-          key: "_applyChanges",
-          value: function _applyChanges(changes) {
-            var _this115 = this;
-
-            this._viewRepeater.applyChanges(changes, this._viewContainerRef, function (record, adjustedPreviousIndex, currentIndex) {
-              return _this115._getEmbeddedViewArgs(record, currentIndex);
-            }, function (record) {
-              return record.item;
-            }); // Update $implicit for any items that had an identity change.
-
-
-            changes.forEachIdentityChange(function (record) {
-              var view = _this115._viewContainerRef.get(record.currentIndex);
-
-              view.context.$implicit = record.item;
-            }); // Update the context variables on all items.
-
-            var count = this._data.length;
-            var i = this._viewContainerRef.length;
-
-            while (i--) {
-              var view = this._viewContainerRef.get(i);
-
-              view.context.index = this._renderedRange.start + i;
-              view.context.count = count;
-
-              this._updateComputedContextProperties(view.context);
-            }
-          }
-          /** Update the computed properties on the `CdkVirtualForOfContext`. */
-
-        }, {
-          key: "_updateComputedContextProperties",
-          value: function _updateComputedContextProperties(context) {
-            context.first = context.index === 0;
-            context.last = context.index === context.count - 1;
-            context.even = context.index % 2 === 0;
-            context.odd = !context.even;
-          }
-        }, {
-          key: "_getEmbeddedViewArgs",
-          value: function _getEmbeddedViewArgs(record, index) {
-            // Note that it's important that we insert the item directly at the proper index,
-            // rather than inserting it and the moving it in place, because if there's a directive
-            // on the same node that injects the `ViewContainerRef`, Angular will insert another
-            // comment node which can throw off the move when it's being repeated for all items.
-            return {
-              templateRef: this._template,
-              context: {
-                $implicit: record.item,
-                // It's guaranteed that the iterable is not "undefined" or "null" because we only
-                // generate views for elements if the "cdkVirtualForOf" iterable has elements.
-                cdkVirtualForOf: this._cdkVirtualForOf,
-                index: -1,
-                count: -1,
-                first: false,
-                last: false,
-                odd: false,
-                even: false
-              },
-              index: index
-            };
-          }
-        }, {
-          key: "cdkVirtualForOf",
-          get: function get() {
-            return this._cdkVirtualForOf;
-          },
-          set: function set(value) {
-            this._cdkVirtualForOf = value;
-
-            if (Object(_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["isDataSource"])(value)) {
-              this._dataSourceChanges.next(value);
-            } else {
-              // If value is an an NgIterable, convert it to an array.
-              this._dataSourceChanges.next(new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["ArrayDataSource"](Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["isObservable"])(value) ? value : Array.from(value || [])));
-            }
-          }
-          /**
-           * The `TrackByFunction` to use for tracking changes. The `TrackByFunction` takes the index and
-           * the item and produces a value to be used as the item's identity when tracking changes.
-           */
-
-        }, {
-          key: "cdkVirtualForTrackBy",
-          get: function get() {
-            return this._cdkVirtualForTrackBy;
-          },
-          set: function set(fn) {
-            var _this116 = this;
-
-            this._needsUpdate = true;
-            this._cdkVirtualForTrackBy = fn ? function (index, item) {
-              return fn(index + (_this116._renderedRange ? _this116._renderedRange.start : 0), item);
-            } : undefined;
-          }
-          /** The template used to stamp out new elements. */
-
-        }, {
-          key: "cdkVirtualForTemplate",
-          set: function set(value) {
-            if (value) {
-              this._needsUpdate = true;
-              this._template = value;
-            }
-          }
-          /**
-           * The size of the cache used to store templates that are not being used for re-use later.
-           * Setting the cache size to `0` will disable caching. Defaults to 20 templates.
-           */
-
-        }, {
-          key: "cdkVirtualForTemplateCacheSize",
-          get: function get() {
-            return this._viewRepeater.viewCacheSize;
-          },
-          set: function set(size) {
-            this._viewRepeater.viewCacheSize = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__["coerceNumberProperty"])(size);
-          }
-        }]);
-
-        return CdkVirtualForOf;
-      }();
-
-      CdkVirtualForOf.ɵfac = function CdkVirtualForOf_Factory(t) {
-        return new (t || CdkVirtualForOf)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_VIEW_REPEATER_STRATEGY"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CdkVirtualScrollViewport, 4), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]));
-      };
-
-      CdkVirtualForOf.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-        type: CdkVirtualForOf,
-        selectors: [["", "cdkVirtualFor", "", "cdkVirtualForOf", ""]],
-        inputs: {
-          cdkVirtualForOf: "cdkVirtualForOf",
-          cdkVirtualForTrackBy: "cdkVirtualForTrackBy",
-          cdkVirtualForTemplate: "cdkVirtualForTemplate",
-          cdkVirtualForTemplateCacheSize: "cdkVirtualForTemplateCacheSize"
-        },
-        features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([{
-          provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_VIEW_REPEATER_STRATEGY"],
-          useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_RecycleViewRepeaterStrategy"]
-        }])]
-      });
-
-      CdkVirtualForOf.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]
-        }, {
-          type: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_RecycleViewRepeaterStrategy"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_VIEW_REPEATER_STRATEGY"]]
-          }]
-        }, {
-          type: CdkVirtualScrollViewport,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"]
-          }]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }];
-      };
-
-      CdkVirtualForOf.propDecorators = {
-        cdkVirtualForOf: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        cdkVirtualForTrackBy: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        cdkVirtualForTemplate: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        cdkVirtualForTemplateCacheSize: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      };
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkVirtualForOf, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-          args: [{
-            selector: '[cdkVirtualFor][cdkVirtualForOf]',
-            providers: [{
-              provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_VIEW_REPEATER_STRATEGY"],
-              useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_RecycleViewRepeaterStrategy"]
-            }]
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]
-          }, {
-            type: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_RecycleViewRepeaterStrategy"],
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_7__["_VIEW_REPEATER_STRATEGY"]]
-            }]
-          }, {
-            type: CdkVirtualScrollViewport,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"]
-            }]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-          }];
-        }, {
-          cdkVirtualForOf: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-          }],
-          cdkVirtualForTrackBy: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-          }],
-          cdkVirtualForTemplate: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-          }],
-          cdkVirtualForTemplateCacheSize: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-          }]
-        });
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-
-      var CdkScrollableModule = function CdkScrollableModule() {
-        _classCallCheck(this, CdkScrollableModule);
-      };
-
-      CdkScrollableModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
-        type: CdkScrollableModule
-      });
-      CdkScrollableModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-        factory: function CdkScrollableModule_Factory(t) {
-          return new (t || CdkScrollableModule)();
-        }
-      });
-
-      (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](CdkScrollableModule, {
-          declarations: [CdkScrollable],
-          exports: [CdkScrollable]
-        });
-      })();
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkScrollableModule, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
-          args: [{
-            exports: [CdkScrollable],
-            declarations: [CdkScrollable]
-          }]
-        }], null, null);
-      })();
-      /**
-       * @docs-primary-export
-       */
-
-
-      var ScrollingModule = function ScrollingModule() {
-        _classCallCheck(this, ScrollingModule);
-      };
-
-      ScrollingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
-        type: ScrollingModule
-      });
-      ScrollingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-        factory: function ScrollingModule_Factory(t) {
-          return new (t || ScrollingModule)();
-        },
-        imports: [[_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["PlatformModule"], CdkScrollableModule], _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], CdkScrollableModule]
-      });
-
-      (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](ScrollingModule, {
-          declarations: function declarations() {
-            return [CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport];
-          },
-          imports: function imports() {
-            return [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["PlatformModule"], CdkScrollableModule];
-          },
-          exports: function exports() {
-            return [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], CdkScrollableModule, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport];
-          }
-        });
-      })();
-      /*@__PURE__*/
-
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ScrollingModule, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
-          args: [{
-            imports: [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_4__["PlatformModule"], CdkScrollableModule],
-            exports: [_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["BidiModule"], CdkScrollableModule, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport],
-            declarations: [CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport]
-          }]
-        }], null, null);
-      })();
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * @license
-       * Copyright Google LLC All Rights Reserved.
-       *
-       * Use of this source code is governed by an MIT-style license that can be
-       * found in the LICENSE file at https://angular.io/license
-       */
-
-      /**
-       * Generated bundle index. Do not edit.
-       */
-      //# sourceMappingURL=scrolling.js.map
-
       /***/
 
     }
